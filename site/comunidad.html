@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comunidad — Soberanía Cognitiva · Indioyori</title>
+<meta name="description" content="Chat en vivo, foro y comunidad sin plataforma extractiva. Mensajes en tiempo real con IndioYori. Soberanía cognitiva y defensa del territorio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="icon" href="assets/img/retrato.jpeg" type="image/jpeg">
+</head>
+<body>
+
+<div class="sysbar">
+  <div class="container">
+    <span class="prompt">indioyori@anáhuac</span><span class="sep">:</span><span>~$ ./sala --en-vivo<span class="blink"></span></span>
+    <span class="sep">·</span><span><b>comunidad sin vigilancia</b></span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html"><span class="logo">Indio<b>Yori</b></span><span class="logo-sub">Soberanía Cognitiva</span></a>
+    <nav class="main-nav" aria-label="Principal"><ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="manifiesto.html">Manifiesto</a></li>
+      <li><a href="talleres.html">Talleres</a></li>
+      <li><a href="archivo.html">Archivo</a></li>
+      <li><a href="comunidad.html" class="current">Comunidad</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul></nav>
+    <div class="header-actions">
+      <a class="btn-subscribe" href="#suscribir"><span>Suscribirse</span></a>
+      <button class="icon-btn nav-toggle" data-nav-toggle aria-label="Menú" aria-expanded="false" aria-controls="mobile-nav">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<nav class="mobile-nav" id="mobile-nav" data-mobile-nav aria-label="Menú móvil"><div class="container"><ul>
+  <li><a href="index.html">Inicio</a></li>
+  <li><a href="manifiesto.html">Manifiesto</a></li>
+  <li><a href="talleres.html">Talleres, libros y herramientas</a></li>
+  <li><a href="archivo.html">El archivo de lo improbable</a></li>
+  <li><a href="comunidad.html">Comunidad</a></li>
+  <li><a href="contacto.html">Contacto</a></li>
+</ul></div></nav>
+
+<main id="main">
+
+  <section class="section">
+    <div class="container">
+      <p class="breadcrumb"><a href="index.html">Inicio</a> / Comunidad</p>
+      <div class="section-head">
+        <span class="s-eyebrow">Comunidad · sin plataforma extractiva</span>
+        <h1 class="s-title">Conversar de cerca, en tiempo real.</h1>
+        <p class="s-desc">Un lugar para dejar mensajes y que respondan al momento, o que me escriban y yo responda si estoy disponible. Chat en vivo con Matrix (Element), gratis y cifrado. Sin Zoom como dependencia, sin vigilancia.</p>
+      </div>
+
+      <!-- CHAT EN VIVO -->
+      <div class="chat">
+        <div class="chat-head"><span class="pulse" aria-hidden="true"></span><b>Sala en vivo · Soberanía Cognitiva</b></div>
+        <!--
+          CONFIGURAR (gratis, una vez):
+          1. Cuenta en https://app.element.io (homeserver matrix.org)
+          2. Crear sala pública, ej. #soberania-cognitiva:matrix.org
+          3. Ajustes → Compartir → enlace público
+          4. Reemplaza el id de la sala abajo en el src del iframe
+        -->
+        <iframe
+          src="https://app.element.io/#/room/%23Soberania_Cognitiva:matrix.org"
+          allow="microphone; camera; autoplay; clipboard-write; encrypted-media"
+          title="Chat en vivo Matrix · IndioYori"
+          loading="lazy"></iframe>
+      </div>
+      <p class="note" style="margin-top:1rem">Si la sala aparece vacía: créala en <a href="https://app.element.io" target="_blank" rel="noopener">Element</a> y pega el ID en el <code>src</code> del iframe. Alternativa asíncrona más abajo (foro).</p>
+    </div>
+  </section>
+
+  <!-- FORO -->
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="grid-2">
+        <div>
+          <div class="section-head"><span class="s-eyebrow">Foro asíncrono</span><h2 class="s-title">Deja tu mensaje, te respondo</h2>
+            <p class="s-desc">Para lo que no cabe en un chat rápido: hilos, dudas de los talleres, propuestas de colaboración y defensa del territorio.</p></div>
+          <ul class="security-list">
+            <li><span class="ic">▹</span><span>Comentarios con <b>Cactus Comments</b> sobre Matrix — gratis y federado.</span></li>
+            <li><span class="ic">▹</span><span>O un tablero con <b>Discourse</b>/<b>Flarum</b> si prefieres foro completo.</span></li>
+            <li><span class="ic">▹</span><span>Sin anuncios, sin rastreadores, sin reventa de datos.</span></li>
+          </ul>
+          <div class="cta-row" style="margin-top:1rem">
+            <a class="btn btn-brand" href="#suscribir">Suscribirme</a>
+            <a class="btn" href="contacto.html">Contacto seguro</a>
+          </div>
+        </div>
+        <!-- Contenedor del foro embebido -->
+        <div>
+          <div class="chat">
+            <div class="chat-head"><b># hilos · Cactus Comments</b></div>
+            <!-- ✏️ Cactus Comments: reemplaza siteName/defaultHomeserverUrl según tu config -->
+            <div id="comment-section" style="padding:1.25rem;min-height:320px">
+              <p class="note">🧩 Para activar el foro: incluye el widget de <a href="https://cactus.chat" target="_blank" rel="noopener">cactus.chat</a> y registra tu sala Matrix. Aquí se listarán los hilos y respuestas en tiempo casi real.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUSCRIPCIÓN / BANDA -->
+  <section class="band" id="suscribir">
+    <div class="container section">
+      <div class="grid-2 narrow-right" style="align-items:center">
+        <div>
+          <span class="s-eyebrow">Boletín</span>
+          <h2 class="s-title">Los anuncios salen primero aquí.</h2>
+          <p class="s-desc">Talleres, notas nuevas y episodios de podcast. Sin spam: tu correo solo lo uso para escribirte.</p>
+          <!-- ✏️ Sustituye la action por tu proveedor (Substack, Buttondown, etc.) o usa el enlace directo a Substack -->
+          <form class="form" style="margin-top:1.25rem" action="https://indioyori.substack.com/subscribe" method="post" target="_blank">
+            <div class="two-col">
+              <div class="field">
+                <label for="sub-email">Correo <span class="req">*</span></label>
+                <input class="input" type="email" id="sub-email" name="email" required placeholder="tú@correo.com" autocomplete="email">
+              </div>
+              <div class="field" style="justify-content:flex-end">
+                <button class="btn btn-brand" type="submit">Suscribirme</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="callout" style="background:#16161c;border-color:#2a2a33;border-left-color:var(--brand)">
+          <h3 style="color:#fff">Cercanía real</h3>
+          <p style="color:#b6b6c2;font-size:0.9rem;margin-top:0.5rem">Este no es un canal de una sola vía. Escribe en la sala en vivo o en el foro; si estoy disponible, respondo al momento. Si no, te leo y vuelvo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="foot-brand"><b>// IndioYori</b> · códices de soberanía cognitiva
+      <span class="foot-sub"># territorio Yoreme · Ódami · Anáhuac · GT EPICC–CLACSO · &copy;<span data-year>2026</span></span></div>
+    <nav class="socials" aria-label="Redes">
+      <a href="https://www.tiktok.com/@indioyori" target="_blank" rel="noopener" aria-label="TikTok"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4v-12a5 5 0 0 0 5 5"/></svg></a>
+      <a href="https://indioyori.substack.com" target="_blank" rel="noopener" aria-label="Substack"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3 4h18v2H3zM3 9h18v11l-9-4-9 4z"/></svg></a>
+      <a href="mailto:indioyori@fronteria-lab.com" aria-label="Correo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
