@@ -1,0 +1,59 @@
+{{!< default}}
+
+{{#if @custom.show_hero}}
+{{#is "home"}}
+<section class="hero">
+  <div class="container hero-grid">
+    <figure class="hero-figure">
+      {{#if @custom.hero_image}}
+        <img src="{{@custom.hero_image}}" alt="{{@site.title}}" loading="eager">
+      {{else}}
+        <img src="{{asset "img/retrato.jpeg"}}" alt="{{@site.title}}" loading="eager">
+      {{/if}}
+    </figure>
+    <div class="hero-body">
+      {{#if @custom.hero_eyebrow}}<span class="eyebrow">{{@custom.hero_eyebrow}}</span>{{/if}}
+      <h1>{{#if @custom.hero_heading}}{{@custom.hero_heading}}{{else}}{{@site.title}}{{/if}}</h1>
+      {{#if @custom.hero_subheading}}<p class="hero-lead">{{@custom.hero_subheading}}</p>{{/if}}
+      <div class="cta-row">
+        <a class="btn btn-brand" href="{{@site.url}}/talleres/">Ver talleres y herramientas</a>
+        <a class="btn" href="{{@site.url}}/manifiesto/">Leer el manifiesto</a>
+      </div>
+    </div>
+  </div>
+</section>
+{{/is}}
+{{/if}}
+
+<section class="container" style="margin-top:0.5rem">
+  {{#if @site.secondary_navigation}}
+  <nav class="filterbar" aria-label="Filtrar por tema">
+    <ul>
+      <li class="{{#is "home"}}nav-current{{/is}}"><a href="{{@site.url}}/">Todo</a></li>
+      {{#foreach secondary_navigation}}
+        <li><a href="{{url absolute="true"}}">{{label}}</a></li>
+      {{/foreach}}
+    </ul>
+  </nav>
+  {{/if}}
+</section>
+
+<section class="section" style="padding-top:0.75rem">
+  <div class="container">
+    {{#if posts}}
+    <div class="card-grid">
+      {{#foreach posts}}
+        {{> post-card}}
+      {{/foreach}}
+    </div>
+    {{else}}
+    <p class="note">Aún no hay publicaciones. Crea tu primera nota, taller o episodio desde el panel de Ghost.</p>
+    {{/if}}
+  </div>
+</section>
+
+<section class="pagination">
+  <div class="container">
+    {{pagination}}
+  </div>
+</section>

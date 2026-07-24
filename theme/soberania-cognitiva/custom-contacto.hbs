@@ -1,0 +1,93 @@
+{{!< default}}
+{{!-- Plantilla: Contacto seguro. Asígnala a tu página "Contacto".
+     Configura el destino en Ajustes del theme: contact_endpoint y contact_email. --}}
+
+{{#post}}
+<section class="section">
+  <div class="container">
+    <p class="breadcrumb"><a href="{{@site.url}}/">Inicio</a> / {{title}}</p>
+    <div class="grid-2 narrow-right">
+      <div>
+        <div class="section-head">
+          <span class="s-eyebrow">Contacto verificado</span>
+          <h1 class="s-title">{{title}}</h1>
+          {{#if custom_excerpt}}<p class="s-desc">{{custom_excerpt}}</p>{{/if}}
+        </div>
+
+        {{#if content}}<div class="prose" style="margin-bottom:1.5rem"><div class="post-content">{{content}}</div></div>{{/if}}
+
+        <form class="form" data-contact-form data-endpoint="{{@custom.contact_endpoint}}" data-email="{{@custom.contact_email}}" novalidate>
+          <div class="hp" aria-hidden="true">
+            <label>No llenes este campo <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+          </div>
+
+          <div class="two-col">
+            <div class="field">
+              <label for="nombre">Nombre <span class="req">*</span></label>
+              <input class="input" type="text" id="nombre" name="nombre" required minlength="2" autocomplete="name" placeholder="Cómo te llamas">
+              <span class="error">Dime tu nombre (al menos 2 caracteres).</span>
+            </div>
+            <div class="field">
+              <label for="email">Correo <span class="req">*</span></label>
+              <input class="input" type="email" id="email" name="email" required autocomplete="email" placeholder="tú@correo.com">
+              <span class="error">Necesito un correo válido para responderte.</span>
+              <span class="hint">Obligatorio: es lo que garantiza que sé a quién contestar.</span>
+            </div>
+          </div>
+
+          <div class="two-col">
+            <div class="field">
+              <label for="contacto">Otro contacto</label>
+              <input class="input" type="text" id="contacto" name="contacto" placeholder="Teléfono, Signal, @usuario… (opcional)">
+            </div>
+            <div class="field">
+              <label for="motivo">Motivo</label>
+              <select class="input" id="motivo" name="motivo">
+                <option>Taller o curso</option>
+                <option>Charla / institución</option>
+                <option>Colaboración</option>
+                <option>Defensa del territorio</option>
+                <option>Prensa / academia</option>
+                <option>Otro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="mensaje">Mensaje <span class="req">*</span></label>
+            <textarea class="textarea" id="mensaje" name="mensaje" required minlength="10" placeholder="Cuéntame en qué andas y cómo puedo ayudar."></textarea>
+            <span class="error">Escribe un mensaje (al menos 10 caracteres).</span>
+          </div>
+
+          <label class="consent">
+            <input type="checkbox" name="consent" value="si">
+            <span>Autorizo que uses mi correo únicamente para responder a este mensaje. Nada de spam ni reventa de datos. <span class="req">*</span></span>
+          </label>
+
+          <div class="cta-row">
+            <button class="btn btn-brand" type="submit">Enviar mensaje verificado</button>
+            <a class="btn btn-ghost" href="mailto:{{@custom.contact_email}}">o escríbeme directo</a>
+          </div>
+          <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <aside>
+        <div class="callout">
+          <h3>Por qué contacto seguro</h3>
+          <ul class="security-list" style="margin-top:0.75rem">
+            <li><span class="ic">[!]</span><span>El correo es <b>obligatorio</b>: sin remitente real, no hay a quién responder.</span></li>
+            <li><span class="ic">[#]</span><span>Filtro anti-spam con <b>honeypot</b> y control de tiempo para frenar bots.</span></li>
+            <li><span class="ic">[&gt;]</span><span>Tu mensaje llega estructurado, con nombre y contacto, para responder rápido.</span></li>
+            <li><span class="ic">[x]</span><span>Sin rastreadores ni terceros publicitarios en esta página.</span></li>
+          </ul>
+        </div>
+        <div class="note" style="margin-top:1rem">
+          Para recibir los mensajes, pon la URL de tu formulario (Formspree, Basin o un Worker) en
+          <code>Ajustes del theme → contact_endpoint</code>. Sin eso, el formulario abre tu correo con los datos ya ordenados.
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+{{/post}}

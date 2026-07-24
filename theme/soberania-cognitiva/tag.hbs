@@ -1,0 +1,34 @@
+{{!< default}}
+
+{{#tag}}
+<section class="section" style="padding-bottom:0.5rem">
+  <div class="container">
+    <p class="breadcrumb"><a href="{{@site.url}}/">Inicio</a> / Etiqueta</p>
+    <div class="section-head">
+      <span class="s-eyebrow">Etiqueta</span>
+      <h1 class="s-title">{{name}}</h1>
+      {{#if description}}<p class="s-desc">{{description}}</p>{{/if}}
+    </div>
+  </div>
+</section>
+{{/tag}}
+
+<section class="section" style="padding-top:0.5rem">
+  <div class="container">
+    {{#if posts}}
+    <div class="card-grid">
+      {{#foreach posts}}
+        {{> post-card}}
+      {{/foreach}}
+    </div>
+    {{else}}
+    <p class="note">Aún no hay publicaciones con esta etiqueta.</p>
+    {{/if}}
+  </div>
+</section>
+
+<section class="pagination">
+  <div class="container">
+    {{pagination}}
+  </div>
+</section>

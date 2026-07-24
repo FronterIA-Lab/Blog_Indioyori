@@ -1,0 +1,49 @@
+{{!< default}}
+{{!-- Plantilla: Comunidad. Asígnala a tu página "Comunidad". --}}
+
+{{#post}}
+<section class="section">
+  <div class="container">
+    <p class="breadcrumb"><a href="{{@site.url}}/">Inicio</a> / {{title}}</p>
+    <div class="section-head">
+      <span class="s-eyebrow">Comunidad · sin plataforma extractiva</span>
+      <h1 class="s-title">{{title}}</h1>
+      {{#if custom_excerpt}}<p class="s-desc">{{custom_excerpt}}</p>{{/if}}
+    </div>
+
+    {{#if @custom.matrix_room_url}}
+    <div class="chat">
+      <div class="chat-head"><span class="pulse" aria-hidden="true"></span><b>Sala en vivo · {{@site.title}}</b></div>
+      <iframe src="{{@custom.matrix_room_url}}" allow="microphone; camera; autoplay; clipboard-write; encrypted-media" title="Chat en vivo · {{@site.title}}" loading="lazy"></iframe>
+    </div>
+    <p class="note" style="margin-top:1rem">¿La sala aparece vacía? Créala en <a href="https://app.element.io" target="_blank" rel="noopener">Element</a> y pega el enlace en <code>Ajustes del theme → matrix_room_url</code>.</p>
+    {{/if}}
+
+    {{#if content}}<div class="prose" style="margin-top:2rem"><div class="post-content">{{content}}</div></div>{{/if}}
+  </div>
+</section>
+
+<section class="band">
+  <div class="container section">
+    <div class="grid-2 narrow-right" style="align-items:center">
+      <div>
+        <span class="s-eyebrow">Boletín</span>
+        <h2 class="s-title">Los anuncios salen primero aquí.</h2>
+        <p class="s-desc">Talleres, notas nuevas y episodios de podcast. Sin spam: tu correo solo lo uso para escribirte.</p>
+        <div class="cta-row" style="margin-top:1.25rem">
+          {{#unless @member}}
+          <a class="btn btn-brand" href="#/portal/signup" data-portal="signup">Suscribirme</a>
+          {{else}}
+          <a class="btn btn-brand" href="#/portal/account" data-portal="account">Mi cuenta</a>
+          {{/unless}}
+          <a class="btn btn-ghost" style="color:#fff;border-color:#3a3a3a" href="{{@site.url}}/contacto/">Contacto seguro</a>
+        </div>
+      </div>
+      <div class="callout">
+        <h3>Cercanía real</h3>
+        <p style="font-size:0.9rem;margin-top:0.5rem">Escribe en la sala en vivo o comenta en cualquier publicación (foro de miembros). Si estoy disponible, respondo al momento; si no, te leo y vuelvo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+{{/post}}
