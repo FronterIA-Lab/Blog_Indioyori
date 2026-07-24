@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IndioYori — Talleres, charlas y soberanía cognitiva</title>
+<meta name="description" content="Talleres MCC, charlas y cursos sobre soberanía cognitiva e IA decolonial. IndioYori · territorio Yoreme y Ódami · CLACSO.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Overpass:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="sysbar">
+  <span>indioyori@anáhuac</span><span class="sep">·</span><span class="sb-full"><b>territorio Anáhuac</b></span><span class="sep">·</span><span><b>formación · crítica · comunidad</b></span>
+</div>
+
+<nav>
+  <a class="nav-logo" href="index.html">Indio<b>Yori</b></a>
+  <a class="nav-home" href="#ofertas">OFERTAS</a>
+  <button class="nav-toggle" aria-label="Menú" onclick="document.getElementById('nav-links').classList.toggle('open')">☰</button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#ofertas">Ofertas</a></li>
+    <li><a href="#calendario">Calendario</a></li>
+    <li><a href="#foro">Foro</a></li>
+    <li><a href="#redes">Redes</a></li>
+    <li><a href="archivo.html">Archivo</a></li>
+    <li><a href="manifiesto.html">Manifiesto</a></li>
+    <li><a href="https://fronteria-lab.com" target="_blank" rel="noopener">Lab comercial</a></li>
+  </ul>
+</nav>
+
+<!-- HERO: marca + una oferta + un CTA -->
+<header class="hero hero-landing" id="inicio">
+  <div>
+    <span class="eyebrow">investigador autónomo · CLACSO · yoreme · ódami</span>
+    <h1 class="hero-title">INDIO<br>YORI</h1>
+    <p class="hero-tagline">Soberanía cognitiva frente a la colonización de la gramática en los LLM. Talleres, charlas y análisis desde territorio Anáhuac.</p>
+    <div class="cta-row">
+      <a class="btn" href="#ofertas">Ver ofertas</a>
+      <a class="btn btn-ocre" href="#taller-mcc">Taller MCC · 22 jul</a>
+    </div>
+  </div>
+  <figure class="estandarte">
+    <img src="avatar-indioyori.jpg" alt="IndioYori">
+    <figcaption><b>IndioYori</b> · quien ejecuta, escribe, analiza, lucha</figcaption>
+  </figure>
+</header>
+
+<div class="greca" aria-hidden="true"></div>
+
+<!-- OFERTAS -->
+<section class="section" id="ofertas">
+  <span class="s-eyebrow">01 · Formación</span>
+  <h2 class="s-title">Tres ofertas. Nada más por ahora.</h2>
+  <p class="s-desc">La palanca de ingresos es formación corta y entregable. Las arquitecturas RAG viven en <a href="https://fronteria-lab.com" target="_blank" rel="noopener">fronteria-lab.com</a>.</p>
+
+  <div class="ofertas-grid">
+    <article class="oferta" id="taller-mcc">
+      <span class="oferta-badge">Próximo · 22 jul 2026</span>
+      <h3 class="oferta-title">Taller MCC</h3>
+      <p class="oferta-meta">2.5 h · en vivo · cupo 20</p>
+      <p class="oferta-desc">Método de Calibración Contextual + demo de TEKTRON. Cómo consumir IA sin ceder la autoridad epistémica.</p>
+      <ul class="oferta-bullets">
+        <li>Colonialidad de la IA y gramática de optimización</li>
+        <li>Los 4 movimientos del MCC</li>
+        <li>Demo en vivo: Árbol de Espejos / abstención</li>
+      </ul>
+      <p class="oferta-price">$1,200 MXN <span>· early $900 hasta 20 jul</span></p>
+      <!-- ✏️ Pega tu Payment Link de Stripe -->
+      <a class="btn btn-full" href="https://buy.stripe.com/TU_LINK_TALLER_MCC" target="_blank" rel="noopener">Apartar lugar</a>
+    </article>
+
+    <article class="oferta">
+      <span class="oferta-badge oferta-badge-turq">A pedido</span>
+      <h3 class="oferta-title">Charla</h3>
+      <p class="oferta-meta">1.5–2 h · grupo o institución</p>
+      <p class="oferta-desc">Temas: feminismo y colonialidad, gramática de los LLM, soberanía cognitiva, geopolítica del conocimiento.</p>
+      <ul class="oferta-bullets">
+        <li>Ejemplo: «Feminismo, colonialidad y la gramática de la IA»</li>
+        <li>Formato presencial o remoto</li>
+        <li>Materiales PDF incluidos</li>
+      </ul>
+      <p class="oferta-price">$8,000–$15,000 MXN <span>· por evento</span></p>
+      <a class="btn btn-turq btn-full" href="mailto:indioyori@fronteria-lab.com?subject=Cotizaci%C3%B3n%20charla%20IndioYori">Cotizar charla</a>
+    </article>
+
+    <article class="oferta">
+      <span class="oferta-badge oferta-badge-ocre">Septiembre</span>
+      <h3 class="oferta-title">Curso cohort</h3>
+      <p class="oferta-meta">4 sesiones × 2 h · 3 semanas</p>
+      <p class="oferta-desc">Colonización de la gramática: teoría publicada + práctica. Para quien ya tomó el taller o lee el Substack.</p>
+      <ul class="oferta-bullets">
+        <li>Olvido estructural y LLMs</li>
+        <li>Soberanía cognitiva aplicada</li>
+        <li>Lista de espera abierta</li>
+      </ul>
+      <p class="oferta-price">$2,800 MXN <span>· early $2,200</span></p>
+      <a class="btn btn-ocre btn-full" href="mailto:indioyori@fronteria-lab.com?subject=Lista%20de%20espera%20curso%20cohort">Lista de espera</a>
+    </article>
+  </div>
+</section>
+
+<div class="greca" aria-hidden="true"></div>
+
+<!-- CALENDARIO -->
+<section class="section" id="calendario">
+  <span class="s-eyebrow">02 · Calendario</span>
+  <h2 class="s-title">Julio — octubre 2026</h2>
+  <p class="s-desc">Ciclos cortos. Cuando haya demanda estable, se abren fechas mensuales y formadores.</p>
+  <div class="cal-table" role="table" aria-label="Calendario de ofertas">
+    <div class="cal-row cal-head" role="row">
+      <span>Fecha</span><span>Oferta</span><span>Estado</span>
+    </div>
+    <div class="cal-row" role="row">
+      <span>22 jul</span><span>Taller MCC #1</span><span class="cal-live">Abierto</span>
+    </div>
+    <div class="cal-row" role="row">
+      <span>ago</span><span>Taller MCC #2 · Charlas a pedido</span><span>Programar</span>
+    </div>
+    <div class="cal-row" role="row">
+      <span>1–7 sep</span><span>Curso cohort · Colonización de la gramática</span><span>Lista de espera</span>
+    </div>
+    <div class="cal-row" role="row">
+      <span>sep–oct</span><span>Diagnóstico de soberanía (upsell)</span><span>Post-taller</span>
+    </div>
+  </div>
+</section>
+
+<div class="greca" aria-hidden="true"></div>
+
+<!-- FORO / MATRIX -->
+<section class="section" id="foro">
+  <span class="s-eyebrow">03 · Comunidad</span>
+  <h2 class="s-title">Conversar sin plataforma extractiva</h2>
+  <p class="s-desc">Chat en vivo con Matrix (Element), gratis. Comentarios asíncronos con Cactus Chat sobre Matrix. Sin Zoom como dependencia.</p>
+
+  <div class="chat-vivo">
+    <div class="chat-vivo-head"><span class="pulso"></span><b>Sala en vivo · IndioYori</b></div>
+    <!--
+      CONFIGURAR (gratis, una vez):
+      1. Cuenta en https://app.element.io (homeserver matrix.org)
+      2. Crear sala pública, ej. #indioyori:matrix.org
+      3. Ajustes → Compartir → enlace público
+      4. Reemplazar #Soberania_Cognitiva:matrix.org abajo, ej. #indioyori:matrix.org o !abc123:matrix.org
+    -->
+    <iframe
+      src="https://hydrogen.element.io/#/room/#Soberania_Cognitiva:matrix.org"
+      allow="microphone; camera"
+      title="Chat Matrix IndioYori"
+      loading="lazy"></iframe>
+  </div>
+  <p class="setup-note">Si el iframe está vacío: crea la sala pública en Element y pega el ID en el <code>src</code>. Alternativa: <a href="foro.html">abrir El Foro</a> (comentarios Cactus + chat).</p>
+</section>
+
+<div class="greca" aria-hidden="true"></div>
+
+<!-- REDES -->
+<section class="section" id="redes">
+  <span class="s-eyebrow">04 · Redes</span>
+  <h2 class="s-title">Dónde publicar y dónde llegar</h2>
+  <p class="s-desc">Anuncios del taller salen primero por TikTok y Substack. El resto sostiene la conversación.</p>
+  <div class="redes redes-6">
+    <!-- ✏️ Sustituye cada href por tu URL real -->
+    <a class="red" href="https://www.tiktok.com/@indioyori" target="_blank" rel="noopener">TikTok</a>
+    <a class="red" href="https://indioyori.substack.com" target="_blank" rel="noopener">Substack</a>
+    <a class="red" href="https://www.instagram.com/indioyori" target="_blank" rel="noopener">Instagram</a>
+    <a class="red" href="https://www.facebook.com/indioyori" target="_blank" rel="noopener">Facebook</a>
+    <a class="red" href="https://x.com/indioyori" target="_blank" rel="noopener">X</a>
+    <a class="red" href="mailto:indioyori@fronteria-lab.com">Correo</a>
+  </div>
+  <p class="setup-note">Si algún handle no es exacto, corrige el <code>href</code> en este bloque. Zenodo / CLACSO: <a href="archivo.html">Archivo</a>.</p>
+</section>
+
+<div class="greca" aria-hidden="true"></div>
+
+<!-- PUENTE AL LAB -->
+<section class="section" id="lab">
+  <span class="s-eyebrow">05 · FronterIA-Lab</span>
+  <h2 class="s-title">Arquitecturas soberanas</h2>
+  <p class="s-desc">Este sitio es formación y voz pública. El lab comercial vende nodos entregables — no vigilancia, no SaaS extractivo.</p>
+  <div class="lab-bridge">
+    <div>
+      <p class="lab-item-title">Nodo edge Jetson</p>
+      <p class="lab-item-desc">RAG soberano en hardware propio. Datos que no salen del perímetro. Ideal para ONGs, despachos y gobiernos locales.</p>
+    </div>
+    <div>
+      <p class="lab-item-title">Asistente de documentos privado</p>
+      <p class="lab-item-desc">Pregúntale a tu corpus en laptop o mini-PC. Propiedad total, sin renta obligatoria.</p>
+    </div>
+  </div>
+  <a class="btn" href="https://fronteria-lab.com" target="_blank" rel="noopener">Ir a fronteria-lab.com</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><b>// Indio</b>Yori · códices de soberanía cognitiva<span class="footer-sub"># territorio Yoreme · Ódami · Anáhuac · GT EPICC–CLACSO</span></div>
+    <nav class="footer-nav" aria-label="Pie de página">
+      <a href="#ofertas">Ofertas</a>
+      <a href="#foro">Foro</a>
+      <a href="archivo.html">Archivo</a>
+      <a href="manifiesto.html">Manifiesto</a>
+      <a href="https://fronteria-lab.com" target="_blank" rel="noopener">Lab</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('#nav-links a').forEach(function(a){
+  a.addEventListener('click',function(){document.getElementById('nav-links').classList.remove('open');});
+});
+</script>
+</body>
+</html>

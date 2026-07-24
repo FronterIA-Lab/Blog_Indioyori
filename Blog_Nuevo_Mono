@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Yoffa</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <meta name="theme-color" content="#3B55CF">
+    <meta name="ghost-theme" content="Yoffa 4.3.0">
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<style> 
+  body { 
+    --font-headings: var(--gh-font-heading, var(--font-system));
+    --font-body: var(--gh-font-heading, var(--font-system));
+  }
+</style>
+
+    <link rel="preload stylesheet" href="https://fonts.googleapis.com/css2?family=Space Mono:wght@300;400;500;600;700;800&display=swap" 
+        as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin>
+  <style>body { --font-headings: var(--gh-font-heading, 'Space Mono'), monospace; }</style>
+
+    <style>body { --font-body: var(--gh-font-body, 'Space Mono'), monospace; }</style>
+
+    <script type="module" src="/assets/built/app.js?v=9459fd46d8"></script>
+
+    <link rel="stylesheet" type="text/css" href="/assets/built/app.css?v=9459fd46d8" />
+
+    <style>
+  :root {
+    --color-background: #ffffff;
+    --color-background-tone: color-mix(in srgb, var(--color-background) 100%, black 2%);
+    --color-typography: #262626;
+    --color-typography-tone: color-mix(in srgb, var(--color-typography) 100%, white 30%);
+    --color-typography-content: color-mix(in srgb, var(--color-typography) 100%, white 20%);
+    --color-border: #e6e6e6;
+  }
+</style>
+
+<script>  
+  // Global values needed
+  const themeGlobal = {
+    siteUrl: 'https://yoffa.brightthemes.com',
+    currentPage: parseInt('1'),
+    nextPage: parseInt('2'),
+    nextPageLink: '',
+    maxPages: parseInt('2'), 
+    lastPage: `1` === `2` ? true : false,
+    postsPerPage: parseInt('12'),
+    total: parseInt('13')
+  }
+
+  function hexToRgb(hexColor) {
+    if (hexColor.slice(0, 1) === '#') { hexColor = hexColor.slice(1); }
+    if (hexColor.length === 3) { hexColor = hexColor.split('').map(function (hex) { return hex + hex;}).join(''); }
+    const r = parseInt(hexColor.substr(0,2),16);
+    const g = parseInt(hexColor.substr(2,2),16);
+    const b = parseInt(hexColor.substr(4,2),16);
+
+    return [r,g,b]
+  }
+
+  // Get contrast color;
+  function getColorContrast(hexColor) {
+    const rgb = hexToRgb(hexColor);
+    let yiq = ((rgb[0] * 299) + (rgb[1] * 587) + (rgb[2] * 114)) / 1000;
+    const colorContrast = (yiq >= 128) ? 'dark' : 'light';
+
+    // return
+    return colorContrast
+  };
+
+  function hexToHsl(hexColor) {
+    const rgb = hexToRgb(hexColor);
+
+    // Make r, g, and b fractions of 1
+    const r = rgb[0]/255;
+    const g = rgb[1]/255;
+    const b = rgb[2]/255;
+
+    const max = Math.max(r, g, b), min = Math.min(r, g, b);
+    let h, s, l = (max + min)  /  2;  
+    if ( max == min ) { h = s = 0; } else {
+      let d = max - min;
+      s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+      switch(max){
+        case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+        case g: h = (b - r) / d + 2; break;
+        case b: h = (r - g) / d + 4; break;
+      }
+      h /= 6;
+    }
+
+    return [Math.round(h * 360),Math.round(s * 100),Math.round(l * 100)]
+  }
+
+  function setBrandHSL(hex) {
+    const colorHsl = hexToHsl(hex)
+    document.documentElement.style.setProperty('--color-brand-hsl', `${colorHsl[0]} ${colorHsl[1]}% ${colorHsl[2]}%`);
+    document.documentElement.style.setProperty('--color-brand-contrast', getColorContrast(hex) === 'dark' ? `hsl(${colorHsl[0]} ${colorHsl[1]}% 10%)` : `hsl(${colorHsl[0]} ${colorHsl[1]}% 95%)`);
+  }
+
+  setBrandHSL("#3B55CF");
+</script>
+    
+
+    <meta name="description" content="Thoughts, stories and ideas.">
+    <link rel="icon" href="https://yoffa.brightthemes.com/content/images/size/w256h256/format/jpeg/2024/11/yoffa-icon.jpg" type="image/jpeg">
+    <link rel="canonical" href="https://yoffa.brightthemes.com/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="next" href="https://yoffa.brightthemes.com/page/2/">
+    
+    <meta property="og:site_name" content="Yoffa">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Yoffa">
+    <meta property="og:description" content="Thoughts, stories and ideas.">
+    <meta property="og:url" content="https://yoffa.brightthemes.com/">
+    <meta property="og:image" content="https://yoffa.brightthemes.com/content/images/size/w1200/2024/11/yoffa-cover.jpg">
+    <meta property="article:publisher" content="https://www.facebook.com/ghost">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Yoffa">
+    <meta name="twitter:description" content="Thoughts, stories and ideas.">
+    <meta name="twitter:url" content="https://yoffa.brightthemes.com/">
+    <meta name="twitter:image" content="https://yoffa.brightthemes.com/content/images/size/w1200/2024/11/yoffa-cover.jpg">
+    <meta name="twitter:site" content="@ghost">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="800">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Yoffa",
+        "url": "https://yoffa.brightthemes.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://yoffa.brightthemes.com/content/images/size/w256h256/format/jpeg/2024/11/yoffa-icon.jpg",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "url": "https://yoffa.brightthemes.com/",
+    "name": "Yoffa",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://yoffa.brightthemes.com/content/images/size/w1200/2024/11/yoffa-cover.jpg",
+        "width": 1200,
+        "height": 800
+    },
+    "mainEntityOfPage": "https://yoffa.brightthemes.com/",
+    "description": "Thoughts, stories and ideas."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.42">
+    <link rel="alternate" type="application/rss+xml" title="Yoffa" href="https://yoffa.brightthemes.com/rss/">
+    <script defer src="https://cdn.jsdelivr.net/ghost/portal@~2.68/umd/portal.min.js" data-i18n="true" data-ghost="https://yoffa.brightthemes.com/" data-key="8855a19b2d6d58bd7a927a5cb8" data-api="https://yoffa.brightthemes.com/ghost/api/content/" data-locale="en" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style><script async src="https://js.stripe.com/v3/"></script>
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/sodo-search.min.js" data-key="8855a19b2d6d58bd7a927a5cb8" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/main.css" data-sodo-search="https://yoffa.brightthemes.com/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://yoffa.brightthemes.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.js?v=9459fd46d8"></script>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=9459fd46d8">
+    <script defer src="/public/comment-counts.min.js?v=9459fd46d8" data-ghost-comments-counts-api="https://yoffa.brightthemes.com/members/api/comments/counts/"></script>
+    <script defer src="/public/member-attribution.min.js?v=9459fd46d8"></script><style>:root {--ghost-accent-color: #3B55CF;}</style>
+  </head>
+  <body class="home-template subpixel-antialiased relative overflow-x-hidden bg-bgr text-typ"
+    x-data="{ menuOpen: false }" :class="menuOpen ? 'overflow-hidden' : 'overflow-y-auto'"
+    data-user="visitor"
+    @keydown.escape="menuOpen = false" @keydown.cmk.k="document.querySelector('[data-ghost-search]').click()"
+    x-init="navigator.platform.includes('Win') && document.body.classList.add('is-win')"
+  >
+    <a class="sr-only" href="#main">Skip to content</a>
+    
+    <header class="px-5 sm:px-6 bg-bgr text-typ whitespace-nowrap" data-header>
+  <div class="max-w-container mx-auto py-4 flex items-center justify-center gap-2 relative">
+
+    <div class="flex-1 flex justify-start" data-header-brand>
+      <a class="" href="https://yoffa.brightthemes.com" data-brand>
+          <span data-text-logo class="text-typ font-headings text-2xl md:text-3xl font-bold">Yoffa</span>
+      </a>
+    </div>
+
+    <nav class="relative hidden text-sm md:flex justify-center" data-nav="header">
+      <ul class="flex gap-0.5">
+    <li class="nav-home nav-current flex items-center relative border border-transparent hover:bg-bgr-tone rounded-theme">
+      <a href="https://yoffa.brightthemes.com/" class="w-full flex px-3 py-1.5 rounded-theme">Home</a>
+    </li>
+    <li class="nav-style flex items-center relative border border-transparent hover:bg-bgr-tone rounded-theme">
+      <a href="https://yoffa.brightthemes.com/style/" class="w-full flex px-3 py-1.5 rounded-theme">Style</a>
+    </li>
+    <li class="nav-portal nav-current flex items-center relative border border-transparent hover:bg-bgr-tone rounded-theme">
+      <a href="#/portal" class="w-full flex px-3 py-1.5 rounded-theme">Portal</a>
+    </li>
+    <li class="nav-colors flex items-center relative border border-transparent hover:bg-bgr-tone rounded-theme">
+      <a href="https://yoffa.brightthemes.com/colors/" class="w-full flex px-3 py-1.5 rounded-theme">Colors</a>
+    </li>
+</ul>
+    </nav>
+
+    <div class="flex gap-1 items-center" data-header-actions>
+            <button data-portal="signup"
+              class="text-sm flex items-center gap-1 bg-brand font-bold text-brand-contrast px-4 py-1.5 rounded-theme md:px-5 md:py-2 transition hover:brightness-105 mr-1">
+              <span>Subscribe</span>
+            </button>
+
+      <button class="flex items-center justify-center rounded-theme size-8 md:size-9 hover:text-brand cursor-pointer" data-ghost-search title="Search" aria-label="Search">
+        <i class="icon [&_svg]:h-[inherit] [&_svg]:w-[inherit] [&_svg]:[stroke-width:inherit] icon-search size-5 stroke-2 fill-bgr-tone [&amp;&gt;svg]:fill-inherit stroke-2" role="presentation">
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+</i>      </button>
+
+
+      <button class="flex flex-col items-center gap-1 size-8 p-1 md:p-2 md:size-9 justify-center rounded-theme group md:hidden transition-transform group" 
+        data-menu-toggle aria-label="Menu toggle" aria-expanded="false" aria-haspopup="true" aria-controls="menu"
+        @click="menuOpen = !menuOpen" :aria-expanded="menuOpen.toString()"
+      >
+        <span class="relative pointer-events-none h-0.5 rounded-sm bg-typ-tone w-5 transition-transform group-hover:bg-brand"
+              :class="menuOpen ? 'rotate-45 translate-y-[3px] w-4' : ''"></span>
+        <span class="relative pointer-events-none h-0.5 rounded-sm bg-typ-tone w-5 transition-transform group-hover:bg-brand"
+              :class="menuOpen ? '-rotate-45 -translate-y-[3px] w-4' : ''"></span>
+      </button>
+    </div>
+
+  </div>
+</header>
+    <div class="fixed shadow-xl z-[100] top-[64px] w-full bg-bgr text-typ-tone py-4 border-t border-brd hidden md:!hidden" 
+  :class="menuOpen ? '!block' : 'hidden'" data-menu id="menu"
+> 
+  <div class="px-5 sm:px-6">
+    <nav class="" data-nav="mobile">
+      <ul class="flex flex-col gap-1">
+    <li class="nav-home nav-current flex flex-wrap relative">
+      <a href="https://yoffa.brightthemes.com/" class="flex py-0.5 rounded-theme hover:text-brand">Home</a>
+    </li>
+    <li class="nav-style flex flex-wrap relative">
+      <a href="https://yoffa.brightthemes.com/style/" class="flex py-0.5 rounded-theme hover:text-brand">Style</a>
+    </li>
+    <li class="nav-portal nav-current flex flex-wrap relative">
+      <a href="#/portal" class="flex py-0.5 rounded-theme hover:text-brand">Portal</a>
+    </li>
+    <li class="nav-colors flex flex-wrap relative">
+      <a href="https://yoffa.brightthemes.com/colors/" class="flex py-0.5 rounded-theme hover:text-brand">Colors</a>
+    </li>
+</ul>
+    </nav>
+  </div>
+</div>
+    <main class="main" id="main">
+      
+<section class="px-5 sm:px-6 mt-6 mb-12">
+  <div class="max-w-container mx-auto flex flex-col gap-8 md:flex-row lg:gap-12 min-h-60">
+      <figure class="max-w-[400px]  [&_img]:aspect-[1/1]">
+        <picture class="flex h-full" >
+  <source 
+    srcset="/content/images/size/w320/format/webp/2024/11/yoffa-cover.jpg 320w, /content/images/size/w640/format/webp/2024/11/yoffa-cover.jpg 600w, /content/images/size/w960/format/webp/2024/11/yoffa-cover.jpg 960w, /content/images/size/w1280/format/webp/2024/11/yoffa-cover.jpg 1200w"
+    sizes="(max-width: 639px) 90vw,  400px"
+    type="image/webp"
+  >
+  <img class="w-full object-cover object-center"
+    
+    loading="eager"
+    srcset="/content/images/size/w320/format/webp/2024/11/yoffa-cover.jpg 320w, /content/images/size/w640/format/webp/2024/11/yoffa-cover.jpg 640w, /content/images/size/w960/format/webp/2024/11/yoffa-cover.jpg 960w, /content/images/size/w1280/format/webp/2024/11/yoffa-cover.jpg 1280w"
+    sizes="(max-width: 639px) 90vw,  400px"
+    src="/content/images/size/w30/2024/11/yoffa-cover.jpg"
+    alt="Yoffa"
+    
+  />
+</picture>
+      </figure>
+    
+    <div class="flex flex-col gap-4 flex-1 justify-center">
+      <h1 class="font-bold tracking-tight text-balance text-3xl sm:text-4xl md:text-5xl" data-hero-headline>
+        Clean & minimal <a href="https://ghost.org">Ghost</a> blog template, making publishing <em>easy</em> & <em>fun</em>
+      </h1>
+
+        <p id="hero-input-label" class="text-balance text-typ-tone text-lg md:text-xl" data-hero-subheading>
+          Inspiring <a href="/tag/stories/">stories</a>, practical <a href="/tag/tips/">tips</a>, and expert <a href="/tag/insights/">insights</a> all in one place, easily accessible.
+        </p>
+    </div>
+  </div>
+</section>
+
+  <section class="px-5 sm:px-6 mb-4">
+    <div class="max-w-container mx-auto">
+      <nav class="" data-nav="secondary">
+        <ul class="flex gap-1 overflow-x-scroll font-medium text-sm leading-none">
+    <li class="nav-all nav-current ">
+      <a href="https://yoffa.brightthemes.com/" class="whitespace-pre border-2 block px-3 py-1.5 text-typ-tone border-transparent hover:bg-bgr-tone">All</a>
+    </li>
+    <li class="nav-ideas ">
+      <a href="https://yoffa.brightthemes.com/tag/ideas/" class="whitespace-pre border-2 block px-3 py-1.5 text-typ-tone border-transparent hover:bg-bgr-tone">Ideas</a>
+    </li>
+    <li class="nav-style ">
+      <a href="https://yoffa.brightthemes.com/tag/style/" class="whitespace-pre border-2 block px-3 py-1.5 text-typ-tone border-transparent hover:bg-bgr-tone">Style</a>
+    </li>
+    <li class="nav-news ">
+      <a href="https://yoffa.brightthemes.com/tag/news/" class="whitespace-pre border-2 block px-3 py-1.5 text-typ-tone border-transparent hover:bg-bgr-tone">News</a>
+    </li>
+</ul>
+      </nav>
+    </div>
+  </section>
+
+<section class="px-5 sm:px-6 mb-12">
+  <div class="max-w-container mx-auto">
+    <div class="grid grid-col-1 sm:grid-cols-2 lg:grid-cols-3 border border-brd">
+        <article class="post tag-life tag-ideas featured flex flex-col justify-end relative min-h-60 md:min-h-80 z-[0] p-5 md:p-6 lg:p-8 border border-brd transition-[transform,shadow] hover:scale-[103%] hover:z-10 hover:shadow-[0_10px_20px_0_rgb(0_0_0/0.05)]  bg-bgr-tone" data-post-card>
+
+  <div class="relative z-[2] flex flex-col gap-4 h-full">
+    <div class="flex items-center flex-wrap gap-2 text-sm font-medium text-typ-tone leading-tight">
+      <time class="" datetime="2024-11-03">Nov 3, 2024</time> 
+      <span class="opacity-25">•</span>
+      <span class="text-typ-tone">6 min read</span>
+
+      <span class="flex-1"></span>
+
+        <span data-post-card-featured class="text-yellow-400">
+          <i class="icon [&_svg]:h-[inherit] [&_svg]:w-[inherit] [&_svg]:[stroke-width:inherit] icon-star size-4 stroke-2" role="presentation">
+  <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
+</i>        </span>
+    </div>
+
+    <h2 data-post-card-title class="font-semibold text-lg leading-tight md:text-xl md:leading-tight hover:underline">
+      <a href="/discover-inspiration-in-everyday-moments/">Discover inspiration in everyday moments</a>
+    </h2>
+
+    <span class="flex-1"></span>
+
+    <div class="flex items-center justify-between flex-wrap gap-2 text-sm font-medium leading-tight">
+        <a href="/tag/life/" class="text-accent hover:underline" style="--color-accent:#00d176" data-post-card-tag>Life</a>
+
+        <span  data-post-card-visibility class="flex gap-1 relative capitalize">
+          <i class="icon [&_svg]:h-[inherit] [&_svg]:w-[inherit] [&_svg]:[stroke-width:inherit] icon-lock size-4 stroke-[2.5]" role="presentation">
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-lock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="5" y="11" width="14" height="10" rx="2" />
+  <circle cx="12" cy="16" r="1" />
+  <path d="M8 11v-4a4 4 0 0 1 8 0v4" />
+</svg>
+
+
+
+</i>          <span class="whitespace-nowrap">
+            paid
+          </span>
+        </span>
+    </div>
+  </div>
+</article>        <article class="post tag-style flex flex-col justify-end relative min-h-60 md:min-h-80 z-[0] p-5 md:p-6 lg:p-8 border border-brd transition-[transform,shadow] hover:scale-[103%] hover:z-10 hover:shadow-[0_10px_20px_0_rgb(0_0_0/0.05)]  bg-bgr" data-post-card>
+
+  <div class="relative z-[2] flex flex-col gap-4 h-full">
+    <div class="flex items-center flex-wrap gap-2 text-sm font-medium text-typ-tone leading-tight">
+      <time class="" datetime="2024-11-03">Nov 3, 2024</time> 
+      <span class="opacity-25">•</span>
+      <span class="text-typ-tone">6 min read</span>
+
+      <span class="flex-1"></span>
+
+    </div>
+
+    <h2 data-post-card-title class="font-semibold text-lg leading-tight md:text-xl md:leading-tight hover:underline">
+      <a href="/build-connections-through-meaningful-dialogue/">Build connections through meaningful dialogue</a>
+    </h2>
+
+    <span class="flex-1"></span>
+
+    <div class="flex items-center justify-between flex-wrap gap-2 text-sm font-medium leading-tight">
+        <a href="/tag/style/" class="text-accent hover:underline" style="--color-accent:#ff52c8" data-post-card-tag>Style</a>
+
+        <span  data-post-card-visibility class="flex gap-1 relative capitalize">
+          <i class="icon [&_svg]:h-[inherit] [&_svg]:w-[inherit] [&_svg]:[stroke-width:inherit] icon-lock size-4 stroke-[2.5]" role="presentation">
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-lock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="5" y="11" width="14" height="10" rx="2" />
+  <circle cx="12" cy="16" r="1" />
+  <path d="M8 11v-4a4 4 0 0 1 8 0v4" />
+</svg>
+
+
+
+</i>          <span class="whitespace-nowrap">
+            members
+          </span>
+        </span>
+    </div>
+  </div>
+</article>        <article class="post tag-life tag-ideas flex flex-col justify-end relative min-h-60 md:min-h-80 z-[0] p-5 md:p-6 lg:p-8 border border-brd transition-[transform,shadow] hover:scale-[103%] hover:z-10 hover:shadow-[0_10px_20px_0_rgb(0_0_0/0.05)]  bg-bgr" data-post-card>
+
+  <div class="relative z-[2] flex flex-col gap-4 h-full">
+    <div class="flex items-center flex-wrap gap-2 text-sm font-medium text-typ-tone leading-tight">
+      <time class="" datetime="2024-11-02">Nov 2, 2024</time> 
+      <span class="opacity-25">•</span>
+      <span class="text-typ-tone">6 min read</span>
+
+      <span class="flex-1"></span>
+
+    </div>
+
+    <h2 data-post-card-title class="font-semibold text-lg leading-tight md:text-xl md:leading-tight hover:underline">
+      <a href="/empower-your-voice-in-every-story/">Empower your voice in every story</a>
+    </h2>
+
+    <span class="flex-1"></span>
+
+    <div class="flex items-center justify-between flex-wrap gap-2 text-sm font-medium leading-tight">
+        <a href="/tag/life/" class="text-accent hover:underline" style="--color-accent:#00d176" data-post-card-tag>Life</a>
+
+    </div>
+  </div>
+</article>        <article class="post tag-ideas no-image flex flex-col justify-end relative min-h-60 md:min-h-80 z-[0] p-5 md:p-6 lg:p-8 border border-brd transition-[transform,shadow] hover:scale-[103%] hover:z-10 hover:shadow-[0_10px_20px_0_rgb(0_0_0/0.05)]  bg-bgr" data-post-card>
+
+  <div class="relative z-[2] flex flex-col gap-4 h-full">
+    <div class="flex items-center flex-wrap gap-2 text-sm font-medium text-typ-tone leading-tight">
+      <time class="" datetime="2024-10-27">Oct 27, 2024</time> 
+      <span class="opacity-25">•</span>
+      <span class="text-typ-tone">5 min read</span>
+
+      <span class="flex-1"></span>
+
+    </div>
+
+    <h2 data-post-card-title class="font-semibold text-lg leading-tight md:text-xl md:leading-tight hover:underline">
+      <a href="/craft-narratives-that-resonate/">Craft narratives that resonate</a>
+    </h2>
+
+    <span class="flex-1"></span>
+
+    <div class="flex items-center justify-between flex-wrap gap-2 text-sm font-medium leading-tight">
+        <a href="/tag/ideas/" class="text-accent hover:underline" style="--color-accent:#ffb61a" data-post-card-tag>Ideas</a>
+
+    </div>
+  </div>
+</article>        <article class="post tag-style tag-ideas tag-hash-import-2023-04-11-15-51 no-image flex flex-col justify-end relative min-h-60 md:min-h-80 z-[0] p-5 md:p-6 lg:p-8 border border-brd transition-[transform,shadow] hover:scale-[103%] hover:z-10 hover:shadow-[0_10px_20px_0_rgb(0_0_0/0.05)]  bg-bgr" data-post-card>
+
+  <div class="relative z-[2] flex flex-col gap-4 h-full">
+    <div class="flex items-center flex-wrap gap-2 text-sm font-medium text-typ-tone leading-tight">
+      <time class="" datetime="2024-10-24">Oct 24, 2024</time> 
+      <span class="opacity-25">•</span>
+      <span class="text-typ-tone">5 min read</span>
+
+      <span class="flex-1"></span>
+
+    </div>
+
+    <h2 data-post-card-title class="font-semibold text-lg leading-tight md:text-xl md:leading-tight hover:underline">
+      <a href="/share-your-ideas-with-the-world/">Share your ideas with the world</a>
+    </h2>
+
+    <span class="flex-1"></span>
+
+    <div class="flex items-center justify-between flex-wrap gap-2 text-sm font-medium leading-tight">
+        <a href="/tag/style/" class="text-accent hover:underline" style="--color-accent:#ff52c8" data-post-card-tag>Style</a>
+
+    </div>
+  </div>
+</article>        <article class="post tag-news featured no-image flex flex-col justify-end relative min-h-60 md:min-h-80 z-[0] p-5 md:p-6 lg:p-8 border border-brd transition-[transform,shadow] hover:scale-[103%] hover:z-10 hover:shadow-[0_10px_20px_0_rgb(0_0_0/0.05)]  bg-bgr-tone" data-post-card>
+
+  <div class="relative z-[2] flex flex-col gap-4 h-full">
+    <div class="flex items-center flex-wrap gap-2 text-sm font-medium text-typ-tone leading-tight">
+      <time class="" datetime="2024-10-23">Oct 23, 2024</time> 
+      <span class="opacity-25">•</span>
+      <span class="text-typ-tone">5 min read</span>
+
+      <span class="flex-1"></span>
+
+        <span data-post-card-featured class="text-yellow-400">
+          <i class="icon [&_svg]:h-[inherit] [&_svg]:w-[inherit] [&_svg]:[stroke-width:inherit] icon-star size-4 stroke-2" role="presentation">
+  <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg>
+</i>        </span>
+    </div>
+
+    <h2 data-post-card-title class="font-semibold text-lg leading-tight md:text-xl md:leading-tight hover:underline">
+      <a href="/unleash-creativity-through-shared-experiences/">Unleash creativity through shared experiences</a>
+    </h2>
+
+    <span class="flex-1"></span>
+
+    <div class="flex items-center justify-between flex-wrap gap-2 text-sm font-medium leading-tight">
+        <a href="/tag/news/" class="text-accent hover:underline" style="--color-accent:#ff6161" data-post-card-tag>News</a>
+
+    </div>
+  </div>
+</article>        <article class="post tag-life no-image flex flex-col justify-end relative min-h-60 md:min-h-80 z-[0] p-5 md:p-6 lg:p-8 border border-brd transition-[transform,shadow] hover:scale-[103%] hover:z-10 hover:shadow-[0_10px_20px_0_rgb(0_0_0/0.05)]  bg-bgr" data-post-card>
+
+  <div class="relative z-[2] flex flex-col gap-4 h-full">
+    <div class="flex items-center flex-wrap gap-2 text-sm font-medium text-typ-tone leading-tight">
+      <time class="" datetime="2024-10-22">Oct 22, 2024</time> 
+      <span class="opacity-25">•</span>
+      <span class="text-typ-tone">5 min read</span>
+
+      <span class="flex-1"></span>
+
+    </div>
+
+    <h2 data-post-card-title class="font-semibold text-lg leading-tight md:text-xl md:leading-tight hover:underline">
+      <a href="/engage-with-ideas-that-shape-our-future/">Engage with ideas that shape our future</a>
+    </h2>
+
+    <span class="flex-1"></span>
+
+    <div class="flex items-center justify-between flex-wrap gap-2 text-sm font-medium leading-tight">
+        <a href="/tag/life/" class="text-accent hover:underline" style="--color-accent:#00d176" data-post-card-tag>Life</a>
+
+        <span  data-post-card-visibility class="flex gap-1 relative capitalize">
+          <i class="icon [&_svg]:h-[inherit] [&_svg]:w-[inherit] [&_svg]:[stroke-width:inherit] icon-lock size-4 stroke-[2.5]" role="presentation">
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-lock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="5" y="11" width="14" height="10" rx="2" />
+  <circle cx="12" cy="16" r="1" />
+  <path d="M8 11v-4a4 4 0 0 1 8 0v4" />
+</svg>
+
+
+
+</i>          <span class="whitespace-nowrap">
+            members
+          </span>
+        </span>
+    </div>
+  </div>
+</article>        <article class="post tag-ideas tag-hash-import-2023-04-11-15-51 flex flex-col justify-end relative min-h-60 md:min-h-80 z-[0] p-5 md:p-6 lg:p-8 border border-brd transition-[transform,shadow] hover:scale-[103%] hover:z-10 hover:shadow-[0_10px_20px_0_rgb(0_0_0/0.05)]  bg-bgr" data-post-card>
+
+  <div class="relative z-[2] flex flex-col gap-4 h-full">
+    <div class="flex items-center flex-wrap gap-2 text-sm font-medium text-typ-tone leading-tight">
+      <time class="" datetime="2024-10-20">Oct 20, 2024</time> 
+      <span class="opacity-25">•</span>
+      <span class="text-typ-tone">1 min read</span>
+
+      <span class="flex-1"></span>
+
+    </div>
+
+    <h2 data-post-card-title class="font-semibold text-lg leading-tight md:text-xl md:leading-tight hover:underline">
+      <a href="/express-yourself-within-your-content/">Express yourself within your content</a>
+    </h2>
+
+    <span class="flex-1"></span>
+
+    <div class="flex items-center justify-between flex-wrap gap-2 text-sm font-medium leading-tight">
+        <a href="/tag/ideas/" class="text-accent hover:underline" style="--color-accent:#ffb61a" data-post-card-tag>Ideas</a>
+
+    </div>
+  </div>
+</article>        <article class="post tag-style tag-hash-import-2023-04-11-15-51 flex flex-col justify-end relative min-h-60 md:min-h-80 z-[0] p-5 md:p-6 lg:p-8 border border-brd transition-[transform,shadow] hover:scale-[103%] hover:z-10 hover:shadow-[0_10px_20px_0_rgb(0_0_0/0.05)]  bg-bgr" data-post-card>
+
+  <div class="relative z-[2] flex flex-col gap-4 h-full">
+    <div class="flex items-center flex-wrap gap-2 text-sm font-medium text-typ-tone leading-tight">
+      <time class="" datetime="2024-10-19">Oct 19, 2024</time> 
+      <span class="opacity-25">•</span>
+      <span class="text-typ-tone">1 min read</span>
+
+      <span class="flex-1"></span>
+
+    </div>
+
+    <h2 data-post-card-title class="font-semibold text-lg leading-tight md:text-xl md:leading-tight hover:underline">
+      <a href="/something-simple-and-clean/">Something simple and clean</a>
+    </h2>
+
+    <span class="flex-1"></span>
+
+    <div class="flex items-center justify-between flex-wrap gap-2 text-sm font-medium leading-tight">
+        <a href="/tag/style/" class="text-accent hover:underline" style="--color-accent:#ff52c8" data-post-card-tag>Style</a>
+
+    </div>
+  </div>
+</article>        <article class="post tag-news tag-ideas flex flex-col justify-end relative min-h-60 md:min-h-80 z-[0] p-5 md:p-6 lg:p-8 border border-brd transition-[transform,shadow] hover:scale-[103%] hover:z-10 hover:shadow-[0_10px_20px_0_rgb(0_0_0/0.05)]  bg-bgr" data-post-card>
+
+  <div class="relative z-[2] flex flex-col gap-4 h-full">
+    <div class="flex items-center flex-wrap gap-2 text-sm font-medium text-typ-tone leading-tight">
+      <time class="" datetime="2024-10-18">Oct 18, 2024</time> 
+      <span class="opacity-25">•</span>
+      <span class="text-typ-tone">1 min read</span>
+
+      <span class="flex-1"></span>
+
+    </div>
+
+    <h2 data-post-card-title class="font-semibold text-lg leading-tight md:text-xl md:leading-tight hover:underline">
+      <a href="/ghost-5-0-is-amazing/">Ghost 5.0 is amazing</a>
+    </h2>
+
+    <span class="flex-1"></span>
+
+    <div class="flex items-center justify-between flex-wrap gap-2 text-sm font-medium leading-tight">
+        <a href="/tag/news/" class="text-accent hover:underline" style="--color-accent:#ff6161" data-post-card-tag>News</a>
+
+    </div>
+  </div>
+</article>        <article class="post tag-ideas tag-life tag-hash-import-2023-04-11-15-51 no-image flex flex-col justify-end relative min-h-60 md:min-h-80 z-[0] p-5 md:p-6 lg:p-8 border border-brd transition-[transform,shadow] hover:scale-[103%] hover:z-10 hover:shadow-[0_10px_20px_0_rgb(0_0_0/0.05)]  bg-bgr" data-post-card>
+
+  <div class="relative z-[2] flex flex-col gap-4 h-full">
+    <div class="flex items-center flex-wrap gap-2 text-sm font-medium text-typ-tone leading-tight">
+      <time class="" datetime="2024-10-18">Oct 18, 2024</time> 
+      <span class="opacity-25">•</span>
+      <span class="text-typ-tone">1 min read</span>
+
+      <span class="flex-1"></span>
+
+    </div>
+
+    <h2 data-post-card-title class="font-semibold text-lg leading-tight md:text-xl md:leading-tight hover:underline">
+      <a href="/lets-learn-from-each-other/">Let&#x27;s learn from each other</a>
+    </h2>
+
+    <span class="flex-1"></span>
+
+    <div class="flex items-center justify-between flex-wrap gap-2 text-sm font-medium leading-tight">
+        <a href="/tag/ideas/" class="text-accent hover:underline" style="--color-accent:#ffb61a" data-post-card-tag>Ideas</a>
+
+    </div>
+  </div>
+</article>        <article class="post tag-hash-import-2023-04-11-15-51 tag-news no-image flex flex-col justify-end relative min-h-60 md:min-h-80 z-[0] p-5 md:p-6 lg:p-8 border border-brd transition-[transform,shadow] hover:scale-[103%] hover:z-10 hover:shadow-[0_10px_20px_0_rgb(0_0_0/0.05)]  bg-bgr" data-post-card>
+
+  <div class="relative z-[2] flex flex-col gap-4 h-full">
+    <div class="flex items-center flex-wrap gap-2 text-sm font-medium text-typ-tone leading-tight">
+      <time class="" datetime="2024-10-15">Oct 15, 2024</time> 
+      <span class="opacity-25">•</span>
+      <span class="text-typ-tone">1 min read</span>
+
+      <span class="flex-1"></span>
+
+    </div>
+
+    <h2 data-post-card-title class="font-semibold text-lg leading-tight md:text-xl md:leading-tight hover:underline">
+      <a href="/welcome-to-yoffa/">Welcome to Yoffa</a>
+    </h2>
+
+    <span class="flex-1"></span>
+
+    <div class="flex items-center justify-between flex-wrap gap-2 text-sm font-medium leading-tight">
+        <a href="/tag/news/" class="text-accent hover:underline" style="--color-accent:#ff6161" data-post-card-tag>News</a>
+
+    </div>
+  </div>
+</article>    </div>
+  </div>
+</section>  
+<section class="px-5 sm:px-6 my-12">
+  <div class="max-w-container mx-auto text-center text-sm font-medium text-typ-tone [&_a]:mx-3 [&_a]:font-semibold [&_a]:hover:text-typ">
+    <nav class="pagination">
+    <span class="page-number">Page 1 of 2</span>
+        <a class="older-posts" href="/page/2/">Older Posts <span aria-hidden="true">&rarr;</span></a>
+</nav>
+
+  </div>
+</section>
+    </main>
+
+    <footer class="px-5 sm:px-6">
+  <div class="max-w-container mx-auto flex flex-wrap gap-4 justify-between py-8">
+    <div class="text-sm text-typ-tone font-medium">
+      <span data-footer-date>&copy;2026&nbsp;<a class="hover:underline nav-current" href="https://yoffa.brightthemes.com">Yoffa</a>.</span>
+      <span data-footer-ghost>Published with&nbsp;<a class="hover:underline" href="https://ghost.org">Ghost</a></span>
+      <span data-footer-theme>&&nbsp;<a class="hover:underline" href="https://brightthemes.com/themes/yoffa">Yoffa</a>.</span>
+    </div>
+
+    
+<nav class="flex items-center gap-3 text-typ-tone text-base" data-socials="footer" x-data="socials">
+
+    <a href="https://www.facebook.com/ghost" class="flex gap-1.5 items-center hover:text-typ" aria-label="Facebook"><i class="icon [&_svg]:h-[inherit] [&_svg]:w-[inherit] [&_svg]:[stroke-width:inherit] icon-facebook size-[18px] stroke-2 stroke-2" role="presentation">
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-facebook" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
+</svg>
+
+
+
+</i><span class="hidden">Facebook</span></a>
+
+    <a href="https://x.com/ghost" class="flex gap-1.5 items-center hover:text-typ" aria-label="Twitter"><i class="icon [&_svg]:h-[inherit] [&_svg]:w-[inherit] [&_svg]:[stroke-width:inherit] icon-twitter-x size-[18px] stroke-2 stroke-2" role="presentation">
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+  <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
+  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path>
+</svg>
+</i><span class="hidden">Twitter</span></a>
+
+  <a :href="rss" :class="rss && '!block'" class="hidden flex gap-1.5 items-center hover:text-typ" aria-label="RSS"><i class="icon [&_svg]:h-[inherit] [&_svg]:w-[inherit] [&_svg]:[stroke-width:inherit] icon-rss size-[18px] stroke-2 stroke-2" role="presentation">
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+</i><span class="hidden">RSS</span></a>
+
+  <a :href="threads" :class="threads && '!block'" class="hidden flex gap-1.5 items-center hover:text-typ" aria-label="Threads"><i class="icon [&_svg]:h-[inherit] [&_svg]:w-[inherit] [&_svg]:[stroke-width:inherit] icon-threads size-[18px] stroke-2 stroke-2" role="presentation">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-threads">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M19 7.5c-1.333 -3 -3.667 -4.5 -7 -4.5c-5 0 -8 2.5 -8 9s3.5 9 8 9s7 -3 7 -5s-1 -5 -7 -5c-2.5 0 -3 1.25 -3 2.5c0 1.5 1 2.5 2.5 2.5c2.5 0 3.5 -1.5 3.5 -5s-2 -4 -3 -4s-1.833 .333 -2.5 1" />
+</svg>
+</i><span class="hidden">Threads</span></a>
+
+  <a :href="linkedin" :class="linkedin && '!block'" class="hidden flex gap-1.5 items-center hover:text-typ" aria-label="Linkedin"><i class="icon [&_svg]:h-[inherit] [&_svg]:w-[inherit] [&_svg]:[stroke-width:inherit] icon-linkedin size-[18px] stroke-2 stroke-2" role="presentation">
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+  <rect x="2" y="9" width="4" height="12"></rect>
+  <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</i><span class="hidden">Linkedin</span></a>
+
+  <a :href="discord" :class="discord && '!block'" class="hidden flex gap-1.5 items-center hover:text-typ" aria-label="Discord"><i class="icon [&_svg]:h-[inherit] [&_svg]:w-[inherit] [&_svg]:[stroke-width:inherit] icon-discord size-[18px] stroke-2 stroke-2" role="presentation">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-discord">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M8 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M14 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M15.5 17c0 1 1.5 3 2 3c1.5 0 2.833 -1.667 3.5 -3c.667 -1.667 .5 -5.833 -1.5 -11.5c-1.457 -1.015 -3 -1.34 -4.5 -1.5l-.972 1.923a11.913 11.913 0 0 0 -4.053 0l-.975 -1.923c-1.5 .16 -3.043 .485 -4.5 1.5c-2 5.667 -2.167 9.833 -1.5 11.5c.667 1.333 2 3 3.5 3c.5 0 2 -2 2 -3" />
+  <path d="M7 16.5c3.5 1 6.5 1 10 0" />
+</svg>
+</i><span class="hidden">Discord</span></a>
+
+  <a :href="github" :class="github && '!block'" class="hidden flex gap-1.5 items-center hover:text-typ" aria-label="Github"><i class="icon [&_svg]:h-[inherit] [&_svg]:w-[inherit] [&_svg]:[stroke-width:inherit] icon-github size-[18px] stroke-2 stroke-2" role="presentation">
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <desc>Download more icon variants from https://tabler-icons.io/i/brand-github</desc>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+</i><span class="hidden">Github</span></a>
+
+  <a :href="instagram" :class="instagram && '!block'" class="hidden flex gap-1.5 items-center hover:text-typ" aria-label="Instagram"><i class="icon [&_svg]:h-[inherit] [&_svg]:w-[inherit] [&_svg]:[stroke-width:inherit] icon-instagram size-[18px] stroke-2 stroke-2" role="presentation">
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-instagram" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <desc>Download more icon variants from https://tabler-icons.io/i/brand-instagram</desc>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="4" y="4" width="16" height="16" rx="4" />
+  <circle cx="12" cy="12" r="3" />
+  <line x1="16.5" y1="7.5" x2="16.5" y2="7.501" />
+</svg>
+
+
+
+</i><span class="hidden">Instagram</span></a>
+
+  <a :href="pinterest" :class="pinterest && '!block'" class="hidden flex gap-1.5 items-center hover:text-typ" aria-label="Pinterest"><i class="icon [&_svg]:h-[inherit] [&_svg]:w-[inherit] [&_svg]:[stroke-width:inherit] icon-pinterest size-[18px] stroke-2 stroke-2" role="presentation">
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-pinterest" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <line x1="8" y1="20" x2="12" y2="11" />
+  <path d="M10.7 14c.437 1.263 1.43 2 2.55 2c2.071 0 3.75 -1.554 3.75 -4a5 5 0 1 0 -9.7 1.7" />
+  <circle cx="12" cy="12" r="9" />
+</svg>
+
+
+
+</i><span class="hidden">Pinterest</span></a>
+
+  <a :href="reddit" :class="reddit && '!block'" class="hidden flex gap-1.5 items-center hover:text-typ" aria-label="Reddit"><i class="icon [&_svg]:h-[inherit] [&_svg]:w-[inherit] [&_svg]:[stroke-width:inherit] icon-reddit size-[18px] stroke-2 stroke-2" role="presentation">
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-reddit" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 8c2.648 0 5.028 .826 6.675 2.14a2.5 2.5 0 0 1 2.326 4.36c0 3.59 -4.03 6.5 -9 6.5c-4.875 0 -8.845 -2.8 -9 -6.294l-1 -.206a2.5 2.5 0 0 1 2.326 -4.36c1.646 -1.313 4.026 -2.14 6.674 -2.14z" />
+  <path d="M12 8l1 -5l6 1" />
+  <circle cx="19" cy="4" r="1" />
+  <circle cx="9" cy="13" r=".5" fill="currentColor" />
+  <circle cx="15" cy="13" r=".5" fill="currentColor" />
+  <path d="M10 17c.667 .333 1.333 .5 2 .5s1.333 -.167 2 -.5" />
+</svg>
+
+
+
+</i><span class="hidden">Reddit</span></a>
+
+  <a :href="telegram" :class="telegram && '!block'" class="hidden flex gap-1.5 items-center hover:text-typ" aria-label="Telegram"><i class="icon [&_svg]:h-[inherit] [&_svg]:w-[inherit] [&_svg]:[stroke-width:inherit] icon-telegram size-[18px] stroke-2 stroke-2" role="presentation">
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-telegram" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <desc>Download more icon variants from https://tabler-icons.io/i/brand-telegram</desc>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" />
+</svg>
+
+
+
+</i><span class="hidden">Telegram</span></a>
+
+  <a :href="tiktok" :class="tiktok && '!block'" class="hidden flex gap-1.5 items-center hover:text-typ" aria-label="Tiktok"><i class="icon [&_svg]:h-[inherit] [&_svg]:w-[inherit] [&_svg]:[stroke-width:inherit] icon-tiktok size-[18px] stroke-2 stroke-2" role="presentation">
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-tiktok" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <desc>Download more icon variants from https://tabler-icons.io/i/brand-tiktok</desc>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 12a4 4 0 1 0 4 4v-12a5 5 0 0 0 5 5" />
+</svg>
+
+
+
+</i><span class="hidden">Tiktok</span></a>
+
+  <a :href="whatsapp" :class="whatsapp && '!block'" class="hidden flex gap-1.5 items-center hover:text-typ" aria-label="Whatsapp"><i class="icon [&_svg]:h-[inherit] [&_svg]:w-[inherit] [&_svg]:[stroke-width:inherit] icon-whatsapp size-[18px] stroke-2 stroke-2" role="presentation">
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-whatsapp" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <desc>Download more icon variants from https://tabler-icons.io/i/brand-whatsapp</desc>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+  <path d="M9 10a0.5 .5 0 0 0 1 0v-1a0.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a0.5 .5 0 0 0 0 -1h-1a0.5 .5 0 0 0 0 1" />
+</svg>
+
+
+
+</i><span class="hidden">Whatsapp</span></a>
+
+  <a :href="youtube" :class="youtube && '!block'" class="hidden flex gap-1.5 items-center hover:text-typ" aria-label="Youtube"><i class="icon [&_svg]:h-[inherit] [&_svg]:w-[inherit] [&_svg]:[stroke-width:inherit] icon-youtube size-[18px] stroke-2 stroke-2" role="presentation">
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-youtube" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <desc>Download more icon variants from https://tabler-icons.io/i/brand-youtube</desc>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <rect x="3" y="5" width="18" height="14" rx="4" />
+  <path d="M10 9l5 3l-5 3z" />
+</svg>
+
+
+
+</i><span class="hidden">Youtube</span></a>
+
+</nav>
+
+  </div>
+</footer>
+      <script>
+    window.socials = {
+      rss: '/rss',
+      threads: '',
+      linkedin: '',
+      discord: '',
+      github: '',
+      instagram: '',
+      pinterest: '',
+      reddit: '',
+      telegram: '',
+      tiktok: '',
+      whatsapp: '',
+      youtube: ''
+    }
+
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('socials', () => (window.socials))
+    })
+  </script>
+
+
+    <!-- Demo -->
+<script>
+  socials.github = 'https://github.com/brightthemes'
+</script>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Customizing -->
+<div data-customize x-data="{ customize: false }" x-init="setTimeout(function (){ document.querySelector('[data-customize]').classList.remove('hidden') }, 2000)" class="hidden fixed w-full flex flex-wrap gap-4 font-system text-sm right-8 bottom-8 z-100" style="max-width: 260px;">
+  <div class="bg-bgr-tone text-typ flex flex-col gap-3 basis-full border border-brd px-4 py-4 rounded-theme" :class="customize ? 'opacity-100' : 'hidden'">
+    <!-- Brand color -->
+    <label class="flex flex-col gap-1">
+      <span class="text-xs uppercase font-semibold opacity-50">Brand color</span>
+      <input class="w-full rounded-cust" style="background:transparent;padding:0;" id="brand-color" type="color" value="#87ceeb" data-prop="--ghost-accent-color" 
+        oninput="document.documentElement.style.setProperty(event.target.getAttribute('data-prop'), value);document.documentElement.style.setProperty('--color-brand-contrast', getColorContrast(value));setBrandHSL(value)"/>
+    </label>
+
+    <!-- Background color -->
+    <label class="flex flex-col gap-1">
+      <span class="text-xs uppercase font-semibold opacity-50">Background color</span>
+      <input class="border w-full rounded-cust" style="background:transparent;padding:0;" id="background-color" type="color" value="#FFFFFF" data-prop="--color-background" 
+        oninput="document.documentElement.style.setProperty(event.target.getAttribute('data-prop'), value);"/>
+    </label>
+    
+    <!-- Text color -->
+    <label class="flex flex-col gap-1">
+      <span class="text-xs uppercase font-semibold opacity-50">Text color</span>
+      <input class="w-full rounded-cust" style="background:transparent;padding:0;" id="text-color" type="color" value="#262626" data-prop="--color-typography" 
+        oninput="document.documentElement.style.setProperty(event.target.getAttribute('data-prop'), value);"/>
+    </label>
+
+    <!-- Border color -->
+    <label class="flex flex-col gap-1">
+      <span class="text-xs uppercase font-semibold opacity-50">Border color</span>
+      <input class="w-full rounded-cust" style="background:transparent;padding:0;" id="border-color" type="color" value="#E6E6E6" data-prop="--color-border" 
+        oninput="document.documentElement.style.setProperty(event.target.getAttribute('data-prop'), value);"/>
+    </label>
+    
+    <!-- Font headings -->
+    <label class="flex flex-col gap-1">
+      <span class="text-xs uppercase font-semibold opacity-50">Font headings</span>
+      <select class="text-typ bg-bgr text-sm p-1 px-2 border border-brd rounded-cust" name="font-headings" id="font-headings" 
+        data-template="https://fonts.googleapis.com/css2?family={font_name}:wght@400;500;600;700;800&display=swap"
+        onchange="if(this.options[this.selectedIndex].value === 'System') {
+            document.body.style.setProperty('--font-headings', 'var(--font-system)') 
+        } else {
+            document.body.style.setProperty('--font-headings', `'${this.options[this.selectedIndex].text}'`);
+            let googleFont = document.createElement('link');
+            googleFont.id=this.options[this.selectedIndex].value;
+            googleFont.rel='stylesheet';
+            googleFont.href=this.getAttribute('data-template').replace('{font_name}', this.options[this.selectedIndex].text);
+            document.head.appendChild(googleFont)
+        }"
+      >
+        <option value="Cinzel">Cinzel</option>
+        <option value="Heebo">Heebo</option>
+        <option value="Inter">Inter</option>
+        <option value="Instrument Sans">Instrument Sans</option>
+        <option value="Instrument Serif">Instrument Serif</option>
+        <option value="Orbit">Orbit</option>
+        <option value="Plus Jakarta Sans">Plus Jakarta Sans</option>
+        <option value="Prata">Prata</option>
+        <option value="Space Mono" selected>Space Mono</option>
+        <option value="Sulphur Point">Sulphur Point</option>
+        <option value="System">System</option>
+      </select>
+    </label>
+
+    <!-- Font body -->
+    <label class="flex flex-col gap-1">
+      <span class="text-xs uppercase font-semibold opacity-50">Font body</span>
+      <select class="text-typ bg-bgr text-sm p-1 px-2 border border-brd rounded-cust" name="font-body" id="font-body" 
+        data-template="https://fonts.googleapis.com/css2?family={font_name}:wght@400;500;600;700;800&display=swap"
+        onchange="if(this.options[this.selectedIndex].value === 'System') {
+            document.body.style.setProperty('--font-body', 'var(--font-system)')
+        } else {
+            document.body.style.setProperty('--font-body', `'${this.options[this.selectedIndex].text}'`);
+            let googleFont = document.createElement('link');
+            googleFont.id=this.options[this.selectedIndex].value;
+            googleFont.rel='stylesheet';
+            googleFont.href=this.getAttribute('data-template').replace('{font_name}', this.options[this.selectedIndex].text);
+            document.head.appendChild(googleFont);
+        }"
+      >
+        <option value="Cinzel">Cinzel</option>
+        <option value="Heebo">Heebo</option>
+        <option value="Inter">Inter</option>
+        <option value="Instrument Sans">Instrument Sans</option>
+        <option value="Instrument Serif">Instrument Serif</option>
+        <option value="Orbit">Orbit</option>
+        <option value="Plus Jakarta Sans">Plus Jakarta Sans</option>
+        <option value="Prata">Prata</option>
+        <option value="Space Mono" selected>Space Mono</option>
+        <option value="Sulphur Point">Sulphur Point</option>
+        <option value="System">System</option>
+      </select>
+    </label>
+  </div>
+  
+  <button @click="customize = !customize" class="bg-black text-white border border-b-0 border-opac whitespace-nowrap flex flex-1 gap-1 justify-center items-center font-medium rounded-theme px-3 py-2 max-w-40">
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-adjustments-horizontal" width="18" height="18" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+      <path d="M14 6m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+      <path d="M4 6l8 0"></path>
+      <path d="M16 6l4 0"></path>
+      <path d="M8 12m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+      <path d="M4 12l2 0"></path>
+      <path d="M10 12l10 0"></path>
+      <path d="M17 18m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+      <path d="M4 18l11 0"></path>
+      <path d="M19 18l1 0"></path>
+    </svg>
+    Customize
+  </button>
+</div>
+  </body>
+</html>
