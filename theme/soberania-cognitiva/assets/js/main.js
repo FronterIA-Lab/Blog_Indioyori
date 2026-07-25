@@ -88,7 +88,9 @@
             return;
           }
           var err = (res.body && (res.body.error || res.body.message)) || "";
-          if (res.status === 422) {
+          if (res.status === 403 && /reCAPTCHA|AJAX|custom key/i.test(err)) {
+            showStatus("Formspree bloqueó el envío: en formspree.io → tu form → Settings → desactiva reCAPTCHA → Save. Luego prueba otra vez.");
+          } else if (res.status === 422) {
             showStatus("Revisa nombre, correo y mensaje.");
           } else {
             showStatus("No se pudo enviar (" + res.status + "). Escríbeme a " + mail + (err ? " · " + err : ""));

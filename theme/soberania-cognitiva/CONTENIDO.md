@@ -160,4 +160,6 @@ Opción B — sin nada:
 
 **Formspree activo (IndioYori):**  
 `https://formspree.io/f/mjgnppap`  
-→ Design → Customize → **Contact endpoint** (ya viene por defecto en theme v1.5.10).
+→ Design → Customize → **Contact endpoint**  
+
+Si sale error **403 / reCAPTCHA**: Formspree → form `mjgnppap` → **Settings** → desactiva **reCAPTCHA** → Save. (El theme envía por AJAX; con reCAPTCHA activo Formspree lo bloquea.)
