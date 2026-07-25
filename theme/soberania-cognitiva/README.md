@@ -1,11 +1,11 @@
-# Soberanía Cognitiva — Theme Ghost v1.4.1
+# Soberanía Cognitiva — Theme Ghost v1.5.2
 
-Menú en español claro: Inicio · Archivo · Manifiesto · Talleres · Comunidad · **Membresía** · Contacto.
+Menú en español claro: Inicio · Archivo · Manifiesto · Membresía · Talleres · Comunidad · Contacto.
 
-- Archivo libre  
-- Membresía $350 MXN/mes = espacio de trabajo especializado  
+- Lo publicado no tiene costo  
+- Membresía $350 MXN/mes = herramientas y conocimiento especializado (no VIP)  
 - Apoya el proyecto = sostén opcional  
-- Chat general (cuenta gratis) + chat exclusivo (membresía)
+- Chat general (cuenta gratis) + sala de trabajo (membresía)
 
 Guía: [`CONTENIDO.md`](./CONTENIDO.md)  
 Zip: `soberania-cognitiva.zip`  

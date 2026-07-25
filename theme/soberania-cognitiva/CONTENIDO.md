@@ -36,23 +36,51 @@ Pendiente para después: **Tezcatlipoca Digital** (imágenes).
 
 | | Sin cuenta | Cuenta gratis | Membresía $350 |
 |---|---|---|---|
-| Leer el archivo y el sitio | sí | sí | sí |
+| Leer lo publicado (archivo, manifiesto, info de talleres) | sí | sí | sí |
 | Comentar | — | sí | sí |
 | Chat general | — | sí | sí |
-| Chat exclusivo + espacio de trabajo | — | — | sí |
+| Material especializado + sala de trabajo | — | — | sí |
+
+**Lógica:** lo publicado no tiene costo. La membresía no es exclusividad VIP: suma herramientas y conocimiento especializado que no se publica en el archivo. Quien no paga no pierde acceso a lo publicado.
 
 ---
 
-## Texto de Membresía (el que ya lleva el theme)
+## Tiers de Ghost (Settings → Membership)
 
-> El archivo sigue libre.  
-> La membresía da acceso a un espacio de trabajo para quien necesita información más especializada: bases de arquitecturas RAG soberanas, análisis de datos con criterio, protocolos para organizar conocimiento y defensa del territorio, y marcos de geopolítica del conocimiento aplicados a proyectos reales.  
-> Si defiendes activamente el territorio y no puedes pagar la membresía, escríbeme.  
+### Gratis
+**Descripción:** Todo lo publicado en el sitio se consulta sin pagar. La cuenta es opcional: sirve para comentar y unirte al chat general.
+
+Beneficios:
+- Archivo completo: notas, videos, podcasts y documentos
+- Manifiesto e información de talleres sin muro de pago
+- Cuenta opcional para comentar y chat general
+- Nada de lo publicado exige membresía
+
+### Membresía · $350 MXN/mes
+**Descripción:** Añade herramientas y conocimiento especializado que no publico en el archivo. No es un acceso VIP: es una capa de trabajo. Si no la tomas, tu acceso a lo publicado no se reduce.
+
+Beneficios:
+- Todo el acceso libre
+- Material especializado que no va al archivo público
+- Especialización en análisis de datos con criterio
+- Bases y protocolos de arquitecturas RAG soberanas
+- Protocolos para conocimiento y defensa del territorio
+- Marcos de geopolítica del conocimiento para proyectos
+- Sala de trabajo en Matrix
+
+---
+
+## Texto de Membresía (en el theme)
+
+> Lo publicado no tiene costo.  
+> Todo lo del Archivo se consulta sin pagar. La membresía no convierte ese conocimiento en privilegio.  
+> Lo que aporta es una capa de trabajo: herramientas y conocimiento especializado que no publico en el sitio.  
+> Si no te interesa o no puedes pagarla, tu acceso a lo publicado no se reduce.  
+> Si defiendes activamente el territorio y no puedes pagar, escríbeme.  
 > **$350 MXN al mes.**  
-> **Apoya el proyecto** (botón aparte, si no tomas membresía pero quieres aportar dinero).
+> **Apoya el proyecto** (botón aparte).
 
-En Ghost: página título **Membresía**, slug `membresia`, template **Membresía**.  
-Membership: tier Free + tier **Membresía · 350 MXN/mes**.
+En Ghost: página título **Membresía**, slug `membresia`, template **Membresía**.
 
 ---
 
