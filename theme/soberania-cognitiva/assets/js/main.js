@@ -69,12 +69,21 @@
         return;
       }
 
-      var data = new FormData(form);
+      var payload = {
+        name: name.value.trim(),
+        email: email.value.trim(),
+        message: msg.value.trim(),
+        _replyto: email.value.trim(),
+        _subject: "Contacto · IndioYori"
+      };
       showStatus("Enviando…");
       fetch(endpoint, {
         method: "POST",
-        body: data,
-        headers: { Accept: "application/json" }
+        body: JSON.stringify(payload),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
       })
         .then(function (r) {
           return r.json().catch(function () { return {}; }).then(function (body) {
@@ -87,13 +96,27 @@
             showStatus("Listo. Te respondo a ese correo.");
             return;
           }
-          var err = (res.body && (res.body.error || res.body.message)) || "";
+          var err = "";
+          if (res.body) {
+            err = res.body.error || res.body.message || "";
+            if (!err && res.body.errors) {
+              if (Array.isArray(res.body.errors)) {
+                err = res.body.errors.map(function (e) {
+                  return (e.field ? e.field + ": " : "") + (e.message || e);
+                }).join(" · ");
+              } else if (typeof res.body.errors === "object") {
+                err = Object.keys(res.body.errors).map(function (k) {
+                  return k + ": " + res.body.errors[k];
+                }).join(" · ");
+              }
+            }
+          }
           if (res.status === 403 && /reCAPTCHA|AJAX|custom key/i.test(err)) {
-            showStatus("Formspree bloqueó el envío: en formspree.io → tu form → Settings → desactiva reCAPTCHA → Save. Luego prueba otra vez.");
-          } else if (res.status === 422) {
-            showStatus("Revisa nombre, correo y mensaje.");
+            showStatus("Formspree: desactiva reCAPTCHA en Settings del form.");
+          } else if (/dominio|domain|not allowed|unauthorized|origen|origin/i.test(err)) {
+            showStatus("Formspree: agrega este dominio en Allowed domains → " + window.location.hostname);
           } else {
-            showStatus("No se pudo enviar (" + res.status + "). Escríbeme a " + mail + (err ? " · " + err : ""));
+            showStatus("No se pudo enviar (" + res.status + ")" + (err ? ": " + err : "") + ". Escríbeme a " + mail);
           }
         })
         .catch(function () {
