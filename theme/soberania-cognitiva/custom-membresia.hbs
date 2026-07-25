@@ -1,6 +1,5 @@
 {{!< default}}
-{{!-- Membresía ($350 MXN/mes): espacio de trabajo especializado.
-     El archivo sigue libre. Apoya el proyecto = sostén opcional. --}}
+{{!-- Membresía $350/mes: qué incluye + botón Stripe. --}}
 
 {{#post}}
 <section class="section">
@@ -18,88 +17,45 @@
       <h3>El archivo sigue libre</h3>
       <p style="margin-top:0.75rem">La membresía da acceso a un espacio de trabajo para quien necesita información más especializada: bases de arquitecturas RAG soberanas, análisis de datos con criterio, protocolos para organizar conocimiento y defensa del territorio, y marcos de geopolítica del conocimiento aplicados a proyectos reales.</p>
       <p style="margin-top:0.75rem">Si defiendes activamente el territorio y no puedes pagar la membresía, <a href="{{@site.url}}/contacto/">escríbeme</a>.</p>
-      <p style="margin-top:0.75rem"><b>$350 MXN al mes.</b></p>
     </div>
 
-    <div class="grid-3" style="margin-bottom:2rem">
+    <div class="grid-2" style="margin-bottom:2rem;align-items:stretch">
       <div class="offer">
-        <span class="offer-badge outline">Sin cuenta</span>
-        <h3>Leer</h3>
-        <p class="offer-desc">Análisis, archivo, video, podcast, documentos e info de talleres: libre.</p>
+        <span class="offer-badge">Qué incluye</span>
+        <h3>$350 MXN / mes</h3>
         <ul class="offer-bullets">
-          <li>Biblioteca abierta</li>
-          <li>Sin registro obligatorio</li>
-          <li>Contacto seguro</li>
+          <li>Espacio de trabajo con información más especializada</li>
+          <li>Chat exclusivo de miembros (Matrix)</li>
+          <li>Bases de arquitecturas RAG soberanas</li>
+          <li>Análisis de datos con criterio</li>
+          <li>Protocolos para organizar conocimiento y defensa del territorio</li>
+          <li>Marcos de geopolítica del conocimiento para proyectos reales</li>
+          <li>Comentarios en el sitio + acceso al chat general</li>
         </ul>
-      </div>
-      <div class="offer">
-        <span class="offer-badge soft">Cuenta gratis</span>
-        <h3>Participar</h3>
-        <p class="offer-desc">El sitio ya es funcional: comentas y entras al chat general.</p>
-        <ul class="offer-bullets">
-          <li>Comentar en las notas</li>
-          <li>Chat general (Matrix)</li>
-          <li>Boletín</li>
-        </ul>
-        {{#unless @member}}
-          <a class="btn btn-full" style="margin-top:auto" href="#/portal/signup" data-portal="signup">Crear cuenta gratis</a>
+        {{#if @custom.membership_stripe_url}}
+          <a class="btn btn-brand btn-full" style="margin-top:auto" href="{{@custom.membership_stripe_url}}" target="_blank" rel="noopener">Unirme · $350 MXN/mes</a>
         {{else}}
-          <a class="btn btn-full" style="margin-top:auto" href="#/portal/account" data-portal="account">Mi cuenta</a>
-        {{/unless}}
+          <a class="btn btn-brand btn-full" style="margin-top:auto" href="#/portal/signup" data-portal="signup">Unirme</a>
+        {{/if}}
       </div>
       <div class="offer">
-        <span class="offer-badge">Membresía</span>
-        <h3>Trabajar</h3>
-        <p class="offer-desc">Espacio de trabajo especializado + chat exclusivo. Las bases de lo que yo hago, aplicadas a tu proyecto.</p>
+        <span class="offer-badge outline">Sin membresía</span>
+        <h3>Sigue libre</h3>
+        <p class="offer-desc">El Archivo, las notas, videos, podcasts, documentos e información de talleres se leen sin pagar.</p>
         <ul class="offer-bullets">
-          <li>Todo lo de cuenta gratis</li>
-          <li>Chat exclusivo de miembros</li>
-          <li>Información más especializada</li>
+          <li>Biblioteca pública</li>
+          <li>Cuenta gratis para comentar y chat general</li>
+          <li>Talleres: pago por producto (aparte)</li>
         </ul>
+        <a class="btn btn-full" style="margin-top:auto" href="{{@site.url}}/archivo/">Ir al Archivo</a>
       </div>
     </div>
 
-    {{#get "tiers" include="monthly_price,yearly_price,currency" limit="all" as |tiers|}}
-      {{#if tiers}}
-      <div class="section-head">
-        <span class="s-eyebrow">Cómo unirte</span>
-        <h2 class="s-title">Cuenta gratis o membresía</h2>
-      </div>
-      <div class="offer-grid" style="margin-bottom:2rem">
-        {{#foreach tiers}}
-          <article class="offer">
-            <span class="offer-badge">{{#if monthly_price}}Pago{{else}}Gratis{{/if}}</span>
-            <h3>{{name}}</h3>
-            {{#if description}}<p class="offer-desc">{{description}}</p>{{/if}}
-            {{#if monthly_price}}
-              <p class="offer-price">{{price monthly_price currency=currency}} <span>· al mes</span></p>
-              {{#if yearly_price}}<p class="offer-meta">o {{price yearly_price currency=currency}} al año</p>{{/if}}
-              {{#if @member.paid}}
-                <a class="btn btn-brand btn-full" href="#/portal/account" data-portal="account">Ya eres miembro · Mi cuenta</a>
-              {{else}}
-                <a class="btn btn-brand btn-full" href="#/portal/signup/{{id}}/monthly" data-portal="signup/{{id}}/monthly">Hacerme miembro · {{price monthly_price currency=currency}}/mes</a>
-              {{/if}}
-            {{else}}
-              <p class="offer-meta">Cuenta gratis · chat general + comentarios</p>
-              {{#unless @member}}
-                <a class="btn btn-full" href="#/portal/signup" data-portal="signup">Crear cuenta gratis</a>
-              {{else}}
-                <a class="btn btn-full" href="#/portal/account" data-portal="account">Mi cuenta</a>
-              {{/unless}}
-            {{/if}}
-          </article>
-        {{/foreach}}
-      </div>
-      {{else}}
-      <div class="callout" style="margin-bottom:2rem">
-        <h3>Configura los tiers en Ghost</h3>
-        <p style="margin-top:0.5rem">Settings → Membership: tier <b>Free</b> + tier de pago <b>Membresía · $350 MXN / mes</b> con Stripe.</p>
-        <div class="cta-row" style="margin-top:1rem">
-          <a class="btn btn-brand" href="#/portal/signup" data-portal="signup">Crear cuenta gratis</a>
-        </div>
-      </div>
-      {{/if}}
-    {{/get}}
+    {{#if @custom.membership_stripe_url}}
+    <div class="cta-row" style="margin-bottom:2rem">
+      <a class="btn btn-brand" href="{{@custom.membership_stripe_url}}" target="_blank" rel="noopener">Pagar membresía en Stripe · $350 MXN/mes</a>
+    </div>
+    {{/if}}
 
     {{#if @member.paid}}
       {{#if @custom.matrix_paid_room_url}}

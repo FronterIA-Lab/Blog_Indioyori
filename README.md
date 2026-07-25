@@ -1,9 +1,9 @@
 # Blog_Indioyori
 
 **Ghost en producción:** https://indioyori.ghost.io · admin: https://indioyori.ghost.io/ghost/  
-**Theme v1.4:** `theme/soberania-cognitiva/` · zip: `soberania-cognitiva.zip`  
-**Cambios finales (copiar/pegar):** [`theme/soberania-cognitiva/CONTENIDO.md`](theme/soberania-cognitiva/CONTENIDO.md)  
-**Pendiente:** Tezcatlipoca Digital (galería de imágenes)  
+**Theme v1.4.1:** `theme/soberania-cognitiva/` · zip: `soberania-cognitiva.zip`  
+**Guía:** [`theme/soberania-cognitiva/CONTENIDO.md`](theme/soberania-cognitiva/CONTENIDO.md)  
+**Pendiente:** Tezcatlipoca Digital  
 **Preview estático (histórico):** carpeta `site/`
 
 ---

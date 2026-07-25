@@ -1,33 +1,59 @@
 {{!< default}}
-{{!-- Plantilla: Talleres, libros y herramientas.
-     Aquí van productos con Payment Links de Stripe en el contenido.
-     La membresía ($350/mes) vive en /membresia/ — no aquí. --}}
+{{!-- Talleres: lista automática de posts con tag "taller".
+     Crea un post por taller (MCC, RAG, etc.), tag taller, y el pago Stripe va en el post. --}}
 
 {{#post}}
 <section class="section">
   <div class="container">
     <p class="breadcrumb"><a href="{{@site.url}}/">Inicio</a> / {{title}}</p>
     <div class="section-head">
-      <span class="s-eyebrow">Formación · talleres · libros · cursos</span>
+      <span class="s-eyebrow">Formación · en vivo</span>
       <h1 class="s-title">{{title}}</h1>
-      {{#if custom_excerpt}}<p class="s-desc">{{custom_excerpt}}</p>{{/if}}
-    </div>
-
-    <div class="note" style="margin-bottom:1.5rem">
-      Cada taller, libro o curso lleva su propio botón de pago (Stripe).
-      La membresía (espacio de trabajo · $350 MXN/mes) está en
-      <a href="{{@site.url}}/membresia/"><b>Membresía</b></a>.
+      {{#if custom_excerpt}}
+        <p class="s-desc">{{custom_excerpt}}</p>
+      {{else}}
+        <p class="s-desc">Talleres y programas con pago por producto. La membresía mensual es aparte.</p>
+      {{/if}}
     </div>
   </div>
 </section>
+{{/post}}
 
 <section class="section" style="padding-top:0">
-  <div class="container prose">
-    <div class="post-content">
-      {{content}}
-    </div>
+  <div class="container">
+    {{#get "posts" filter="tag:taller" limit="20" include="tags" as |items|}}
+      {{#if items}}
+      <div class="offer-grid">
+        {{#foreach items}}
+        <article class="offer">
+          {{#if featured}}<span class="offer-badge">Abierto</span>{{else}}<span class="offer-badge outline">Formación</span>{{/if}}
+          <h3><a href="{{url}}">{{title}}</a></h3>
+          {{#if custom_excerpt}}
+            <p class="offer-desc">{{custom_excerpt}}</p>
+          {{else if excerpt}}
+            <p class="offer-desc">{{excerpt words="36"}}</p>
+          {{/if}}
+          <p class="offer-meta">{{date format="D MMM YYYY"}}{{#if reading_time}} · {{reading_time}}{{/if}}</p>
+          <a class="btn btn-brand btn-full" href="{{url}}">Ver taller e inscribirme</a>
+        </article>
+        {{/foreach}}
+      </div>
+      {{else}}
+      <p class="note">Aún no hay talleres publicados. Crea un <b>Post</b>, ponle el tag <code>taller</code> y publícalo.</p>
+      {{/if}}
+    {{/get}}
   </div>
 </section>
+
+{{#post}}
+{{#if content}}
+<section class="section" style="padding-top:0">
+  <div class="container prose">
+    <div class="post-content">{{content}}</div>
+  </div>
+</section>
+{{/if}}
+{{/post}}
 
 <section class="section" style="padding-top:0">
   <div class="container">
@@ -35,10 +61,9 @@
       <h3>¿Inscripción grupal o a la medida?</h3>
       <p style="margin-top:0.5rem">Equipo, colectivo, aula, organización o institución: escríbeme con el contexto y armamos propuesta.</p>
       <div class="cta-row" style="margin-top:1rem">
-        <a class="btn btn-brand" href="{{@site.url}}/contacto/">Solicitar propuesta grupal / institucional</a>
+        <a class="btn btn-brand" href="{{@site.url}}/contacto/">Solicitar cotización</a>
         <a class="btn" href="{{@site.url}}/membresia/">Ver membresía</a>
       </div>
     </div>
   </div>
 </section>
-{{/post}}

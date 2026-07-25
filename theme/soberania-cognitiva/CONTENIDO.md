@@ -1,4 +1,4 @@
-# Guía simple — Ghost IndioYori (theme v1.4.1)
+# Guía simple — Ghost IndioYori (theme v1.5.0)
 
 Sitio: https://indioyori.ghost.io  
 
@@ -49,9 +49,29 @@ Membership: tier Free + tier **Membresía · 350 MXN/mes**.
 
 ---
 
+## Tags
+
+| Tag | Dónde aparece |
+|---|---|
+| `taller` | Página **Talleres** (MCC, RAG, etc.) |
+| `nota` | Archivo → Notas & análisis |
+| `video` | Archivo → Video |
+| `podcast` | Archivo → Podcast |
+| `pdf` | Archivo → Documentos |
+| `territorio` | Filtro Territorio |
+
+Para un taller: **Post** → texto + botón Stripe → tag **`taller`** → Publish.
+
+## Membresía (Stripe)
+
+Customize → **Membership stripe url** (ya trae por defecto):  
+`https://buy.stripe.com/3cI5kD0Z1d1Z9t91Iedby08`
+
 ## Theme
 
 Descarga:  
 https://github.com/FronterIA-Lab/Blog_Indioyori/raw/cursor/ghost-diseno-contenido-5ed3/soberania-cognitiva.zip  
 
 Design → Upload → Activate.
+
+**Contacto:** en la página de Ghost, borra cualquier nota tuya del editor (instrucciones internas). El theme ya no muestra tips de configuración al público.
