@@ -158,6 +158,6 @@ Opción A — Namecheap (recomendado si ya pagas hosting):
 Opción B — sin nada:
 - Deja **Contact endpoint** vacío. Solo funciona `mailto` (abre el correo del visitante).
 
-Opción C — FormSubmit (gratis, sin tarjeta):
-- Contact endpoint: `https://formsubmit.co/ajax/indioyori@fronteria-lab.com`  
-  (la primera vez confirma el mail de FormSubmit).
+**Formspree activo (IndioYori):**  
+`https://formspree.io/f/mjgnppap`  
+→ Design → Customize → **Contact endpoint** (ya viene por defecto en theme v1.5.10).
