@@ -2,27 +2,35 @@
 
 Sitio: https://indioyori.ghost.io · Admin: https://indioyori.ghost.io/ghost/
 
-## Cómo está organizado el acceso
+## Organización del sitio (contenido primero)
 
-Tres capas. El sitio es usable **sin pagar**.
+| Destino | Para qué |
+|---|---|
+| **Inicio** | Río de lo último publicado + filtros Análisis / Video / Podcast / Territorio |
+| **Archivo** | Biblioteca: notas & análisis, video, podcast, documentos históricos |
+| **Manifiesto** | La tesis |
+| **Talleres** | Formación de pago único (Stripe por producto) |
+| **Comunidad** | Chat general (cuenta gratis) + exclusivo (pago) |
+| **Membresía** | Círculo de instrumentos ($350 MXN/mes) — no paywall de contenido |
+| **Contacto** | Correo verificado |
 
-| Qué | Sin cuenta | Cuenta gratis | Círculo de pago |
+No hace falta una página aparte de “análisis”: viven en Archivo (etiqueta `nota`) y en el filtro de portada.
+
+### Acceso (tres capas). El sitio es usable **sin pagar**.
+
+| Qué | Sin cuenta | Cuenta gratis | Círculo $350/mes |
 |---|---|---|---|
-| Leer notas, manifiesto, archivo, info de talleres | sí | sí | sí |
-| Contacto seguro | sí | sí | sí |
+| Leer análisis, video, podcast, docs | sí | sí | sí |
+| Contacto | sí | sí | sí |
 | Comentar | — | sí | sí |
-| Chat general (Matrix) | — | sí | sí |
-| Chat exclusivo (Matrix) | — | — | sí |
-| Recursos avanzados | — | — | sí |
-| Talleres/cursos (pago único Stripe) | ver + pagar | ver + pagar | ver + pagar |
-| Donar | botón en Membresía | botón en Membresía | botón en Membresía |
+| Chat general | — | sí | sí |
+| Chat exclusivo + instrumentos | — | — | sí |
 
-**Importante:** cuenta gratis ≠ círculo de pago.  
-**Importante:** pagar un taller ≠ membresía mensual.
+La membresía **no es exclusividad de contenido ni club de fans**. Es un acto político: compartir instrumentos (RAG, datos, protocolos, territorio) con quien se une al proyecto.
 
 ---
 
-## 1. Sube el theme v1.2
+## 1. Sube el theme v1.3
 
 Descarga:  
 https://github.com/FronterIA-Lab/Blog_Indioyori/raw/cursor/ghost-diseno-contenido-5ed3/soberania-cognitiva.zip
@@ -38,7 +46,7 @@ Settings → Design → Change theme → Upload → **Activate**.
 | Logo subtitle | `Soberanía Cognitiva` |
 | Hero eyebrow | `investigador autónomo · CLACSO · yoreme · ódami` |
 | Hero heading | `Soberanía cognitiva frente a la colonización de la gramática en los LLM.` |
-| Hero subheading | `Talleres, archivo, podcast y comunidad desde territorio Anáhuac. Hablo de IA y sistemas RAG soberanos, geopolítica del conocimiento y decolonización.` |
+| Hero subheading | `Análisis, video, podcast y documentos desde territorio Anáhuac. El archivo es libre. La formación y los instrumentos del círculo son para quien quiere construir.` |
 | Show hero | ON |
 | Matrix room url | URL del **chat general** (cuenta gratis) |
 | Matrix paid room url | URL del **chat exclusivo** (solo pago) |
@@ -61,14 +69,21 @@ Settings → Design → Change theme → Upload → **Activate**.
 | Membresía | `/membresia/` |
 | Contacto | `/contacto/` |
 
-### Secondary (filtros; si no los pones, el theme ya muestra Notas/Talleres/Podcast/Territorio)
+### Secondary (filtros de contenido en portada)
 
 | Label | URL |
 |---|---|
-| Notas | `/tag/nota/` |
-| Talleres | `/tag/taller/` |
+| Análisis | `/tag/nota/` |
+| Video | `/tag/video/` |
 | Podcast | `/tag/podcast/` |
 | Territorio | `/tag/territorio/` |
+
+### Hero (ya viene en el theme)
+1. **El archivo de lo improbable** → `/archivo/`  
+2. **Manifiesto** → `/manifiesto/`  
+3. **Talleres** → `/talleres/`  
+
+(Membresía queda en el menú, no compite en el hero.)
 
 ---
 
@@ -103,30 +118,28 @@ Crea la página si no existe.
 - **Title:** `Membresía`
 - **Slug:** `membresia`
 - **Template:** Membresía
-- **Excerpt:** `Cuenta gratis para comentar y chat general. El círculo de pago suma chat exclusivo y recursos avanzados. El sitio se lee sin pagar.`
+- **Excerpt:** `No es exclusividad de contenido. Es un acto político: compartir instrumentos para RAG, análisis de datos y defensa del territorio. $350 MXN al mes.`
 
 **Cuerpo:**
 
 ```
-## Tres formas de estar
+## Esto no es un club de fans
 
-**Sin cuenta** — lees todo lo publicado y te inscribes a talleres.
+El archivo —análisis, video, podcast, documentos— sigue libre. La membresía es para quien quiere **hacer**: arquitecturas RAG, análisis de datos, protocolos de búsqueda, organización de la defensa del territorio.
 
-**Cuenta gratis** — comentas y entras al chat general. El sitio ya es funcional.
+Es conocimiento especializado por el que normalmente cobraría más. Lo pongo a $350 MXN/mes porque entiendo que quienes pagan se unen al proyecto, no compran un estatus.
 
-**Círculo de pago** — lo mismo, más chat exclusivo y materiales avanzados (RAG, datos, protocolos). Es opcional y asequible.
-
-La inscripción a un taller o curso es un pago aparte (Stripe en cada producto). No sustituye la membresía ni al revés.
+**Sin cuenta** — lees todo.
+**Cuenta gratis** — comentas + chat general.
+**Círculo** — lo mismo + chat de instrumentos + herramientas avanzadas.
 ```
 
 ### En Ghost (Membership)
 1. Settings → Membership → conecta **Stripe**
-2. Deja el tier **Free** activo (cuenta gratis)
-3. Crea un tier de pago: nombre `Círculo`, precio ej. **500 MXN / month**
-4. Settings → Membership → **Comments** → Members (cuenta requerida; gratis vale)
-5. En Matrix/Element: crea **dos salas**
-   - General → pégala en `matrix_room_url`
-   - Exclusiva (invitación / miembros de pago) → `matrix_paid_room_url`
+2. Tier **Free** activo
+3. Tier de pago: nombre `Círculo de instrumentos`, **350 MXN / month**
+4. Comments → Members
+5. Matrix: sala general → `matrix_room_url` · sala exclusiva → `matrix_paid_room_url`
 
 ### Donar
 Crea un Payment Link en Stripe (monto libre o fijo) y pégalo en Customize → `donate_url`.

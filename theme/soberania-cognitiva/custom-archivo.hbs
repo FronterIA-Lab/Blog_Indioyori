@@ -1,92 +1,145 @@
 {{!< default}}
-{{!-- Plantilla: El archivo de lo improbable. Asígnala a tu página "Archivo".
-     Etiqueta tus publicaciones con: nota, video, podcast o pdf para que aparezcan
-     automáticamente en cada bloque. --}}
+{{!-- El archivo de lo improbable = biblioteca de todo lo que publicas.
+     Etiquetas: nota (análisis), video, podcast, pdf. --}}
 
 {{#post}}
 <section class="section">
   <div class="container">
     <p class="breadcrumb"><a href="{{@site.url}}/">Inicio</a> / {{title}}</p>
     <div class="section-head">
-      <span class="s-eyebrow">Archivo</span>
+      <span class="s-eyebrow">Biblioteca · lo que invento y publico</span>
       <h1 class="s-title">{{title}}</h1>
-      {{#if custom_excerpt}}<p class="s-desc">{{custom_excerpt}}</p>{{/if}}
+      {{#if custom_excerpt}}
+        <p class="s-desc">{{custom_excerpt}}</p>
+      {{else}}
+        <p class="s-desc">Análisis, notas, video, podcast y documentos. El conocimiento publicado es libre: entra, lee, escucha, usa.</p>
+      {{/if}}
     </div>
     {{#if content}}<div class="prose" style="margin:0 0 1.5rem"><div class="post-content">{{content}}</div></div>{{/if}}
+
+    {{!-- Mapa permanente del archivo --}}
+    <nav class="archivo-map" aria-label="Secciones del archivo">
+      <a class="archivo-door" href="#analisis">
+        <span class="archivo-door-k">01</span>
+        <span class="archivo-door-t">Notas &amp; análisis</span>
+        <span class="archivo-door-d">Ensayos, lecturas, intervenciones</span>
+      </a>
+      <a class="archivo-door" href="#video">
+        <span class="archivo-door-k">02</span>
+        <span class="archivo-door-t">Video</span>
+        <span class="archivo-door-d">Piezas en movimiento</span>
+      </a>
+      <a class="archivo-door" href="#podcast">
+        <span class="archivo-door-k">03</span>
+        <span class="archivo-door-t">Podcast</span>
+        <span class="archivo-door-d">Más despacio, más íntimo</span>
+      </a>
+      <a class="archivo-door" href="#documentos">
+        <span class="archivo-door-k">04</span>
+        <span class="archivo-door-t">Documentos</span>
+        <span class="archivo-door-d">PDFs y materiales para leer</span>
+      </a>
+    </nav>
   </div>
 </section>
 {{/post}}
 
-{{!-- NOTAS & POSTS --}}
-{{#get "posts" filter="tag:nota" limit="6" as |items|}}
-  {{#if items}}
-  <section class="section" style="padding-top:0">
-    <div class="container">
-      <div class="section-head"><span class="s-eyebrow">01</span><h2 class="s-title">Notas &amp; posts</h2></div>
-      <div class="card-grid">{{#foreach items}}{{> post-card}}{{/foreach}}</div>
+{{!-- NOTAS & ANÁLISIS --}}
+<section class="section" style="padding-top:0" id="analisis">
+  <div class="container">
+    <div class="section-head">
+      <span class="s-eyebrow">01</span>
+      <h2 class="s-title">Notas &amp; análisis</h2>
+      <p class="s-desc">Lo escrito: análisis, intervenciones, lecturas. Etiqueta tus posts con <code>nota</code>.</p>
     </div>
-  </section>
-  {{/if}}
-{{/get}}
+    {{#get "posts" filter="tag:nota" limit="9" as |items|}}
+      {{#if items}}
+        <div class="card-grid">{{#foreach items}}{{> post-card}}{{/foreach}}</div>
+        <p class="note" style="margin-top:1rem"><a href="{{@site.url}}/tag/nota/">Ver todos los análisis →</a></p>
+      {{else}}
+        <p class="note">Aún no hay notas etiquetadas con <code>nota</code>. Cuando publiques, aparecen aquí.</p>
+      {{/if}}
+    {{/get}}
+  </div>
+</section>
 
 {{!-- VIDEO --}}
-{{#get "posts" filter="tag:video" limit="4" as |items|}}
-  {{#if items}}
-  <section class="section" style="padding-top:0">
-    <div class="container">
-      <div class="section-head"><span class="s-eyebrow">02</span><h2 class="s-title">Video</h2>
-        <p class="s-desc">La portada te lleva a la publicación con el video embebido o al enlace de la plataforma.</p></div>
-      <div class="media-grid">
-        {{#foreach items}}
-        <a class="media" href="{{url}}" aria-label="Ver: {{title}}">
-          {{#if feature_image}}<img src="{{img_url feature_image size="m"}}" alt="{{title}}">{{/if}}
-          <span class="play"><span><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
-          <span class="caption">{{#primary_tag}}<span class="k">{{name}}</span>{{/primary_tag}}<span class="t">{{title}}</span></span>
-        </a>
-        {{/foreach}}
-      </div>
+<section class="section" style="padding-top:0" id="video">
+  <div class="container">
+    <div class="section-head">
+      <span class="s-eyebrow">02</span>
+      <h2 class="s-title">Video</h2>
+      <p class="s-desc">La portada lleva a la publicación con el video embebido o al enlace de la plataforma. Etiqueta: <code>video</code>.</p>
     </div>
-  </section>
-  {{/if}}
-{{/get}}
+    {{#get "posts" filter="tag:video" limit="6" as |items|}}
+      {{#if items}}
+        <div class="media-grid">
+          {{#foreach items}}
+          <a class="media" href="{{url}}" aria-label="Ver: {{title}}">
+            {{#if feature_image}}<img src="{{img_url feature_image size="m"}}" alt="{{title}}">{{/if}}
+            <span class="play"><span><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
+            <span class="caption">{{#primary_tag}}<span class="k">{{name}}</span>{{/primary_tag}}<span class="t">{{title}}</span></span>
+          </a>
+          {{/foreach}}
+        </div>
+        <p class="note" style="margin-top:1rem"><a href="{{@site.url}}/tag/video/">Ver todos los videos →</a></p>
+      {{else}}
+        <p class="note">Aún no hay videos etiquetados con <code>video</code>.</p>
+      {{/if}}
+    {{/get}}
+  </div>
+</section>
 
 {{!-- PODCAST --}}
-{{#get "posts" filter="tag:podcast" limit="6" as |items|}}
-  {{#if items}}
-  <section class="section" style="padding-top:0">
-    <div class="container">
-      <div class="section-head"><span class="s-eyebrow">03</span><h2 class="s-title">Podcast</h2>
-        <p class="s-desc">Donde hablo más despacio, más específico y más íntimo. Más yo.</p></div>
-      <div class="doc-list">
-        {{#foreach items}}
-        <a class="doc" href="{{url}}">
-          <span class="doc-kind">ep.</span>
-          <span class="doc-body"><span class="doc-title">{{title}}</span><span class="doc-desc">{{reading_time}} · {{date format="D MMM YYYY"}}</span></span>
-          <span class="doc-arrow">&#9654;</span>
-        </a>
-        {{/foreach}}
-      </div>
+<section class="section" style="padding-top:0" id="podcast">
+  <div class="container">
+    <div class="section-head">
+      <span class="s-eyebrow">03</span>
+      <h2 class="s-title">Podcast</h2>
+      <p class="s-desc">Donde hablo más despacio, más específico y más íntimo. Etiqueta: <code>podcast</code>.</p>
     </div>
-  </section>
-  {{/if}}
-{{/get}}
+    {{#get "posts" filter="tag:podcast" limit="8" as |items|}}
+      {{#if items}}
+        <div class="doc-list">
+          {{#foreach items}}
+          <a class="doc" href="{{url}}">
+            <span class="doc-kind">ep.</span>
+            <span class="doc-body"><span class="doc-title">{{title}}</span><span class="doc-desc">{{reading_time}} · {{date format="D MMM YYYY"}}</span></span>
+            <span class="doc-arrow">&#9654;</span>
+          </a>
+          {{/foreach}}
+        </div>
+        <p class="note" style="margin-top:1rem"><a href="{{@site.url}}/tag/podcast/">Ver todos los episodios →</a></p>
+      {{else}}
+        <p class="note">Aún no hay episodios etiquetados con <code>podcast</code>.</p>
+      {{/if}}
+    {{/get}}
+  </div>
+</section>
 
-{{!-- PDFs & DOCUMENTOS --}}
-{{#get "posts" filter="tag:pdf" limit="8" as |items|}}
-  {{#if items}}
-  <section class="section" style="padding-top:0">
-    <div class="container">
-      <div class="section-head"><span class="s-eyebrow">04</span><h2 class="s-title">PDFs &amp; documentos</h2></div>
-      <div class="doc-list">
-        {{#foreach items}}
-        <a class="doc" href="{{url}}">
-          <span class="doc-kind">PDF</span>
-          <span class="doc-body"><span class="doc-title">{{title}}</span><span class="doc-desc">{{date format="D MMM YYYY"}}</span></span>
-          <span class="doc-arrow">&#8595;</span>
-        </a>
-        {{/foreach}}
-      </div>
+{{!-- DOCUMENTOS / PDFs --}}
+<section class="section" style="padding-top:0" id="documentos">
+  <div class="container">
+    <div class="section-head">
+      <span class="s-eyebrow">04</span>
+      <h2 class="s-title">Documentos históricos</h2>
+      <p class="s-desc">PDFs, checklists, materiales para leer y guardar. Etiqueta: <code>pdf</code>.</p>
     </div>
-  </section>
-  {{/if}}
-{{/get}}
+    {{#get "posts" filter="tag:pdf" limit="10" as |items|}}
+      {{#if items}}
+        <div class="doc-list">
+          {{#foreach items}}
+          <a class="doc" href="{{url}}">
+            <span class="doc-kind">PDF</span>
+            <span class="doc-body"><span class="doc-title">{{title}}</span><span class="doc-desc">{{date format="D MMM YYYY"}}</span></span>
+            <span class="doc-arrow">&#8595;</span>
+          </a>
+          {{/foreach}}
+        </div>
+        <p class="note" style="margin-top:1rem"><a href="{{@site.url}}/tag/pdf/">Ver todos los documentos →</a></p>
+      {{else}}
+        <p class="note">Aún no hay documentos etiquetados con <code>pdf</code>.</p>
+      {{/if}}
+    {{/get}}
+  </div>
+</section>

@@ -1,36 +1,46 @@
 {{!< default}}
-{{!-- Plantilla: Membresía.
-     Tres capas: visitar (público) · cuenta gratis · círculo de pago.
-     El pago no es obligatorio para que el sitio sea usable. --}}
+{{!-- Membresía = acto político de compartir instrumentos.
+     NO es paywall de contenido ni club de fans.
+     El contenido publicado sigue libre. --}}
 
 {{#post}}
 <section class="section">
   <div class="container">
     <p class="breadcrumb"><a href="{{@site.url}}/">Inicio</a> / {{title}}</p>
     <div class="section-head">
-      <span class="s-eyebrow">Acceso · gratis funcional · pago opcional</span>
+      <span class="s-eyebrow">Instrumentos · no exclusividad de contenido</span>
       <h1 class="s-title">{{title}}</h1>
-      {{#if custom_excerpt}}<p class="s-desc">{{custom_excerpt}}</p>{{/if}}
+      {{#if custom_excerpt}}
+        <p class="s-desc">{{custom_excerpt}}</p>
+      {{else}}
+        <p class="s-desc">La membresía de pago no es para ser fan. Es un acto político: compartir instrumentos para hacer arquitecturas RAG, análisis de datos y organizar la defensa del territorio. El contenido publicado del sitio sigue libre.</p>
+      {{/if}}
+    </div>
+
+    <div class="callout" style="margin-bottom:2rem">
+      <h3>Qué es (y qué no es)</h3>
+      <p style="margin-top:0.5rem"><b>No es</b> un muro sobre mis notas, videos o podcast. Eso se lee sin pagar.<br>
+      <b>Sí es</b> unirse al proyecto: herramientas, protocolos y acompañamiento especializado para quien quiere hacer lo que yo hago — crear contenido político, investigar, enseñar, o armar sistemas soberanos en su trabajo.</p>
     </div>
 
     <div class="grid-3" style="margin-bottom:2rem">
       <div class="offer">
         <span class="offer-badge outline">Sin cuenta</span>
-        <h3>Visitar</h3>
-        <p class="offer-desc">Todo el conocimiento publicado es libre: notas, manifiesto, archivo, info de talleres y contacto.</p>
+        <h3>Leer</h3>
+        <p class="offer-desc">Todo lo publicado: análisis, archivo, videos, podcast, info de talleres.</p>
         <ul class="offer-bullets">
-          <li>Leer sin registrarte</li>
-          <li>Ver precios e inscripciones</li>
-          <li>Escribir por Contacto</li>
+          <li>Biblioteca abierta</li>
+          <li>Sin registro obligatorio</li>
+          <li>Contacto seguro</li>
         </ul>
       </div>
       <div class="offer">
         <span class="offer-badge soft">Cuenta gratis</span>
         <h3>Participar</h3>
-        <p class="offer-desc">El sitio se vuelve comunidad: puedes comentar y entrar al chat general de Matrix.</p>
+        <p class="offer-desc">El sitio ya es funcional: comentas y entras al chat general.</p>
         <ul class="offer-bullets">
-          <li>Comentar en publicaciones</li>
-          <li>Chat general</li>
+          <li>Comentar en las notas</li>
+          <li>Chat general (Matrix)</li>
           <li>Boletín</li>
         </ul>
         {{#unless @member}}
@@ -40,13 +50,13 @@
         {{/unless}}
       </div>
       <div class="offer">
-        <span class="offer-badge">Pago opcional</span>
-        <h3>Círculo</h3>
-        <p class="offer-desc">Lo mismo que la cuenta gratis, más una capa exclusiva: chat privado y recursos más sofisticados.</p>
+        <span class="offer-badge">Círculo · $350 MXN/mes</span>
+        <h3>Instrumentos</h3>
+        <p class="offer-desc">Misma base, más profundidad: chat exclusivo y herramientas que normalmente cobraría más caro, a precio de ciudadano de a pie.</p>
         <ul class="offer-bullets">
           <li>Todo lo de cuenta gratis</li>
-          <li>Chat exclusivo (Matrix)</li>
-          <li>Materiales avanzados (RAG, datos, protocolos)</li>
+          <li>Chat exclusivo del proyecto</li>
+          <li>Instrumentos RAG, datos, protocolos, territorio</li>
         </ul>
       </div>
     </div>
@@ -54,8 +64,8 @@
     {{#get "tiers" include="monthly_price,yearly_price,currency" limit="all" as |tiers|}}
       {{#if tiers}}
       <div class="section-head">
-        <span class="s-eyebrow">Suscripción</span>
-        <h2 class="s-title">Elige cómo estar</h2>
+        <span class="s-eyebrow">Cómo unirte</span>
+        <h2 class="s-title">Cuenta gratis o círculo de instrumentos</h2>
       </div>
       <div class="offer-grid" style="margin-bottom:2rem">
         {{#foreach tiers}}
@@ -69,7 +79,7 @@
               {{#if @member.paid}}
                 <a class="btn btn-brand btn-full" href="#/portal/account" data-portal="account">Ya estás en el círculo · Mi cuenta</a>
               {{else}}
-                <a class="btn btn-brand btn-full" href="#/portal/signup/{{id}}/monthly" data-portal="signup/{{id}}/monthly">Entrar al círculo · {{price monthly_price currency=currency}}/mes</a>
+                <a class="btn btn-brand btn-full" href="#/portal/signup/{{id}}/monthly" data-portal="signup/{{id}}/monthly">Unirme al círculo · {{price monthly_price currency=currency}}/mes</a>
               {{/if}}
             {{else}}
               <p class="offer-meta">Cuenta gratis · chat general + comentarios</p>
@@ -85,7 +95,7 @@
       {{else}}
       <div class="callout" style="margin-bottom:2rem">
         <h3>Configura los tiers en Ghost</h3>
-        <p style="margin-top:0.5rem">Settings → Membership: deja un tier <b>Free</b> (cuenta gratis) y crea uno de pago (ej. <b>$500 MXN / mes</b>) conectado a Stripe. Los botones aparecen aquí solos.</p>
+        <p style="margin-top:0.5rem">Settings → Membership: tier <b>Free</b> + tier de pago <b>$350 MXN / mes</b> (nombre sugerido: <i>Círculo de instrumentos</i>) con Stripe.</p>
         <div class="cta-row" style="margin-top:1rem">
           <a class="btn btn-brand" href="#/portal/signup" data-portal="signup">Crear cuenta gratis</a>
         </div>
@@ -96,11 +106,11 @@
     {{#if @member.paid}}
       {{#if @custom.matrix_paid_room_url}}
       <div class="section-head">
-        <span class="s-eyebrow">Tu acceso exclusivo</span>
-        <h2 class="s-title">Chat del círculo</h2>
+        <span class="s-eyebrow">Tu sala del círculo</span>
+        <h2 class="s-title">Chat de instrumentos</h2>
       </div>
       <div class="chat" style="margin-bottom:2rem">
-        <div class="chat-head"><span class="pulse" aria-hidden="true"></span><b>Chat exclusivo · miembros de pago</b></div>
+        <div class="chat-head"><span class="pulse" aria-hidden="true"></span><b>Chat exclusivo · círculo de pago</b></div>
         <iframe src="{{@custom.matrix_paid_room_url}}" allow="microphone; camera; autoplay; clipboard-write; encrypted-media" title="Chat exclusivo" loading="lazy"></iframe>
       </div>
       {{/if}}

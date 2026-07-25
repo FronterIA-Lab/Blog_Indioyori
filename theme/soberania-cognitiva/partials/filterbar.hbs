@@ -1,6 +1,6 @@
-{{!-- Barra de filtros en portada.
-     Usa Secondary navigation si existe; si no, muestra filtros por defecto. --}}
-<nav class="filterbar" aria-label="Filtrar por tema">
+{{!-- Filtros de contenido en portada (el río de lo publicado).
+     Membresía y Talleres NO van aquí: son páginas de destino. --}}
+<nav class="filterbar" aria-label="Filtrar por tipo de contenido">
   <ul>
     <li class="{{#is "home"}}nav-current{{/is}}"><a href="{{@site.url}}/">Todo</a></li>
     {{#if @site.secondary_navigation}}
@@ -8,8 +8,8 @@
         <li class="{{#if current}}nav-current{{/if}}"><a href="{{url absolute="true"}}">{{label}}</a></li>
       {{/foreach}}
     {{else}}
-      <li><a href="{{@site.url}}/tag/nota/">Notas</a></li>
-      <li><a href="{{@site.url}}/tag/taller/">Talleres</a></li>
+      <li><a href="{{@site.url}}/tag/nota/">Análisis</a></li>
+      <li><a href="{{@site.url}}/tag/video/">Video</a></li>
       <li><a href="{{@site.url}}/tag/podcast/">Podcast</a></li>
       <li><a href="{{@site.url}}/tag/territorio/">Territorio</a></li>
     {{/if}}

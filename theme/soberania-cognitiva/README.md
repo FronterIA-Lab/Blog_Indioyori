@@ -1,15 +1,21 @@
-# Soberanía Cognitiva — Theme de Ghost (v1.2.1)
+# Soberanía Cognitiva — Theme de Ghost (v1.3.0)
 
 **Sitio:** https://indioyori.ghost.io  
 **Zip:** `soberania-cognitiva.zip` en la raíz del repo  
 **Kit paso a paso:** [`CONTENIDO.md`](./CONTENIDO.md)
 
+## Jerarquía
+
+1. **Contenido** (Inicio + Archivo): análisis, video, podcast, documentos — libre.  
+2. **Formación** (Talleres): pago único por producto.  
+3. **Círculo** (Membresía $350/mes): instrumentos, no paywall ni fans.
+
 ## Modelo de acceso
 
-- **Sin cuenta:** lee todo lo publicado, talleres, contacto.
-- **Cuenta gratis:** comentarios + **chat general** Matrix. El sitio ya es funcional.
-- **Círculo de pago:** lo mismo + **chat exclusivo** + recursos avanzados + Donar en `/membresia/`.
-- **Talleres/cursos/libros:** pago único por Stripe (Payment Link) en `/talleres/`.
+- **Sin cuenta:** lee todo lo publicado.
+- **Cuenta gratis:** comentarios + chat general. Sitio funcional.
+- **Círculo $350/mes:** lo mismo + chat exclusivo + instrumentos (RAG, datos, territorio).
+- **Talleres:** Stripe por producto en `/talleres/`.
 
 ## Plantillas de página
 

@@ -177,6 +177,49 @@ ul { margin: 0; }
 .trow.head { background: var(--bg-tone); font-weight: 700; text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.1em; color: var(--typ-tone); }
 .trow .live { color: var(--typ); font-weight: 700; }
 
+/* ---------------------------------------------------------------- mapa del archivo */
+.archivo-map {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: 1fr;
+  margin: 1.5rem 0 0.5rem;
+}
+@media (min-width: 700px) {
+  .archivo-map { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 1000px) {
+  .archivo-map { grid-template-columns: repeat(4, 1fr); }
+}
+.archivo-door {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.1rem 1.15rem;
+  border: 1px solid var(--brd);
+  background: var(--bg);
+  transition: background .15s, border-color .15s, transform .15s;
+}
+.archivo-door:hover {
+  background: var(--bg-tone);
+  border-color: var(--typ);
+  transform: translateY(-2px);
+}
+.archivo-door-k {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--typ-tone);
+}
+.archivo-door-t {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+.archivo-door-d {
+  font-size: 0.82rem;
+  color: var(--typ-tone);
+}
+
 /* ---------------------------------------------------------------- listas / media */
 .doc-list { border: 1px solid var(--brd); }
 .doc { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.15rem; border-bottom: 1px solid var(--brd); transition: background .15s; }
