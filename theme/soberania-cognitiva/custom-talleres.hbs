@@ -1,6 +1,5 @@
 {{!< default}}
-{{!-- Talleres: lista automática de posts con tag "taller".
-     Crea un post por taller (MCC, RAG, etc.), tag taller, y el pago Stripe va en el post. --}}
+{{!-- Talleres: primero Membresía (para que no se pierda), luego posts tag "taller". --}}
 
 {{#post}}
 <section class="section">
@@ -12,15 +11,43 @@
       {{#if custom_excerpt}}
         <p class="s-desc">{{custom_excerpt}}</p>
       {{else}}
-        <p class="s-desc">Talleres y programas con pago por producto. La membresía mensual es aparte.</p>
+        <p class="s-desc">Membresía mensual arriba. Talleres y programas abajo, con pago por producto.</p>
       {{/if}}
     </div>
   </div>
 </section>
 {{/post}}
 
+{{!-- MEMBRESÍA PRIMERO --}}
 <section class="section" style="padding-top:0">
   <div class="container">
+    <div class="offer" style="border-width:2px;border-color:var(--typ)">
+      <span class="offer-badge">Membresía · $350 MXN / mes</span>
+      <h3>Espacio de trabajo especializado</h3>
+      <p class="offer-desc">Bases de RAG soberanas, análisis de datos con criterio, protocolos para territorio y geopolítica del conocimiento. El archivo sigue libre; esto es la capa de trabajo.</p>
+      <ul class="offer-bullets">
+        <li>Chat exclusivo de miembros</li>
+        <li>Información más especializada</li>
+        <li>Comentarios + chat general incluidos</li>
+      </ul>
+      <div class="cta-row" style="margin-top:auto">
+        {{#if @custom.membership_stripe_url}}
+          <a class="btn btn-brand" href="{{@custom.membership_stripe_url}}" target="_blank" rel="noopener">Unirme · $350 MXN/mes</a>
+        {{/if}}
+        <a class="btn" href="{{@site.url}}/membresia/">Ver qué incluye</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-head">
+      <span class="s-eyebrow">Talleres abiertos</span>
+      <h2 class="s-title">Formación por producto</h2>
+      <p class="s-desc">Pago único por taller o programa. Tag <code>taller</code> en cada post.</p>
+    </div>
+
     {{#get "posts" filter="tag:taller" limit="20" include="tags" as |items|}}
       {{#if items}}
       <div class="offer-grid">
@@ -62,7 +89,6 @@
       <p style="margin-top:0.5rem">Equipo, colectivo, aula, organización o institución: escríbeme con el contexto y armamos propuesta.</p>
       <div class="cta-row" style="margin-top:1rem">
         <a class="btn btn-brand" href="{{@site.url}}/contacto/">Solicitar cotización</a>
-        <a class="btn" href="{{@site.url}}/membresia/">Ver membresía</a>
       </div>
     </div>
   </div>

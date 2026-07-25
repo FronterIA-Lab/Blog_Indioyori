@@ -14,10 +14,17 @@ Pendiente para después: **Tezcatlipoca Digital** (imágenes).
 | Inicio | `/` | (portada) |
 | Archivo | `/archivo/` | Archivo |
 | Manifiesto | `/manifiesto/` | Manifiesto |
+| **Membresía** | `/membresia/` | **Membresía** |
 | Talleres | `/talleres/` | Talleres |
 | Comunidad | `/comunidad/` | Comunidad |
-| Membresía | `/membresia/` | Membresía |
 | Contacto | `/contacto/` | Contacto |
+
+**Membresía va antes que Talleres** en el menú. Además aparece arriba dentro de `/talleres/`.
+
+### Si Membresía da error
+1. **Pages → New page** (si no existe): título `Membresía`, slug exacto `membresia`, template **Membresía**, Publish.  
+2. El botón de pago abre Stripe. Si Stripe marca error: en [Dashboard Stripe → Payment Links](https://dashboard.stripe.com/payment-links) verifica que el link esté activo (modo Live, no Test).  
+3. Navigation: `Membresía` → `/membresia/` (no `#/portal/...` si usas Stripe directo).
 
 **Hero:** Archivo · Manifiesto · Talleres  
 
