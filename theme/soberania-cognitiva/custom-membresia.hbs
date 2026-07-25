@@ -1,14 +1,13 @@
 {{!< default}}
-{{!-- Círculo ($350 MXN/mes): espacio de trabajo especializado.
-     El archivo sigue libre. No es club de fans ni paywall de contenido.
-     "Apoya el proyecto" = sostén económico opcional (no "donar"). --}}
+{{!-- Membresía ($350 MXN/mes): espacio de trabajo especializado.
+     El archivo sigue libre. Apoya el proyecto = sostén opcional. --}}
 
 {{#post}}
 <section class="section">
   <div class="container">
     <p class="breadcrumb"><a href="{{@site.url}}/">Inicio</a> / {{title}}</p>
     <div class="section-head">
-      <span class="s-eyebrow">Círculo · $350 MXN al mes</span>
+      <span class="s-eyebrow">Membresía · $350 MXN al mes</span>
       <h1 class="s-title">{{title}}</h1>
       {{#if custom_excerpt}}
         <p class="s-desc">{{custom_excerpt}}</p>
@@ -49,13 +48,13 @@
         {{/unless}}
       </div>
       <div class="offer">
-        <span class="offer-badge">Círculo</span>
+        <span class="offer-badge">Membresía</span>
         <h3>Trabajar</h3>
-        <p class="offer-desc">Espacio de trabajo especializado + chat exclusivo. No enseña “un agente”: enseña las bases de lo que yo hago.</p>
+        <p class="offer-desc">Espacio de trabajo especializado + chat exclusivo. Las bases de lo que yo hago, aplicadas a tu proyecto.</p>
         <ul class="offer-bullets">
           <li>Todo lo de cuenta gratis</li>
-          <li>Chat exclusivo del círculo</li>
-          <li>Instrumentos y bases de método</li>
+          <li>Chat exclusivo de miembros</li>
+          <li>Información más especializada</li>
         </ul>
       </div>
     </div>
@@ -64,7 +63,7 @@
       {{#if tiers}}
       <div class="section-head">
         <span class="s-eyebrow">Cómo unirte</span>
-        <h2 class="s-title">Cuenta gratis o Círculo</h2>
+        <h2 class="s-title">Cuenta gratis o membresía</h2>
       </div>
       <div class="offer-grid" style="margin-bottom:2rem">
         {{#foreach tiers}}
@@ -76,9 +75,9 @@
               <p class="offer-price">{{price monthly_price currency=currency}} <span>· al mes</span></p>
               {{#if yearly_price}}<p class="offer-meta">o {{price yearly_price currency=currency}} al año</p>{{/if}}
               {{#if @member.paid}}
-                <a class="btn btn-brand btn-full" href="#/portal/account" data-portal="account">Ya estás en el Círculo · Mi cuenta</a>
+                <a class="btn btn-brand btn-full" href="#/portal/account" data-portal="account">Ya eres miembro · Mi cuenta</a>
               {{else}}
-                <a class="btn btn-brand btn-full" href="#/portal/signup/{{id}}/monthly" data-portal="signup/{{id}}/monthly">Entrar al Círculo · {{price monthly_price currency=currency}}/mes</a>
+                <a class="btn btn-brand btn-full" href="#/portal/signup/{{id}}/monthly" data-portal="signup/{{id}}/monthly">Hacerme miembro · {{price monthly_price currency=currency}}/mes</a>
               {{/if}}
             {{else}}
               <p class="offer-meta">Cuenta gratis · chat general + comentarios</p>
@@ -94,7 +93,7 @@
       {{else}}
       <div class="callout" style="margin-bottom:2rem">
         <h3>Configura los tiers en Ghost</h3>
-        <p style="margin-top:0.5rem">Settings → Membership: tier <b>Free</b> + tier de pago <b>Círculo · $350 MXN / mes</b> con Stripe. Los botones aparecen aquí solos.</p>
+        <p style="margin-top:0.5rem">Settings → Membership: tier <b>Free</b> + tier de pago <b>Membresía · $350 MXN / mes</b> con Stripe.</p>
         <div class="cta-row" style="margin-top:1rem">
           <a class="btn btn-brand" href="#/portal/signup" data-portal="signup">Crear cuenta gratis</a>
         </div>
@@ -105,12 +104,12 @@
     {{#if @member.paid}}
       {{#if @custom.matrix_paid_room_url}}
       <div class="section-head">
-        <span class="s-eyebrow">Tu sala del Círculo</span>
+        <span class="s-eyebrow">Tu sala de miembro</span>
         <h2 class="s-title">Chat exclusivo</h2>
       </div>
       <div class="chat" style="margin-bottom:2rem">
-        <div class="chat-head"><span class="pulse" aria-hidden="true"></span><b>Chat exclusivo · Círculo</b></div>
-        <iframe src="{{@custom.matrix_paid_room_url}}" allow="microphone; camera; autoplay; clipboard-write; encrypted-media" title="Chat exclusivo del Círculo" loading="lazy"></iframe>
+        <div class="chat-head"><span class="pulse" aria-hidden="true"></span><b>Chat exclusivo · membresía</b></div>
+        <iframe src="{{@custom.matrix_paid_room_url}}" allow="microphone; camera; autoplay; clipboard-write; encrypted-media" title="Chat exclusivo de membresía" loading="lazy"></iframe>
       </div>
       {{/if}}
     {{/if}}
@@ -118,7 +117,7 @@
     {{#if @custom.donate_url}}
     <div class="callout" style="margin-bottom:2rem">
       <h3>Apoya el proyecto</h3>
-      <p style="margin-top:0.5rem">Si no entras al Círculo pero quieres sostener el trabajo con dinero, aquí puedes apoyar el proyecto.</p>
+      <p style="margin-top:0.5rem">Si no tomas la membresía pero quieres sostener el trabajo con dinero, aquí puedes apoyar el proyecto.</p>
       <div class="cta-row" style="margin-top:1rem">
         <a class="btn btn-brand" href="{{@custom.donate_url}}" target="_blank" rel="noopener">Apoya el proyecto</a>
       </div>

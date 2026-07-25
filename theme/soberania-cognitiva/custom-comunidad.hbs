@@ -35,14 +35,14 @@
         </ul>
       </div>
       <div class="offer">
-        <span class="offer-badge">Círculo de pago</span>
+        <span class="offer-badge">Membresía</span>
         <h3>Profundizar</h3>
         <ul class="offer-bullets">
           <li>Todo lo de cuenta gratis</li>
           <li>Chat exclusivo</li>
-          <li>Recursos más avanzados</li>
+          <li>Información más especializada</li>
         </ul>
-        <a class="btn btn-brand" style="margin-top:0.75rem" href="{{@site.url}}/membresia/">Ver el Círculo</a>
+        <a class="btn btn-brand" style="margin-top:0.75rem" href="{{@site.url}}/membresia/">Ver membresía</a>
       </div>
     </div>
 
@@ -50,7 +50,7 @@
     {{#unless @member}}
       <div class="callout" style="margin-bottom:1.5rem">
         <h3>Entra con cuenta gratis</h3>
-        <p style="margin-top:0.5rem">El sitio se lee sin registrarte. Para comentar y usar el <b>chat general</b>, crea una cuenta gratis. Si necesitas el espacio de trabajo especializado, entra al <a href="{{@site.url}}/membresia/">Círculo</a>.</p>
+        <p style="margin-top:0.5rem">El sitio se lee sin registrarte. Para comentar y usar el <b>chat general</b>, crea una cuenta gratis. Si necesitas el espacio de trabajo especializado, ve a <a href="{{@site.url}}/membresia/">Membresía</a>.</p>
         <div class="cta-row" style="margin-top:1rem">
           <a class="btn btn-brand" href="#/portal/signup" data-portal="signup">Crear cuenta gratis</a>
           <a class="btn" href="#/portal/signin" data-portal="signin">Ya tengo cuenta · Entrar</a>
@@ -76,7 +76,7 @@
       {{#if @member.paid}}
         {{#if @custom.matrix_paid_room_url}}
         <div class="section-head">
-          <span class="s-eyebrow">Círculo de pago</span>
+          <span class="s-eyebrow">Membresía</span>
           <h2 class="s-title">Chat exclusivo</h2>
           <p class="s-desc">Misma comunidad, capa más especializada: RAG, análisis, protocolos y materiales que no van al chat general.</p>
         </div>
@@ -90,9 +90,9 @@
       {{else}}
         <div class="callout">
           <h3>¿Necesitas el espacio de trabajo?</h3>
-          <p style="margin-top:0.5rem">Con tu cuenta gratis ya puedes comentar y usar el chat general. El Círculo ($350 MXN/mes) suma chat exclusivo e información más especializada — sin quitarte lo que ya tienes.</p>
+          <p style="margin-top:0.5rem">Con tu cuenta gratis ya puedes comentar y usar el chat general. La membresía ($350 MXN/mes) suma chat exclusivo e información más especializada — sin quitarte lo que ya tienes.</p>
           <div class="cta-row" style="margin-top:1rem">
-            <a class="btn btn-brand" href="{{@site.url}}/membresia/">Ver el Círculo</a>
+            <a class="btn btn-brand" href="{{@site.url}}/membresia/">Ver membresía</a>
           </div>
         </div>
       {{/if}}
@@ -119,7 +119,7 @@
           {{else}}
           <a class="btn btn-brand" href="#/portal/account" data-portal="account">Mi cuenta</a>
           {{/unless}}
-          <a class="btn btn-ghost" style="color:#fff;border-color:#3a3a3a" href="{{@site.url}}/membresia/">Círculo</a>
+          <a class="btn btn-ghost" style="color:#fff;border-color:#3a3a3a" href="{{@site.url}}/membresia/">Membresía</a>
         </div>
       </div>
       <div class="callout">
