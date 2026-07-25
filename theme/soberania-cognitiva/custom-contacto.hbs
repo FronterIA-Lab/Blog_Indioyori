@@ -1,89 +1,58 @@
 {{!< default}}
-{{!-- Plantilla: Contacto seguro. Asígnala a tu página "Contacto".
-     Configura el destino en Ajustes del theme: contact_endpoint y contact_email. --}}
+{{!-- Contacto simple. Customize: contact_endpoint (Formspree) + contact_email. --}}
 
 {{#post}}
 <section class="section">
   <div class="container">
     <p class="breadcrumb"><a href="{{@site.url}}/">Inicio</a> / {{title}}</p>
-    <div class="grid-2 narrow-right">
-      <div>
-        <div class="section-head">
-          <span class="s-eyebrow">Contacto verificado</span>
-          <h1 class="s-title">{{title}}</h1>
-          {{#if custom_excerpt}}<p class="s-desc">{{custom_excerpt}}</p>{{/if}}
-        </div>
+    <div class="section-head">
+      <span class="s-eyebrow">Contacto</span>
+      <h1 class="s-title">{{title}}</h1>
+      {{#if custom_excerpt}}
+        <p class="s-desc">{{custom_excerpt}}</p>
+      {{else}}
+        <p class="s-desc">Deja tus datos si quieres respuesta. Si no, no hace falta escribir.</p>
+      {{/if}}
+    </div>
 
-        {{#if content}}<div class="prose" style="margin-bottom:1.5rem"><div class="post-content">{{content}}</div></div>{{/if}}
+    {{#if content}}<div class="prose" style="margin-bottom:1.5rem"><div class="post-content">{{content}}</div></div>{{/if}}
 
-        <form class="form" data-contact-form data-endpoint="{{@custom.contact_endpoint}}" data-email="{{@custom.contact_email}}" novalidate>
-          <div class="hp" aria-hidden="true">
-            <label>No llenes este campo <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
-          </div>
+    <form class="form" data-contact-form action="{{@custom.contact_endpoint}}" method="POST" data-endpoint="{{@custom.contact_endpoint}}" data-email="{{@custom.contact_email}}" novalidate>
+      {{!-- honeypot Formspree --}}
+      <div class="hp" aria-hidden="true">
+        <label>No llenes <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+      </div>
+      <input type="hidden" name="_subject" value="Contacto · IndioYori">
 
-          <div class="two-col">
-            <div class="field">
-              <label for="nombre">Nombre <span class="req">*</span></label>
-              <input class="input" type="text" id="nombre" name="nombre" required minlength="2" autocomplete="name" placeholder="Cómo te llamas">
-              <span class="error">Dime tu nombre (al menos 2 caracteres).</span>
-            </div>
-            <div class="field">
-              <label for="email">Correo <span class="req">*</span></label>
-              <input class="input" type="email" id="email" name="email" required autocomplete="email" placeholder="tú@correo.com">
-              <span class="error">Necesito un correo válido para responderte.</span>
-              <span class="hint">Obligatorio: es lo que garantiza que sé a quién contestar.</span>
-            </div>
-          </div>
-
-          <div class="two-col">
-            <div class="field">
-              <label for="contacto">Otro contacto</label>
-              <input class="input" type="text" id="contacto" name="contacto" placeholder="Teléfono, Signal, @usuario… (opcional)">
-            </div>
-            <div class="field">
-              <label for="motivo">Motivo</label>
-              <select class="input" id="motivo" name="motivo">
-                <option>Taller o curso</option>
-                <option>Charla / institución</option>
-                <option>Colaboración</option>
-                <option>Defensa del territorio</option>
-                <option>Prensa / academia</option>
-                <option>Otro</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="mensaje">Mensaje <span class="req">*</span></label>
-            <textarea class="textarea" id="mensaje" name="mensaje" required minlength="10" placeholder="Cuéntame en qué andas y cómo puedo ayudar."></textarea>
-            <span class="error">Escribe un mensaje (al menos 10 caracteres).</span>
-          </div>
-
-          <label class="consent">
-            <input type="checkbox" name="consent" value="si">
-            <span>Autorizo que uses mi correo únicamente para responder a este mensaje. Nada de spam ni reventa de datos. <span class="req">*</span></span>
-          </label>
-
-          <div class="cta-row">
-            <button class="btn btn-brand" type="submit">Enviar mensaje verificado</button>
-            <a class="btn btn-ghost" href="mailto:{{@custom.contact_email}}">o escríbeme directo</a>
-          </div>
-          <p class="form-status" data-form-status role="status" aria-live="polite"></p>
-        </form>
+      <div class="field">
+        <label for="name">Nombre</label>
+        <input class="input" type="text" id="name" name="name" required minlength="2" autocomplete="name" placeholder="Tu nombre">
+        <span class="error">Escribe tu nombre.</span>
       </div>
 
-      <aside>
-        <div class="callout">
-          <h3>Por qué contacto seguro</h3>
-          <ul class="security-list" style="margin-top:0.75rem">
-            <li><span class="ic">[!]</span><span>El correo es <b>obligatorio</b>: sin remitente real, no hay a quién responder.</span></li>
-            <li><span class="ic">[#]</span><span>Filtro anti-spam para frenar bots.</span></li>
-            <li><span class="ic">[&gt;]</span><span>Tu mensaje llega con nombre y contacto, para responder rápido.</span></li>
-            <li><span class="ic">[x]</span><span>Sin rastreadores ni reventa de datos en esta página.</span></li>
-          </ul>
-        </div>
-      </aside>
-    </div>
+      <div class="field">
+        <label for="email">Correo</label>
+        <input class="input" type="email" id="email" name="email" required autocomplete="email" placeholder="tu@correo.com">
+        <span class="error">Necesito un correo válido para responderte.</span>
+      </div>
+
+      <div class="field">
+        <label for="message">Mensaje</label>
+        <textarea class="textarea" id="message" name="message" required minlength="5" placeholder="En qué andas."></textarea>
+        <span class="error">Escribe un mensaje breve.</span>
+      </div>
+
+      <div class="cta-row">
+        <button class="btn btn-brand" type="submit">Enviar</button>
+        {{#if @custom.contact_email}}
+          <a class="btn" href="mailto:{{@custom.contact_email}}">o correo directo</a>
+        {{/if}}
+      </div>
+      <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+      {{#unless @custom.contact_endpoint}}
+        <p class="note">Falta el enlace de Formspree en Design → Customize → <code>Contact endpoint</code> (URL tipo <code>https://formspree.io/f/xxxxx</code>).</p>
+      {{/unless}}
+    </form>
   </div>
 </section>
 {{/post}}

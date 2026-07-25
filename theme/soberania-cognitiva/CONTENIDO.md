@@ -141,4 +141,8 @@ https://github.com/FronterIA-Lab/Blog_Indioyori/raw/cursor/ghost-diseno-contenid
 
 Design → Upload → Activate.
 
-**Contacto:** en la página de Ghost, borra cualquier nota tuya del editor (instrucciones internas). El theme ya no muestra tips de configuración al público.
+**Contacto (simple · v1.5.7):**
+1. Formspree → New Form → correo destino → copia **Integration** URL: `https://formspree.io/f/xxxxx` (no la del panel).
+2. Ghost → Design → Customize → **Contact endpoint** = esa URL · **Contact email** = tu correo → Save.
+3. Confirma el mail de activación de Formspree (si no, el envío falla).
+4. Página Contacto con template **Contacto**. Sube theme v1.5.7.
