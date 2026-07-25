@@ -119,7 +119,15 @@ Para un taller: **Post** → texto + botón Stripe → tag **`taller`** → Publ
 ## Archivo / Manifiesto (Ghost)
 
 - **Archivo:** si ves instrucciones internas en la página, ábrela en Pages → borra todo el texto del editor → Update. El theme ya arma las secciones.
-- **Manifiesto:** página slug `manifiesto`, template **Manifiesto**. Si el editor está vacío, el theme muestra la tesis por defecto. Si quieres editarla, pega tu texto en el editor (reemplaza el default).
+- **Manifiesto:** página slug `manifiesto`, template **Manifiesto**. El texto ya viene en el theme (`custom-manifiesto.hbs`); deja el editor vacío y se muestra solo. Si pegas texto en el editor, ese texto reemplaza el default. Copia de respaldo: `site/manifiesto.html`.
+
+## Chat Matrix (Comunidad)
+
+1. Pages → página `Comunidad`, slug `comunidad`, template **Comunidad**, Publish.  
+2. Menú → `Comunidad` → `/comunidad/`.  
+3. Design → Customize → **Matrix room url** (default: sala `#Soberania_Cognitiva:matrix.org`).  
+4. En la página verás el botón **Abrir chat en Element**. Element a menudo no carga dentro del iframe; el botón es el camino fiable.  
+5. Sala de membresía (opcional): **Matrix paid room url**.
 
 ## Membresía (Stripe)
 

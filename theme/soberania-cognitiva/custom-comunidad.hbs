@@ -1,9 +1,5 @@
 {{!< default}}
-{{!-- Plantilla: Comunidad.
-     - Sin cuenta: puede leer el sitio; aquí ve CTA para registrarse.
-     - Cuenta gratis: chat general + comentar.
-     - Pago: lo mismo + sala de trabajo / material especializado.
---}}
+{{!-- Comunidad: chat Matrix visible para todos (abre en Element). --}}
 
 {{#post}}
 <section class="section">
@@ -12,7 +8,11 @@
     <div class="section-head">
       <span class="s-eyebrow">Comunidad · cercanía con criterio</span>
       <h1 class="s-title">{{title}}</h1>
-      {{#if custom_excerpt}}<p class="s-desc">{{custom_excerpt}}</p>{{/if}}
+      {{#if custom_excerpt}}
+        <p class="s-desc">{{custom_excerpt}}</p>
+      {{else}}
+        <p class="s-desc">Sala abierta en Matrix para hablar, avisos, recomendaciones y datos. La cuenta del sitio sirve para comentar; el chat vive en Element.</p>
+      {{/if}}
     </div>
 
     <div class="grid-3" style="margin-bottom:2rem">
@@ -30,7 +30,7 @@
         <h3>Participar</h3>
         <ul class="offer-bullets">
           <li>Comentar en las notas</li>
-          <li>Entrar al chat general</li>
+          <li>Chat general en Matrix</li>
           <li>Recibir el boletín</li>
         </ul>
       </div>
@@ -46,11 +46,37 @@
       </div>
     </div>
 
-    {{!-- --- Visitante sin cuenta --- --}}
+    {{!-- Chat general: siempre visible --}}
+    {{#if @custom.matrix_room_url}}
+    <div class="callout" style="margin-bottom:1.5rem">
+      <h3>Chat general · Matrix</h3>
+      <p style="margin-top:0.5rem">Sala <code>#Soberania_Cognitiva:matrix.org</code>. Ábrela en Element (Matrix a veces no cabe bien dentro del sitio).</p>
+      {{#if @custom.matrix_user}}
+        <p style="margin-top:0.5rem">Coordinación: <code>{{@custom.matrix_user}}</code></p>
+      {{/if}}
+      <div class="cta-row" style="margin-top:1rem">
+        <a class="btn btn-brand" href="{{@custom.matrix_room_url}}" target="_blank" rel="noopener">Abrir chat en Element</a>
+        {{#unless @member}}
+          <a class="btn" href="#/portal/signup" data-portal="signup">Crear cuenta en el sitio</a>
+        {{/unless}}
+      </div>
+    </div>
+
+    {{#if @member}}
+    <div class="chat" style="margin-bottom:1.5rem">
+      <div class="chat-head"><span class="pulse" aria-hidden="true"></span><b>Chat general · comunidad</b></div>
+      <iframe src="{{@custom.matrix_room_url}}" allow="microphone; camera; autoplay; clipboard-write; encrypted-media" title="Chat general · comunidad" loading="lazy"></iframe>
+    </div>
+    <p class="note" style="margin-bottom:2rem">Si el recuadro queda en blanco, usa el botón <b>Abrir chat en Element</b>.</p>
+    {{/if}}
+    {{else}}
+    <div class="note" style="margin-bottom:1.5rem">Falta la URL del chat: Design → Customize → <code>matrix_room_url</code>.</div>
+    {{/if}}
+
     {{#unless @member}}
       <div class="callout" style="margin-bottom:1.5rem">
-        <h3>Entra con cuenta gratis</h3>
-        <p style="margin-top:0.5rem">El sitio se lee sin registrarte. Para comentar y usar el <b>chat general</b>, crea una cuenta gratis. Si necesitas el espacio de trabajo especializado, ve a <a href="{{@site.url}}/membresia/">Membresía</a>.</p>
+        <h3>Cuenta gratis en el sitio</h3>
+        <p style="margin-top:0.5rem">Opcional: sirve para comentar en las notas y recibir el boletín. El chat de Matrix se abre con el botón de arriba, con o sin cuenta del sitio.</p>
         <div class="cta-row" style="margin-top:1rem">
           <a class="btn btn-brand" href="#/portal/signup" data-portal="signup">Crear cuenta gratis</a>
           <a class="btn" href="#/portal/signin" data-portal="signin">Ya tengo cuenta · Entrar</a>
@@ -58,21 +84,7 @@
       </div>
     {{/unless}}
 
-    {{!-- --- Chat general: cualquier miembro (gratis o de pago) --- --}}
     {{#if @member}}
-      {{#if @custom.matrix_room_url}}
-      <div class="chat" style="margin-bottom:1.5rem">
-        <div class="chat-head"><span class="pulse" aria-hidden="true"></span><b>Chat general · comunidad</b></div>
-        <iframe src="{{@custom.matrix_room_url}}" allow="microphone; camera; autoplay; clipboard-write; encrypted-media" title="Chat general · comunidad" loading="lazy"></iframe>
-      </div>
-      <p class="note" style="margin-bottom:2rem">
-        Sala general para quienes tienen cuenta (gratis o de pago).
-        {{#if @custom.matrix_user}} Coordinación: <code>{{@custom.matrix_user}}</code>.{{/if}}
-        Si el iframe no carga, ábrela en <a href="https://app.element.io" target="_blank" rel="noopener">Element</a>.
-      </p>
-      {{/if}}
-
-      {{!-- --- Sala de trabajo: solo pago --- --}}
       {{#if @member.paid}}
         {{#if @custom.matrix_paid_room_url}}
         <div class="section-head">
@@ -80,17 +92,20 @@
           <h2 class="s-title">Sala de trabajo</h2>
           <p class="s-desc">Misma comunidad, otra capa: RAG, análisis, protocolos y materiales que no van al archivo ni al chat general.</p>
         </div>
+        <div class="cta-row" style="margin-bottom:1rem">
+          <a class="btn btn-brand" href="{{@custom.matrix_paid_room_url}}" target="_blank" rel="noopener">Abrir sala de trabajo en Element</a>
+        </div>
         <div class="chat">
           <div class="chat-head"><span class="pulse" aria-hidden="true"></span><b>Sala de trabajo · membresía</b></div>
           <iframe src="{{@custom.matrix_paid_room_url}}" allow="microphone; camera; autoplay; clipboard-write; encrypted-media" title="Sala de trabajo · membresía" loading="lazy"></iframe>
         </div>
         {{else}}
-        <div class="note">Falta configurar <code>matrix_paid_room_url</code> en Design → Customize (URL de la sala de trabajo en Element).</div>
+        <div class="note">Cuando tengas la sala de membresía, pega su URL en Design → Customize → <code>matrix_paid_room_url</code>.</div>
         {{/if}}
       {{else}}
         <div class="callout">
           <h3>¿Necesitas el espacio de trabajo?</h3>
-          <p style="margin-top:0.5rem">Con tu cuenta gratis ya puedes comentar y usar el chat general. La membresía ($350 MXN/mes) suma herramientas y conocimiento especializado que no publico en el archivo — sin reducir tu acceso a lo que ya está publicado.</p>
+          <p style="margin-top:0.5rem">Ya estás en el chat general. La membresía ($350 MXN/mes) suma sala de trabajo y material especializado que no publico en el archivo.</p>
           <div class="cta-row" style="margin-top:1rem">
             <a class="btn btn-brand" href="{{@site.url}}/membresia/">Ver membresía</a>
           </div>
@@ -112,13 +127,16 @@
       <div>
         <span class="s-eyebrow">Cuenta gratis</span>
         <h2 class="s-title">El sitio funciona sin pagar.</h2>
-        <p class="s-desc">Regístrate para comentar y entrar al chat general. El pago es opcional: solo si quieres la capa de trabajo especializada.</p>
+        <p class="s-desc">El chat está en Matrix. La cuenta del sitio es para comentar y el boletín. La membresía es opcional: capa de trabajo especializada.</p>
         <div class="cta-row" style="margin-top:1.25rem">
           {{#unless @member}}
           <a class="btn btn-brand" href="#/portal/signup" data-portal="signup">Crear cuenta gratis</a>
           {{else}}
           <a class="btn btn-brand" href="#/portal/account" data-portal="account">Mi cuenta</a>
           {{/unless}}
+          {{#if @custom.matrix_room_url}}
+          <a class="btn btn-ghost" style="color:#fff;border-color:#3a3a3a" href="{{@custom.matrix_room_url}}" target="_blank" rel="noopener">Chat Matrix</a>
+          {{/if}}
           <a class="btn btn-ghost" style="color:#fff;border-color:#3a3a3a" href="{{@site.url}}/membresia/">Membresía</a>
         </div>
       </div>
