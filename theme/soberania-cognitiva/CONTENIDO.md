@@ -97,6 +97,29 @@ En Ghost: página título **Membresía**, slug `membresia`, template **Membresí
 
 Para un taller: **Post** → texto + botón Stripe → tag **`taller`** → Publish.
 
+## Precios (escala)
+
+| Oferta | Precio | Lógica |
+|---|---|---|
+| Acceso a lo publicado | $0 | Sin muro |
+| Membresía | **$350 MXN/mes** | Capa de trabajo especializada (no VIP) |
+| Taller MCC | **$2,900 MXN** | Taller intensivo / referente (no “taller de prompts”) |
+| Programa RAG soberano | **$6,500 MXN** | ~16 h, cohort; ~2.2× el MCC por profundidad y duración |
+| Apoya el proyecto | lo que quieras | Donación aparte |
+
+**Programa RAG — cómo debe quedar el post**
+- Precio fijo: **$6,500 MXN** (pago único)
+- Inicio: **7 de agosto de 2026**
+- Duración orientativa: **~16 horas**
+- Tag: `taller`
+- Excerpt sugerido: `Programa de ~16 h para diseñar e implementar RAG soberano en perímetro propio. Inicia 7 ago 2026 · $6,500 MXN.`
+- En el cuerpo: precio visible arriba + botón Stripe + qué incluye (arquitectura, práctica, perímetro, criterio) + a quién va + que **no sustituye** al archivo libre ni a la membresía.
+
+## Archivo / Manifiesto (Ghost)
+
+- **Archivo:** si ves instrucciones internas en la página, ábrela en Pages → borra todo el texto del editor → Update. El theme ya arma las secciones.
+- **Manifiesto:** página slug `manifiesto`, template **Manifiesto**. Si el editor está vacío, el theme muestra la tesis por defecto. Si quieres editarla, pega tu texto en el editor (reemplaza el default).
+
 ## Membresía (Stripe)
 
 Customize → **Membership stripe url** (ya trae por defecto):  

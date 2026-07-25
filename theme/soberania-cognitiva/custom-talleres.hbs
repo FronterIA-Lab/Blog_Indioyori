@@ -45,7 +45,7 @@
     <div class="section-head">
       <span class="s-eyebrow">Talleres abiertos</span>
       <h2 class="s-title">Formación por producto</h2>
-      <p class="s-desc">Pago único por taller o programa. Tag <code>taller</code> en cada post.</p>
+      <p class="s-desc">Pago único por taller o programa. La información se lee sin membresía; la inscripción se paga por producto.</p>
     </div>
 
     {{#get "posts" filter="tag:taller" limit="20" include="tags" as |items|}}
@@ -66,7 +66,7 @@
         {{/foreach}}
       </div>
       {{else}}
-      <p class="note">Aún no hay talleres publicados. Crea un <b>Post</b>, ponle el tag <code>taller</code> y publícalo.</p>
+      <p class="note">Pronto habrá talleres y programas abiertos aquí.</p>
       {{/if}}
     {{/get}}
   </div>

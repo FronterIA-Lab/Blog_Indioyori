@@ -1,4 +1,4 @@
-# Soberanía Cognitiva — Theme Ghost v1.5.2
+# Soberanía Cognitiva — Theme Ghost v1.5.3
 
 Menú en español claro: Inicio · Archivo · Manifiesto · Membresía · Talleres · Comunidad · Contacto.
 
