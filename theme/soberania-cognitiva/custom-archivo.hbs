@@ -1,20 +1,19 @@
 {{!< default}}
-{{!-- El archivo de lo improbable = biblioteca pública. --}}
+{{!-- El archivo de lo improbable = biblioteca pública de análisis y datos. --}}
 
 {{#post}}
 <section class="section">
   <div class="container">
     <p class="breadcrumb"><a href="{{@site.url}}/">Inicio</a> / {{title}}</p>
     <div class="section-head">
-      <span class="s-eyebrow">Biblioteca · lo que invento y publico</span>
+      <span class="s-eyebrow">Archivo · opinión y datos</span>
       <h1 class="s-title">{{title}}</h1>
       {{#if custom_excerpt}}
         <p class="s-desc">{{custom_excerpt}}</p>
       {{else}}
-        <p class="s-desc">Análisis, notas, video, podcast y documentos. El conocimiento publicado es libre: entra, lee, escucha, usa.</p>
+        <p class="s-desc">Análisis, video, podcast y documentos. Opinión fundada y datos publicados: entra, lee, escucha, usa.</p>
       {{/if}}
     </div>
-    {{!-- Solo muestra contenido del editor si no está vacío; borra notas internas del editor de Ghost. --}}
     {{#if content}}<div class="prose" style="margin:0 0 1.5rem"><div class="post-content">{{content}}</div></div>{{/if}}
 
     <nav class="archivo-map" aria-label="Secciones del archivo">
@@ -26,12 +25,12 @@
       <a class="archivo-door" href="#video">
         <span class="archivo-door-k">02</span>
         <span class="archivo-door-t">Video</span>
-        <span class="archivo-door-d">Piezas en movimiento</span>
+        <span class="archivo-door-d">Análisis en movimiento</span>
       </a>
       <a class="archivo-door" href="#podcast">
         <span class="archivo-door-k">03</span>
         <span class="archivo-door-t">Podcast</span>
-        <span class="archivo-door-d">Más despacio, más íntimo</span>
+        <span class="archivo-door-d">Opinión y datos</span>
       </a>
       <a class="archivo-door" href="#documentos">
         <span class="archivo-door-k">04</span>
@@ -48,7 +47,7 @@
     <div class="section-head">
       <span class="s-eyebrow">01</span>
       <h2 class="s-title">Notas &amp; análisis</h2>
-      <p class="s-desc">Lo escrito: análisis, intervenciones, lecturas.</p>
+      <p class="s-desc">Lo escrito: análisis, intervenciones, lecturas con criterio político.</p>
     </div>
     {{#get "posts" filter="tag:nota" limit="9" as |items|}}
       {{#if items}}
@@ -66,7 +65,7 @@
     <div class="section-head">
       <span class="s-eyebrow">02</span>
       <h2 class="s-title">Video</h2>
-      <p class="s-desc">Piezas en movimiento. La portada abre la publicación.</p>
+      <p class="s-desc">Análisis en movimiento. La portada abre la publicación.</p>
     </div>
     {{#get "posts" filter="tag:video" limit="6" as |items|}}
       {{#if items}}
@@ -92,7 +91,7 @@
     <div class="section-head">
       <span class="s-eyebrow">03</span>
       <h2 class="s-title">Podcast</h2>
-      <p class="s-desc">Donde hablo más despacio, más específico y más íntimo.</p>
+      <p class="s-desc">Opinión y datos, con más tiempo para argumentar. Política, territorio e infraestructura cognitiva.</p>
     </div>
     {{#get "posts" filter="tag:podcast" limit="8" as |items|}}
       {{#if items}}
@@ -118,7 +117,7 @@
     <div class="section-head">
       <span class="s-eyebrow">04</span>
       <h2 class="s-title">Documentos</h2>
-      <p class="s-desc">PDFs, checklists y materiales para leer y guardar.</p>
+      <p class="s-desc">PDFs, checklists y materiales para leer, citar y guardar.</p>
     </div>
     {{#get "posts" filter="tag:pdf" limit="10" as |items|}}
       {{#if items}}

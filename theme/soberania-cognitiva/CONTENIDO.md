@@ -1,4 +1,4 @@
-# Guía simple — Ghost IndioYori (theme v1.5.0)
+# Guía simple — Ghost IndioYori (theme v1.5.5)
 
 Sitio: https://indioyori.ghost.io  
 
