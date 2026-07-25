@@ -108,12 +108,13 @@ Para un taller: **Post** → texto + botón Stripe → tag **`taller`** → Publ
 | Apoya el proyecto | lo que quieras | Donación aparte |
 
 **Programa RAG — cómo debe quedar el post**
+- Título: **Sistemas RAG de borde y soberanía algorítmica**
 - Precio fijo: **$6,500 MXN** (pago único)
-- Inicio: **7 de agosto de 2026**
-- Duración orientativa: **~16 horas**
+- Inicio: **31 de julio de 2026**
+- Duración: **~16 horas en vivo** · cupo **20** · horario CDMX
 - Tag: `taller`
-- Excerpt sugerido: `Programa de ~16 h para diseñar e implementar RAG soberano en perímetro propio. Inicia 7 ago 2026 · $6,500 MXN.`
-- En el cuerpo: precio visible arriba + botón Stripe + qué incluye (arquitectura, práctica, perímetro, criterio) + a quién va + que **no sustituye** al archivo libre ni a la membresía.
+- Excerpt: `~16 h en vivo para diseñar e implementar un RAG soberano en perímetro propio. Inicia 31 jul 2026 · cupo 20 · $6,500 MXN.`
+- En el cuerpo: precio + fechas + a quién va + qué incluye (sistema propio + app visual) + botón Stripe.
 
 ## Archivo / Manifiesto (Ghost)
 
