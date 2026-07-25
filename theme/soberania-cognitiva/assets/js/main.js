@@ -88,16 +88,14 @@
             return;
           }
           var err = (res.body && (res.body.error || res.body.message)) || "";
-          if (res.status === 403 || /activate|confirm|verify/i.test(err)) {
-            showStatus("Formspree pide activar el correo: revisa tu bandeja (y spam) y confirma el formulario.");
-          } else if (res.status === 422) {
-            showStatus("Formspree rechazó el envío. Revisa que el Contact endpoint sea https://formspree.io/f/xxxxx");
+          if (res.status === 422) {
+            showStatus("Revisa nombre, correo y mensaje.");
           } else {
             showStatus("No se pudo enviar (" + res.status + "). Escríbeme a " + mail + (err ? " · " + err : ""));
           }
         })
         .catch(function () {
-          showStatus("Sin conexión o el enlace de Formspree está mal. Escríbeme a " + mail);
+          showStatus("Sin conexión o el endpoint de contacto está mal. Escríbeme a " + mail);
         });
     });
   }

@@ -141,8 +141,17 @@ https://github.com/FronterIA-Lab/Blog_Indioyori/raw/cursor/ghost-diseno-contenid
 
 Design → Upload → Activate.
 
-**Contacto (simple · v1.5.7):**
-1. Formspree → New Form → correo destino → copia **Integration** URL: `https://formspree.io/f/xxxxx` (no la del panel).
-2. Ghost → Design → Customize → **Contact endpoint** = esa URL · **Contact email** = tu correo → Save.
-3. Confirma el mail de activación de Formspree (si no, el envío falla).
-4. Página Contacto con template **Contacto**. Sube theme v1.5.7.
+**Contacto (gratis · sin Formspree):**
+
+Opción A — Namecheap (recomendado si ya pagas hosting):
+1. Sube `hosting/contacto.php` a tu hosting (cPanel → File Manager), p. ej. `https://fronteria-lab.com/contacto.php`
+2. Edita `$TO` en el PHP si tu correo no es `indioyori@fronteria-lab.com`
+3. Ghost → Design → Customize → **Contact endpoint** = esa URL → Save
+4. Prueba el formulario. Si Namecheap bloquea `mail()`, en cPanel activa “Email Routing” / usa un correo del dominio.
+
+Opción B — sin nada:
+- Deja **Contact endpoint** vacío. Solo funciona `mailto` (abre el correo del visitante).
+
+Opción C — FormSubmit (gratis, sin tarjeta):
+- Contact endpoint: `https://formsubmit.co/ajax/indioyori@fronteria-lab.com`  
+  (la primera vez confirma el mail de FormSubmit).
