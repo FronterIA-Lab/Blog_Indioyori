@@ -39,8 +39,8 @@
         <h3>Profundizar</h3>
         <ul class="offer-bullets">
           <li>Todo lo de cuenta gratis</li>
-          <li>Chat exclusivo</li>
-          <li>Información más especializada</li>
+          <li>Sala de trabajo en Matrix</li>
+          <li>Material especializado (no publicado en el archivo)</li>
         </ul>
         <a class="btn btn-brand" style="margin-top:0.75rem" href="{{@site.url}}/membresia/">Ver membresía</a>
       </div>
@@ -72,25 +72,25 @@
       </p>
       {{/if}}
 
-      {{!-- --- Chat exclusivo: solo pago --- --}}
+      {{!-- --- Sala de trabajo: solo pago --- --}}
       {{#if @member.paid}}
         {{#if @custom.matrix_paid_room_url}}
         <div class="section-head">
           <span class="s-eyebrow">Membresía</span>
-          <h2 class="s-title">Chat exclusivo</h2>
-          <p class="s-desc">Misma comunidad, capa más especializada: RAG, análisis, protocolos y materiales que no van al chat general.</p>
+          <h2 class="s-title">Sala de trabajo</h2>
+          <p class="s-desc">Misma comunidad, otra capa: RAG, análisis, protocolos y materiales que no van al archivo ni al chat general.</p>
         </div>
         <div class="chat">
-          <div class="chat-head"><span class="pulse" aria-hidden="true"></span><b>Chat exclusivo · miembros de pago</b></div>
-          <iframe src="{{@custom.matrix_paid_room_url}}" allow="microphone; camera; autoplay; clipboard-write; encrypted-media" title="Chat exclusivo · miembros de pago" loading="lazy"></iframe>
+          <div class="chat-head"><span class="pulse" aria-hidden="true"></span><b>Sala de trabajo · membresía</b></div>
+          <iframe src="{{@custom.matrix_paid_room_url}}" allow="microphone; camera; autoplay; clipboard-write; encrypted-media" title="Sala de trabajo · membresía" loading="lazy"></iframe>
         </div>
         {{else}}
-        <div class="note">Falta configurar <code>matrix_paid_room_url</code> en Design → Customize (URL de la sala exclusiva en Element).</div>
+        <div class="note">Falta configurar <code>matrix_paid_room_url</code> en Design → Customize (URL de la sala de trabajo en Element).</div>
         {{/if}}
       {{else}}
         <div class="callout">
           <h3>¿Necesitas el espacio de trabajo?</h3>
-          <p style="margin-top:0.5rem">Con tu cuenta gratis ya puedes comentar y usar el chat general. La membresía ($350 MXN/mes) suma chat exclusivo e información más especializada — sin quitarte lo que ya tienes.</p>
+          <p style="margin-top:0.5rem">Con tu cuenta gratis ya puedes comentar y usar el chat general. La membresía ($350 MXN/mes) suma herramientas y conocimiento especializado que no publico en el archivo — sin reducir tu acceso a lo que ya está publicado.</p>
           <div class="cta-row" style="margin-top:1rem">
             <a class="btn btn-brand" href="{{@site.url}}/membresia/">Ver membresía</a>
           </div>
@@ -112,7 +112,7 @@
       <div>
         <span class="s-eyebrow">Cuenta gratis</span>
         <h2 class="s-title">El sitio funciona sin pagar.</h2>
-        <p class="s-desc">Regístrate para comentar y entrar al chat general. El pago es opcional: solo si quieres la capa exclusiva.</p>
+        <p class="s-desc">Regístrate para comentar y entrar al chat general. El pago es opcional: solo si quieres la capa de trabajo especializada.</p>
         <div class="cta-row" style="margin-top:1.25rem">
           {{#unless @member}}
           <a class="btn btn-brand" href="#/portal/signup" data-portal="signup">Crear cuenta gratis</a>
@@ -123,8 +123,8 @@
         </div>
       </div>
       <div class="callout">
-        <h3>Gratis + opcional</h3>
-        <p style="font-size:0.9rem;margin-top:0.5rem">No es un muro. Es la misma casa: una sala abierta a quien se inscribe, y otra más íntima para quien sostiene el trabajo con la membresía.</p>
+        <h3>Libre + opcional</h3>
+        <p style="font-size:0.9rem;margin-top:0.5rem">Lo publicado no se cierra con un muro. La membresía no compra exclusividad: suma herramientas especializadas para quien las necesita.</p>
       </div>
     </div>
   </div>
