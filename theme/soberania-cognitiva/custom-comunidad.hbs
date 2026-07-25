@@ -1,29 +1,73 @@
 {{!< default}}
-{{!-- Plantilla: Comunidad. Asígnala a tu página "Comunidad". --}}
+{{!-- Plantilla: Comunidad.
+     Pública para leer. Chat privado solo para miembros de pago.
+     Comentarios: se configuran en Ghost → Membership → Comments (solo miembros). --}}
 
 {{#post}}
 <section class="section">
   <div class="container">
     <p class="breadcrumb"><a href="{{@site.url}}/">Inicio</a> / {{title}}</p>
     <div class="section-head">
-      <span class="s-eyebrow">Comunidad · sin plataforma extractiva</span>
+      <span class="s-eyebrow">Comunidad · cercanía con criterio</span>
       <h1 class="s-title">{{title}}</h1>
       {{#if custom_excerpt}}<p class="s-desc">{{custom_excerpt}}</p>{{/if}}
     </div>
 
-    {{#if @custom.matrix_room_url}}
-    <div class="chat">
-      <div class="chat-head"><span class="pulse" aria-hidden="true"></span><b>Sala en vivo · #Soberania_Cognitiva</b></div>
-      <iframe src="{{@custom.matrix_room_url}}" allow="microphone; camera; autoplay; clipboard-write; encrypted-media" title="Chat en vivo · Soberanía Cognitiva" loading="lazy"></iframe>
+    <div class="grid-2" style="margin-bottom:2rem">
+      <div class="offer">
+        <span class="offer-badge outline">Público</span>
+        <h3>Lo que cualquiera puede hacer</h3>
+        <ul class="offer-bullets">
+          <li>Leer todo el sitio y el archivo</li>
+          <li>Ver talleres, precios e inscripciones</li>
+          <li>Escribir por Contacto seguro</li>
+        </ul>
+      </div>
+      <div class="offer">
+        <span class="offer-badge">Solo miembros</span>
+        <h3>Lo que abre la membresía</h3>
+        <ul class="offer-bullets">
+          <li>Comentar en las publicaciones</li>
+          <li>Entrar al chat privado especializado</li>
+          <li>Descargas y materiales avanzados</li>
+        </ul>
+        <a class="btn btn-brand" style="margin-top:0.75rem" href="{{@site.url}}/membresia/">Ver membresía · $500 MXN/mes</a>
+      </div>
     </div>
-    <p class="note" style="margin-top:1rem">
-      Sala Matrix: <code>#Soberania_Cognitiva:matrix.org</code>
-      {{#if @custom.matrix_user}} · Escríbeme también a <code>{{@custom.matrix_user}}</code>{{/if}}.
-      Abre en <a href="https://app.element.io" target="_blank" rel="noopener">Element</a> si el iframe no carga.
-    </p>
+
+    {{!-- Chat: solo miembros de pago --}}
+    {{#if @member.paid}}
+      {{#if @custom.matrix_room_url}}
+      <div class="chat">
+        <div class="chat-head"><span class="pulse" aria-hidden="true"></span><b>Chat privado · miembros</b></div>
+        <iframe src="{{@custom.matrix_room_url}}" allow="microphone; camera; autoplay; clipboard-write; encrypted-media" title="Chat privado · miembros" loading="lazy"></iframe>
+      </div>
+      <p class="note" style="margin-top:1rem">
+        Sala solo para el círculo de pago.
+        {{#if @custom.matrix_user}} Coordinación: <code>{{@custom.matrix_user}}</code>.{{/if}}
+        Si el iframe no carga, abre la sala en <a href="https://app.element.io" target="_blank" rel="noopener">Element</a>.
+      </p>
+      {{/if}}
+    {{else}}
+      <div class="callout">
+        <h3>Chat privado · solo miembros de pago</h3>
+        <p style="margin-top:0.5rem">El chat especializado no es público. Únete a la membresía para entrar a la sala, comentar en las notas y acceder a recursos avanzados de RAG y análisis.</p>
+        <div class="cta-row" style="margin-top:1rem">
+          {{#if @member}}
+            <a class="btn btn-brand" href="#/portal/account" data-portal="account">Mejorar a miembro de pago</a>
+          {{else}}
+            <a class="btn btn-brand" href="{{@site.url}}/membresia/">Unirme · $500 MXN/mes</a>
+            <a class="btn" href="#/portal/signin" data-portal="signin">Ya soy miembro · Entrar</a>
+          {{/if}}
+        </div>
+      </div>
     {{/if}}
 
-    {{#if content}}<div class="prose" style="margin-top:2rem"><div class="post-content">{{content}}</div></div>{{/if}}
+    {{#if content}}
+    <div class="prose" style="margin-top:2rem">
+      <div class="post-content">{{content}}</div>
+    </div>
+    {{/if}}
   </div>
 </section>
 
@@ -31,21 +75,21 @@
   <div class="container section">
     <div class="grid-2 narrow-right" style="align-items:center">
       <div>
-        <span class="s-eyebrow">Boletín</span>
+        <span class="s-eyebrow">Boletín gratuito</span>
         <h2 class="s-title">Los anuncios salen primero aquí.</h2>
-        <p class="s-desc">Talleres, notas nuevas y episodios de podcast. Sin spam: tu correo solo lo uso para escribirte.</p>
+        <p class="s-desc">Talleres, notas nuevas y episodios. Suscribirte al boletín es gratis y no es lo mismo que la membresía de pago.</p>
         <div class="cta-row" style="margin-top:1.25rem">
           {{#unless @member}}
-          <a class="btn btn-brand" href="#/portal/signup" data-portal="signup">Suscribirme</a>
+          <a class="btn btn-brand" href="#/portal/signup" data-portal="signup">Suscribirme al boletín</a>
           {{else}}
           <a class="btn btn-brand" href="#/portal/account" data-portal="account">Mi cuenta</a>
           {{/unless}}
-          <a class="btn btn-ghost" style="color:#fff;border-color:#3a3a3a" href="{{@site.url}}/contacto/">Contacto seguro</a>
+          <a class="btn btn-ghost" style="color:#fff;border-color:#3a3a3a" href="{{@site.url}}/membresia/">Membresía de pago</a>
         </div>
       </div>
       <div class="callout">
-        <h3>Cercanía real</h3>
-        <p style="font-size:0.9rem;margin-top:0.5rem">Escribe en la sala en vivo o comenta en cualquier publicación (foro de miembros). Si estoy disponible, respondo al momento; si no, te leo y vuelvo.</p>
+        <h3>Libre ≠ vacío</h3>
+        <p style="font-size:0.9rem;margin-top:0.5rem">El conocimiento publicado sigue abierto. El círculo de pago es para profundidad, chat y materiales que no caben en lo público.</p>
       </div>
     </div>
   </div>

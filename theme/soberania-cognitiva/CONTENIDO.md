@@ -1,37 +1,52 @@
-# Kit de contenido — Ghost (`indioyori.ghost.io`)
+# Organización del sitio — IndioYori / Ghost
 
-Copia y pega esto en el admin: `https://indioyori.ghost.io/ghost/`
+Sitio: https://indioyori.ghost.io · Admin: https://indioyori.ghost.io/ghost/
+
+## Cómo está organizado el acceso
+
+| Qué | Quién |
+|---|---|
+| Todo el contenido publicado (notas, manifiesto, archivo, info de talleres) | **Público** — cualquiera |
+| Contacto seguro | **Público** |
+| Comentar en publicaciones | **Solo miembros** (cuenta Ghost) |
+| Chat privado Matrix | **Solo miembros de pago** ($500 MXN/mes) |
+| Recursos avanzados / descargas sofisticadas | **Solo miembros de pago** |
+| Talleres, cursos, libros (pago único) | **Público ver** · pago por Stripe en cada producto |
+| Donar | Botón en **Membresía** (lo que sea) |
+
+**Importante:** suscribirse al boletín ≠ membresía de pago.  
+**Importante:** la membresía $500/mes ≠ el pago de un taller.
 
 ---
 
-## 0. Ajustes generales (Settings)
+## 1. Sube el theme v1.2
+
+Descarga:  
+https://github.com/FronterIA-Lab/Blog_Indioyori/raw/cursor/ghost-diseno-contenido-5ed3/soberania-cognitiva.zip
+
+Settings → Design → Change theme → Upload → **Activate**.
+
+### Customize (valores)
 
 | Campo | Valor |
 |---|---|
-| Site title | `IndioYori` |
-| Site description | `Soberanía cognitiva frente a la colonización de la gramática en los LLM. Talleres, archivo, podcast y comunidad.` |
-| Accent color | `#111111` |
-| Language / locale | `es` |
-| Publication icon / logo | (opcional; si no subes logo, el theme escribe **IndioYori**) |
-| TikTok / Facebook / X | tus URLs reales en Settings → Social accounts |
-
-**Design → Customize (theme):**
-
-| Ajuste | Valor |
-|---|---|
-| `matrix_room_url` | `https://app.element.io/#/room/%23Soberania_Cognitiva:matrix.org` |
-| `matrix_user` | `@indioyori:matrix.org` |
-| `contact_email` | `indioyori@fronteria-lab.com` |
-| `contact_endpoint` | (vacío por ahora, o URL Formspree/Basin) |
-| `hero_image` | sube tu retrato |
-
-**Membership → Comments:** Enable comments (All members o Paid, como prefieras).
+| Sysbar prompt | `indioyori@anáhuac` |
+| Sysbar tagline | `territorio Yoreme · Ódami · formación · crítica · comunidad` |
+| Logo subtitle | `Soberanía Cognitiva` |
+| Hero eyebrow | `investigador autónomo · CLACSO · yoreme · ódami` |
+| Hero heading | `Soberanía cognitiva frente a la colonización de la gramática en los LLM.` |
+| Hero subheading | `Talleres, archivo, podcast y comunidad desde territorio Anáhuac. Hablo de IA y sistemas RAG soberanos, geopolítica del conocimiento y decolonización.` |
+| Show hero | ON |
+| Matrix room url | URL de tu **sala privada** de miembros (Element) |
+| Matrix user | `@indioyori:matrix.org` |
+| Donate url | tu Payment Link de donación (Stripe) cuando lo tengas |
+| Contact email | `indioyori@fronteria-lab.com` |
+| Contact endpoint | vacío por ahora |
 
 ---
 
-## 1. Navegación
+## 2. Navegación Primary
 
-### Primary (ya la tienes)
 | Label | URL |
 |---|---|
 | Inicio | `/` |
@@ -39,9 +54,11 @@ Copia y pega esto en el admin: `https://indioyori.ghost.io/ghost/`
 | Talleres | `/talleres/` |
 | Archivo | `/archivo/` |
 | Comunidad | `/comunidad/` |
+| Membresía | `/membresia/` |
 | Contacto | `/contacto/` |
 
-### Secondary (filtros de portada — **no** pongas “Todo”, ya viene fijo)
+### Secondary (filtros; si no los pones, el theme ya muestra Notas/Talleres/Podcast/Territorio)
+
 | Label | URL |
 |---|---|
 | Notas | `/tag/nota/` |
@@ -49,176 +66,149 @@ Copia y pega esto en el admin: `https://indioyori.ghost.io/ghost/`
 | Podcast | `/tag/podcast/` |
 | Territorio | `/tag/territorio/` |
 
-Crea también las etiquetas: `nota`, `taller`, `podcast`, `territorio`, `video`, `pdf`.
+---
+
+## 3. Páginas y plantillas
+
+| Página | Slug | Template |
+|---|---|---|
+| Manifiesto | `manifiesto` | **Manifiesto** |
+| Talleres, libros y herramientas | `talleres` | **Talleres** |
+| El archivo de lo improbable | `archivo` | **Archivo** |
+| Comunidad | `comunidad` | **Comunidad** |
+| Membresía | `membresia` | **Membresía** |
+| Contacto | `contacto` | **Contacto** |
+
+En cada página: ⚙ → Template → elegir → Update.
 
 ---
 
-## 2. Páginas
+## 4. Manifiesto — qué pegar
 
-En cada una: **Pages → New page** → slug → ⚙ Template → Publish.
+**Template:** Manifiesto (ya existe en v1.2).  
+**Excerpt:** `Ninguna inteligencia artificial es neutral. Toda IA se entrena sobre una gramática, y esa gramática tiene dueños, geografía e historia.`
 
-### Manifiesto
-- **Title:** `Manifiesto`
-- **Slug:** `manifiesto`
-- **Template:** Default
-- **Excerpt:** `Ninguna inteligencia artificial es neutral. Toda IA se entrena sobre una gramática, y esa gramática tiene dueños, geografía e historia.`
+Cuerpo: el texto largo de soberanía cognitiva que ya tenías (secciones 1–5). No hace falta HTML especial: la plantilla le pone el diseño.
 
-Cuerpo (pega en el editor):
+---
+
+## 5. Membresía — qué pegar
+
+Crea la página si no existe.
+
+- **Title:** `Membresía`
+- **Slug:** `membresia`
+- **Template:** Membresía
+- **Excerpt:** `Todo lo básico del sitio es libre. El círculo de pago abre chat privado, comentarios y recursos avanzados por $500 MXN al mes.`
+
+**Cuerpo:**
 
 ```
-Ninguna inteligencia artificial es neutral. Toda IA se entrena sobre una gramática, y esa gramática tiene dueños, geografía e historia. La **Soberanía Cognitiva** es el derecho de un pueblo y de una persona a pensar con criterio propio frente a la colonización de esa gramática.
+## Qué incluye el círculo ($500 MXN / mes)
 
-Soy **IndioYori**: yoreme y ódami, académicx del CLACSO, investigador autónomo e ingeniero RAG. Trabajo en la frontera entre la inteligencia artificial y la defensa del territorio. Desde el Anáhuac construyo sistemas y palabras que no le entreguen la autoridad epistémica a nadie.
+- Chat privado con información más especializada
+- Comentarios en las publicaciones
+- Descargas y materiales más sofisticados
+- Conocimiento avanzado en arquitecturas RAG, análisis de datos y protocolos de búsqueda
 
-## 1. La gramática de los LLM es un territorio en disputa
+## Qué sigue libre (sin pagar)
 
-Los grandes modelos de lenguaje no «saben»: optimizan. Aprenden a predecir la siguiente palabra según los patrones dominantes del corpus con el que fueron entrenados. Ese corpus está escrito, en su enorme mayoría, en la lengua, la métrica y la cosmovisión del norte global. Cuando consumimos IA sin criterio, adoptamos esa gramática como si fuera el mundo. No lo es.
+- Todas las notas y el conocimiento publicado
+- El manifiesto, el archivo público y la información de talleres
+- Contacto seguro
 
-> La colonización ya no llega solo por la espada o por la escuela. Llega por el autocompletado.
-
-Mi gramática fue robada, y la que me impusieron sigue en proceso de crecimiento. Todos los días se aprende. Por eso el problema no es técnico: es político, geopolítico y profundamente íntimo.
-
-## 2. RAG soberano: datos que no salen del perímetro
-
-La respuesta no es rechazar la tecnología, sino poseerla. Diseño arquitecturas de **Recuperación Aumentada por Generación (RAG)** que corren en hardware propio —nodos edge, laptops, mini-PCs— para que el conocimiento de una comunidad, un despacho o un gobierno local no viaje a servidores ajenos.
-
-- **Nodo edge soberano.** RAG sobre tu propio corpus, sin renta obligatoria ni vigilancia. Propiedad total.
-- **Asistente de documentos privado.** Pregúntale a tus archivos sin que salgan de tu perímetro.
-- **Abstención antes que alucinación.** Un sistema soberano sabe cuándo callar: mejor decir «no sé» que inventar con autoridad.
-
-## 3. Método de Calibración Contextual (MCC)
-
-El MCC es la práctica con la que enseño a consumir IA sin ceder la autoridad epistémica. No es un truco de prompts: es una disciplina de criterio.
-
-- Reconocer la **colonialidad** de la herramienta y su gramática de optimización.
-- Los cuatro movimientos del MCC para mantener el criterio propio.
-- El «Árbol de Espejos» y el derecho a la abstención frente a la respuesta segura pero falsa.
-
-Lo enseño en el [Taller MCC](/talleres/) y lo dejo, en su forma esencial, como herramienta gratuita.
-
-## 4. Feminismo, decolonización y geopolítica del conocimiento
-
-La soberanía cognitiva no se entiende sin el feminismo ni sin la crítica decolonial. Quién produce el conocimiento, en qué lengua, para quién y contra quién: esas preguntas son el corazón de mi trabajo. La IA que hoy se presenta como universal reproduce jerarquías muy viejas con una interfaz muy nueva.
-
-## 5. Lo que sostengo
-
-- El criterio no es un algoritmo. La pantalla no debe pensar por ti.
-- La tecnología soberana es formación y voz pública, no vigilancia ni SaaS extractivo.
-- El territorio —físico y cognitivo— se defiende con comunidad, no con miedo.
-
-**Quién ejecuta, escribe, analiza, lucha**  
-IndioYori — investigador autónomo, ingeniero RAG, académicx del GT EPICC–CLACSO. Yoreme y ódami. Territorio Anáhuac.
+La inscripción a un taller o curso es un pago aparte (Stripe en cada producto). No sustituye ni incluye la membresía mensual.
 ```
 
-### Talleres
+### En Ghost (Membership)
+1. Settings → Membership → conecta **Stripe**
+2. Crea un tier: nombre `Círculo`, precio **500 MXN / month**
+3. Settings → Membership → **Comments** → solo miembros (Members)
+4. Haz la sala Matrix **privada** e invita solo a quien pague (o pega el enlace en `matrix_room_url`; el theme solo la muestra a `@member.paid`)
+
+### Donar
+Crea un Payment Link en Stripe (monto libre o fijo) y pégalo en Customize → `donate_url`.
+
+---
+
+## 6. Talleres — qué pegar (ofertas actuales)
+
 - **Title:** `Talleres, libros y herramientas`
 - **Slug:** `talleres`
 - **Template:** Talleres
-- **Excerpt:** `La palanca es formación corta y entregable. También dejo herramientas gratuitas. Las arquitecturas RAG comerciales viven en fronteria-lab.com.`
+- **Excerpt:** `Formación en vivo y programas. Cada producto tiene su propio pago con Stripe. La membresía mensual es aparte.`
 
-Cuerpo (ofertas; cambia los `buy.stripe.com` cuando tengas Payment Links):
-
-```
-## Tres ofertas. Nada más por ahora.
-
-**Taller MCC** · 2.5 h · en vivo · cupo 20  
-Método de Calibración Contextual + demo de TEKTRON. Cómo consumir IA sin ceder la autoridad epistémica.  
-$1,200 MXN · early $900  
-
-[Apartar lugar](https://buy.stripe.com/TU_LINK_TALLER_MCC)
-
-**Charla** · 1.5–2 h · grupo o institución  
-Feminismo y colonialidad, gramática de los LLM, soberanía cognitiva, geopolítica del conocimiento.  
-$8,000–$15,000 MXN · por evento  
-
-[Cotizar charla](/contacto/)
-
-**Curso cohort** · 4 sesiones × 2 h · 3 semanas  
-Colonización de la gramática: teoría + práctica.  
-$2,800 MXN · early $2,200  
-
-[Lista de espera](/contacto/)
-
-## Calendario julio — octubre 2026
-
-| Fecha | Oferta | Estado |
-|---|---|---|
-| 22 jul | Taller MCC #1 | Abierto |
-| ago | Taller MCC #2 · Charlas a pedido | Programar |
-| 1–7 sep | Curso cohort | Lista de espera |
-| sep–oct | Diagnóstico de soberanía | Post-taller |
-
-## Libros
-
-**La colonización de la gramática** · eBook PDF · $220 MXN  
-[Comprar eBook](https://buy.stripe.com/TU_LINK_EBOOK_GRAMATICA)
-
-**Método de Calibración Contextual** · cuaderno práctico PDF  
-[Ver en Archivo](/archivo/)
-```
-
-### Archivo
-- **Title:** `El archivo de lo improbable`
-- **Slug:** `archivo`
-- **Template:** Archivo
-- **Excerpt:** `PDFs, notas, video y podcast. Lo improbable se archiva aquí.`
-
-Cuerpo (corto; los bloques se llenan solos con etiquetas):
+**Cuerpo** (cambia `TU_LINK_…` por tus Payment Links reales):
 
 ```
-Notas, video, podcast y PDFs. Etiqueta cada publicación con `nota`, `video`, `podcast` o `pdf` y aparece sola en su bloque.
+## Taller MCC · abierto
+
+**Sábado 1 de agosto de 2026 · 17:00–20:00** (hora del centro de México)  
+Sesión única en vivo · cupo 20 · pago completo · **$2,300 MXN**
+
+Método de Calibración Contextual: usar IA sin ceder tu autoridad epistémica.
+
+Interrumpe la gramática de optimización de los LLM: mapear exclusiones, sostener contradicciones y reposicionarte como quien produce y valida el conocimiento.
+
+- Detectar certeza sin sustancia
+- Mapear exclusiones y tensiones irreductibles
+- Pedir marcos, no planes empaquetados
+- Demo en vivo de TEKTRON
+
+Las próximas fechas se publican cuando abre cada convocatoria. Ahora solo está abierta esta.
+
+[Reservar mi lugar · $2,300 MXN](https://buy.stripe.com/TU_LINK_TALLER_MCC)
+
+---
+
+## Soberanía cognitiva y sistemas RAG
+
+El programa central de esta formación: marco teórico-operativo y entrega técnica. Pensado para quien investiga, enseña o defiende territorio y necesita salir con criterio — y con sistema.
+
+**Inicio:** 7 de agosto de 2026  
+**~16 horas en vivo · cupo 20 · horario con referencia Ciudad de México**  
+**$6,500 MXN** · pago completo
+
+Para: investigadores · docentes · defensa del territorio · RAG propio · app visual incluida
+
+Aprende a leer la gramática de los LLM, a recuperar conocimiento sobre tu corpus sin entregarlo a nubes ajenas, y a construir un sistema RAG soberano que te pertenece. Incluye, de regalo, una app de organización visual para tu flujo de trabajo.
+
+- Soberanía cognitiva aplicada a investigación, docencia e incidencia
+- Arquitecturas RAG y búsqueda eficiente con citas a la fuente
+- Construcción de tu propio sistema RAG soberano
+- App de organización visual (incluida)
+
+[Reservar mi lugar · $6,500 MXN](https://buy.stripe.com/TU_LINK_RAG)  
+[Solicitar propuesta grupal / institucional](/contacto/)
+
+Tras el pago recibirás confirmación y el calendario de sesiones.
 ```
 
-### Comunidad
-- **Title:** `Comunidad`
-- **Slug:** `comunidad`
+En el editor de Ghost, selecciona cada frase “Reservar mi lugar…” y conviértela en **Button** (tarjeta Botón) si quieres que se vea como botón grande.
+
+---
+
+## 7. Comunidad — qué pegar
+
 - **Template:** Comunidad
-- **Excerpt:** `Un lugar para dejar mensajes y que respondan al momento. Chat en vivo con Matrix. Sin Zoom como dependencia, sin vigilancia.`
+- **Excerpt:** `El sitio es público. Comentar y el chat privado son para miembros.`
 
-Cuerpo:
-
-```
-## Foro asíncrono
-
-En cada publicación puedes comentar (membresía Ghost). Para lo que no cabe en un chat rápido: hilos, dudas de los talleres, propuestas de colaboración y defensa del territorio.
-
-- Comentarios de miembros en cada nota.
-- Chat en vivo arriba: sala `#Soberania_Cognitiva:matrix.org`.
-- Mi usuario Matrix: `@indioyori:matrix.org`.
-```
-
-### Contacto
-- **Title:** `Contacto`
-- **Slug:** `contacto`
-- **Template:** Contacto
-- **Excerpt:** `Me han llegado mensajes anónimos y raros. Por eso pido un correo o contacto real: por aquí pueden llegar clientes, colaboraciones y grupos de defensa del territorio.`
-
-Cuerpo (opcional; el formulario ya está en la plantilla):
+**Cuerpo:**
 
 ```
-Escribe con nombre y correo. Respondo cuando haya algo concreto que atender: talleres, charlas, colaboraciones, territorio.
+## Cómo participar
+
+1. Lee y usa lo público sin cuenta.
+2. Crea cuenta / membresía para **comentar**.
+3. Membresía de pago ($500 MXN/mes) para el **chat privado** y recursos avanzados.
+
+Más detalle en [Membresía](/membresia/).
 ```
 
 ---
 
-## 3. Primera publicación de prueba
+## 8. Botones de la portada
 
-1. **Posts → New post**
-2. Título: `Soberanía cognitiva: por qué la gramática de los LLM no es neutral`
-3. Etiquetas: `nota`, `territorio`
-4. Feature image + un párrafo
-5. Publish
+Con el theme 1.2 la portada muestra tres botones: **Ver talleres · Manifiesto · Membresía**, y debajo los filtros (Todo / Notas / Talleres / Podcast / Territorio).
 
-Debería aparecer en Inicio, en el filtro **Notas**, y en Archivo → Notas.
-
----
-
-## 4. Matrix (resumen)
-
-| Qué | Valor |
-|---|---|
-| Sala | `#Soberania_Cognitiva:matrix.org` |
-| Tu usuario | `@indioyori:matrix.org` |
-| URL del theme | `https://app.element.io/#/room/%23Soberania_Cognitiva:matrix.org` |
-
-Entra a Element con `@indioyori:matrix.org`, únete/modera la sala, y deja el iframe apuntando a esa URL.
+Si no los ves: recarga forzada (Ctrl+Shift+R) después de activar el theme nuevo.

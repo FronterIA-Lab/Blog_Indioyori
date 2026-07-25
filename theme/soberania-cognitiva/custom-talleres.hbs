@@ -1,32 +1,23 @@
 {{!< default}}
-{{!-- Plantilla: Talleres, libros y herramientas. Asígnala a tu página "Talleres". --}}
+{{!-- Plantilla: Talleres, libros y herramientas.
+     Aquí van productos con Payment Links de Stripe en el contenido.
+     La membresía mensual ($500) vive en /membresia/ — no aquí. --}}
 
 {{#post}}
 <section class="section">
   <div class="container">
     <p class="breadcrumb"><a href="{{@site.url}}/">Inicio</a> / {{title}}</p>
     <div class="section-head">
-      <span class="s-eyebrow">Formación</span>
+      <span class="s-eyebrow">Formación · talleres · libros · cursos</span>
       <h1 class="s-title">{{title}}</h1>
       {{#if custom_excerpt}}<p class="s-desc">{{custom_excerpt}}</p>{{/if}}
     </div>
 
-    {{#get "tiers" limit="all" as |tiers|}}
-      {{#if tiers}}
-      <div class="offer-grid" style="margin-bottom:2rem">
-        {{#foreach tiers}}
-          <article class="offer">
-            <span class="offer-badge">Membresía</span>
-            <h3>{{name}}</h3>
-            {{#if description}}<p class="offer-desc">{{description}}</p>{{/if}}
-            {{#if monthly_price}}<p class="offer-price">{{price monthly_price currency=currency}} <span>· al mes</span></p>{{/if}}
-            {{#if yearly_price}}<p class="offer-meta">o {{price yearly_price currency=currency}} al año</p>{{/if}}
-            <a class="btn btn-brand btn-full" href="#/portal/signup/{{id}}/monthly" data-portal="signup/{{id}}/monthly">Suscribirme</a>
-          </article>
-        {{/foreach}}
-      </div>
-      {{/if}}
-    {{/get}}
+    <div class="note" style="margin-bottom:1.5rem">
+      Cada taller, libro o curso lleva su propio botón de pago (Stripe).
+      La membresía mensual del círculo privado está en
+      <a href="{{@site.url}}/membresia/"><b>Membresía</b></a>.
+    </div>
   </div>
 </section>
 
@@ -34,6 +25,19 @@
   <div class="container prose">
     <div class="post-content">
       {{content}}
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="callout">
+      <h3>¿Inscripción grupal o a la medida?</h3>
+      <p style="margin-top:0.5rem">Equipo, colectivo, aula, organización o institución: escríbeme con el contexto y armamos propuesta.</p>
+      <div class="cta-row" style="margin-top:1rem">
+        <a class="btn btn-brand" href="{{@site.url}}/contacto/">Solicitar propuesta grupal / institucional</a>
+        <a class="btn" href="{{@site.url}}/membresia/">Ver membresía mensual</a>
+      </div>
     </div>
   </div>
 </section>

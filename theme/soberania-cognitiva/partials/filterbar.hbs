@@ -1,11 +1,17 @@
-{{!-- Barra de filtros: "Todo" fijo + Secondary navigation de Ghost --}}
-{{#if @site.secondary_navigation}}
+{{!-- Barra de filtros en portada.
+     Usa Secondary navigation si existe; si no, muestra filtros por defecto. --}}
 <nav class="filterbar" aria-label="Filtrar por tema">
   <ul>
     <li class="{{#is "home"}}nav-current{{/is}}"><a href="{{@site.url}}/">Todo</a></li>
-    {{#foreach secondary_navigation}}
-      <li class="{{#if current}}nav-current{{/if}}"><a href="{{url absolute="true"}}">{{label}}</a></li>
-    {{/foreach}}
+    {{#if @site.secondary_navigation}}
+      {{#foreach secondary_navigation}}
+        <li class="{{#if current}}nav-current{{/if}}"><a href="{{url absolute="true"}}">{{label}}</a></li>
+      {{/foreach}}
+    {{else}}
+      <li><a href="{{@site.url}}/tag/nota/">Notas</a></li>
+      <li><a href="{{@site.url}}/tag/taller/">Talleres</a></li>
+      <li><a href="{{@site.url}}/tag/podcast/">Podcast</a></li>
+      <li><a href="{{@site.url}}/tag/territorio/">Territorio</a></li>
+    {{/if}}
   </ul>
 </nav>
-{{/if}}

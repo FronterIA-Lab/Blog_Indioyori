@@ -1,0 +1,97 @@
+{{!< default}}
+{{!-- Plantilla: Membresía. Asígnala a tu página "Membresía".
+     Todo el sitio es público. La membresía de pago abre chat privado + recursos avanzados. --}}
+
+{{#post}}
+<section class="section">
+  <div class="container">
+    <p class="breadcrumb"><a href="{{@site.url}}/">Inicio</a> / {{title}}</p>
+    <div class="section-head">
+      <span class="s-eyebrow">Acceso · libre + círculo de pago</span>
+      <h1 class="s-title">{{title}}</h1>
+      {{#if custom_excerpt}}<p class="s-desc">{{custom_excerpt}}</p>{{/if}}
+    </div>
+
+    <div class="grid-2" style="margin-bottom:2rem">
+      <div class="offer">
+        <span class="offer-badge outline">Libre · para todas</span>
+        <h3>Sitio abierto</h3>
+        <p class="offer-desc">Todos los recursos básicos y el conocimiento publicado del sitio son de libre acceso. Notas, archivo, talleres (información), manifiesto y contacto: sin muro.</p>
+        <ul class="offer-bullets">
+          <li>Lectura pública de todo el contenido publicado</li>
+          <li>Archivo, podcast y herramientas gratuitas visibles</li>
+          <li>Sin cuenta obligatoria para navegar</li>
+        </ul>
+      </div>
+      <div class="offer">
+        <span class="offer-badge">Miembros · $500 MXN / mes</span>
+        <h3>Círculo de pago</h3>
+        <p class="offer-desc">Chat privado con información más especializada, descargas sofisticadas y conocimiento avanzado en arquitecturas RAG, análisis de datos y protocolos de búsqueda.</p>
+        <ul class="offer-bullets">
+          <li>Chat privado (Matrix) solo para miembros de pago</li>
+          <li>Comentar en las publicaciones</li>
+          <li>Recursos y materiales avanzados</li>
+        </ul>
+      </div>
+    </div>
+
+    {{#get "tiers" include="monthly_price,yearly_price,currency" limit="all" as |tiers|}}
+      {{#if tiers}}
+      <div class="section-head">
+        <span class="s-eyebrow">Suscripción</span>
+        <h2 class="s-title">Únete al círculo</h2>
+      </div>
+      <div class="offer-grid" style="margin-bottom:2rem">
+        {{#foreach tiers}}
+          <article class="offer">
+            <span class="offer-badge">{{#if monthly_price}}Pago{{else}}Gratis{{/if}}</span>
+            <h3>{{name}}</h3>
+            {{#if description}}<p class="offer-desc">{{description}}</p>{{/if}}
+            {{#if monthly_price}}
+              <p class="offer-price">{{price monthly_price currency=currency}} <span>· al mes</span></p>
+              {{#if yearly_price}}<p class="offer-meta">o {{price yearly_price currency=currency}} al año</p>{{/if}}
+              {{#if @member.paid}}
+                <a class="btn btn-brand btn-full" href="#/portal/account" data-portal="account">Ya eres miembro · Mi cuenta</a>
+              {{else}}
+                <a class="btn btn-brand btn-full" href="#/portal/signup/{{id}}/monthly" data-portal="signup/{{id}}/monthly">Unirme · {{price monthly_price currency=currency}}/mes</a>
+              {{/if}}
+            {{else}}
+              <p class="offer-meta">Cuenta gratuita para el boletín</p>
+              {{#unless @member}}
+                <a class="btn btn-full" href="#/portal/signup" data-portal="signup">Crear cuenta gratis</a>
+              {{else}}
+                <a class="btn btn-full" href="#/portal/account" data-portal="account">Mi cuenta</a>
+              {{/unless}}
+            {{/if}}
+          </article>
+        {{/foreach}}
+      </div>
+      {{else}}
+      <div class="callout" style="margin-bottom:2rem">
+        <h3>Configura el tier en Ghost</h3>
+        <p style="margin-top:0.5rem">Settings → Membership → crea un tier de <b>$500 MXN / mes</b> y conéctalo a Stripe. Cuando exista, el botón de pago aparece aquí solo.</p>
+        <div class="cta-row" style="margin-top:1rem">
+          <a class="btn btn-brand" href="#/portal/signup" data-portal="signup">Abrir portal de membresía</a>
+        </div>
+      </div>
+      {{/if}}
+    {{/get}}
+
+    {{#if @custom.donate_url}}
+    <div class="callout" style="margin-bottom:2rem">
+      <h3>Donar</h3>
+      <p style="margin-top:0.5rem">Si el contenido libre te sirve y quieres sostener el trabajo sin suscripción mensual, puedes donar lo que sea.</p>
+      <div class="cta-row" style="margin-top:1rem">
+        <a class="btn btn-brand" href="{{@custom.donate_url}}" target="_blank" rel="noopener">Donar</a>
+      </div>
+    </div>
+    {{/if}}
+
+    {{#if content}}
+    <div class="prose">
+      <div class="post-content">{{content}}</div>
+    </div>
+    {{/if}}
+  </div>
+</section>
+{{/post}}

@@ -1,7 +1,7 @@
 {
   "name": "soberania-cognitiva",
   "description": "Theme de Ghost para IndioYori — Soberanía Cognitiva. Diseño limpio en blanco y negro, tipografía Space Mono; el color lo ponen las imágenes.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "engines": {
     "ghost": ">=5.0.0"
   },
@@ -66,6 +66,10 @@
       "matrix_user": {
         "type": "text",
         "default": "@indioyori:matrix.org"
+      },
+      "donate_url": {
+        "type": "text",
+        "default": ""
       },
       "contact_endpoint": {
         "type": "text",

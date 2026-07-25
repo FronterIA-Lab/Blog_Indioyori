@@ -1,0 +1,32 @@
+{{!< default}}
+{{!-- Plantilla: Manifiesto. Asígnala a tu página "Manifiesto". --}}
+
+{{#post}}
+{{#if feature_image}}
+<section class="article-hero">
+  <img src="{{img_url feature_image size="xl"}}" alt="{{title}}">
+</section>
+{{/if}}
+
+<article class="section">
+  <div class="container prose">
+    <p class="breadcrumb"><a href="{{@site.url}}/">Inicio</a> / {{title}}</p>
+    <span class="eyebrow page-eyebrow">tesis · soberanía cognitiva</span>
+    <h1 class="page-title">{{title}}</h1>
+    {{#if custom_excerpt}}<p class="lead">{{custom_excerpt}}</p>{{/if}}
+    <div class="post-content">
+      {{content}}
+    </div>
+
+    <div class="callout" style="margin-top:2.5rem">
+      <h3>Quién ejecuta, escribe, analiza, lucha</h3>
+      <p style="margin-top:0.5rem">IndioYori — investigador autónomo, ingeniero RAG, académicx del GT EPICC–CLACSO. Yoreme y ódami. Territorio Anáhuac.</p>
+      <div class="cta-row" style="margin-top:1rem">
+        <a class="btn btn-brand" href="{{@site.url}}/talleres/">Formarte conmigo</a>
+        <a class="btn" href="{{@site.url}}/membresia/">Membresía</a>
+        <a class="btn" href="{{@site.url}}/contacto/">Escríbeme</a>
+      </div>
+    </div>
+  </div>
+</article>
+{{/post}}
