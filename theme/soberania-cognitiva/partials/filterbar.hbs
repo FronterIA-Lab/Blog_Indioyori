@@ -1,0 +1,11 @@
+{{!-- Barra de filtros: "Todo" fijo + Secondary navigation de Ghost --}}
+{{#if @site.secondary_navigation}}
+<nav class="filterbar" aria-label="Filtrar por tema">
+  <ul>
+    <li class="{{#is "home"}}nav-current{{/is}}"><a href="{{@site.url}}/">Todo</a></li>
+    {{#foreach secondary_navigation}}
+      <li class="{{#if current}}nav-current{{/if}}"><a href="{{url absolute="true"}}">{{label}}</a></li>
+    {{/foreach}}
+  </ul>
+</nav>
+{{/if}}

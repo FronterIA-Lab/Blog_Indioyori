@@ -2,66 +2,93 @@
 
 Theme para **IndioYori**. Diseño limpio en **blanco y negro** (el color lo ponen tus imágenes) y tipografía **Space Mono**. Pensado para **Ghost Pro**.
 
+Sitio actual: **https://indioyori.ghost.io**  
+Admin: **https://indioyori.ghost.io/ghost/**
+
+Textos listos para pegar: ver [`CONTENIDO.md`](./CONTENIDO.md).
+
 ## 1. Subir el theme a Ghost
 
-**Opción A — Subir el .zip (la más sencilla):**
-1. Descarga `soberania-cognitiva.zip` (está en la raíz del repositorio).
-2. En tu Ghost: **Settings → Design & branding → Change theme → Upload theme**.
+1. Descarga `soberania-cognitiva.zip` (raíz del repositorio).
+2. En Ghost: **Settings → Design & branding → Change theme → Upload theme**.
 3. Sube el `.zip` y pulsa **Activate**.
-
-**Opción B — Publicación automática desde GitHub (opcional):**
-Usa la GitHub Action oficial `TryGhost/action-deploy-theme` para que cada cambio se publique solo. Requiere crear una *Custom Integration* en Ghost y guardar `GHOST_ADMIN_API_URL` y `GHOST_ADMIN_API_KEY` como *secrets* en GitHub. (Puedo dejártela lista si la quieres.)
+4. Accent color: `#111111`.
 
 ## 2. Crear las páginas (una sola vez)
 
-En Ghost, **Pages → New page** y crea estas páginas. En cada una, abre los **ajustes** (rueda dentada arriba a la derecha) → **Template** y elige la plantilla indicada:
+**Pages → New page**. En cada una: ⚙ → **Slug** + **Template** → Publish.
 
-| Página (título) | Slug (URL) | Template a elegir |
+| Página (título) | Slug | Template |
 |---|---|---|
-| Manifiesto | `manifiesto` | *Default* (página normal) |
+| Manifiesto | `manifiesto` | *Default* |
 | Talleres | `talleres` | **Talleres** |
 | Archivo | `archivo` | **Archivo** |
 | Comunidad | `comunidad` | **Comunidad** |
 | Contacto | `contacto` | **Contacto** |
 
-> El texto de cada página lo escribes tú en el editor de Ghost. La plantilla solo pone el diseño alrededor.
-
 ## 3. Menú de navegación
 
-**Settings → Navigation** y agrega los enlaces (Ghost los muestra en la cabecera):
-`Inicio → /` · `Manifiesto → /manifiesto/` · `Talleres → /talleres/` · `Archivo → /archivo/` · `Comunidad → /comunidad/` · `Contacto → /contacto/`
+**Settings → Navigation**
 
-La **navegación secundaria** de Ghost se usa como barra de filtros en la portada (p. ej. enlaces a etiquetas: `/tag/nota/`, `/tag/podcast/`).
+**Primary**
 
-## 4. El Archivo se llena solo con etiquetas
+| Label | URL |
+|---|---|
+| Inicio | `/` |
+| Manifiesto | `/manifiesto/` |
+| Talleres | `/talleres/` |
+| Archivo | `/archivo/` |
+| Comunidad | `/comunidad/` |
+| Contacto | `/contacto/` |
 
-La página **Archivo** arma sus bloques automáticamente según la **etiqueta** de cada publicación:
+**Secondary** (filtros de portada — **no** agregues “Todo”, ya viene en el theme)
 
-- `nota` → bloque **Notas & posts**
-- `video` → bloque **Video** (la portada lleva a la publicación con el video embebido)
-- `podcast` → bloque **Podcast**
-- `pdf` → bloque **PDFs & documentos**
+| Label | URL |
+|---|---|
+| Notas | `/tag/nota/` |
+| Talleres | `/tag/taller/` |
+| Podcast | `/tag/podcast/` |
+| Territorio | `/tag/territorio/` |
 
-Solo etiqueta tus posts con esas palabras. La **imagen de portada** (feature image) de cada post es la que se ve en las tarjetas.
+## 4. Archivo = etiquetas
 
-## 5. Ajustes del theme (colores y textos rápidos)
+| Etiqueta | Bloque en Archivo |
+|---|---|
+| `nota` | Notas & posts |
+| `video` | Video |
+| `podcast` | Podcast |
+| `pdf` | PDFs & documentos |
 
-En **Settings → Design & branding → (tu theme) → Customize** puedes editar sin tocar código:
+## 5. Customize del theme
 
-- **sysbar_prompt / sysbar_tagline** — la barra tipo terminal de arriba.
-- **logo_subtitle** — el subtítulo bajo el nombre.
-- **hero_eyebrow / hero_heading / hero_subheading / hero_image** — el bloque grande de la portada.
-- **show_hero** — mostrar u ocultar la portada grande.
-- **matrix_room_url** — la sala de chat en vivo (Element/Matrix) de la página Comunidad.
-- **contact_endpoint** — URL de tu formulario (Formspree/Basin/Worker). Si lo dejas vacío, el formulario abre el correo.
-- **contact_email** — tu correo de contacto.
+**Settings → Design → Customize**
 
-## 6. Vender (Stripe) y comunidad
+| Ajuste | Para qué |
+|---|---|
+| `sysbar_prompt` / `sysbar_tagline` | Barra tipo terminal |
+| `logo_subtitle` | Subtítulo bajo IndioYori |
+| `hero_*` / `show_hero` | Portada |
+| `matrix_room_url` | Iframe de la sala en vivo |
+| `matrix_user` | Tu handle Matrix (aparece en Comunidad) |
+| `contact_email` / `contact_endpoint` | Contacto seguro |
 
-- **Cobros:** se configuran en **Settings → Membership** (Ghost conecta Stripe de forma nativa). Crea tus **Tiers** (niveles) y aparecerán solos en la página **Talleres**. Para pagos únicos (un libro, un lugar en un taller) puedes usar botones con Payment Links de Stripe dentro del contenido.
-- **Foro / comentarios:** activa **Settings → Comments** para que los miembros conversen en cada publicación.
-- **Chat en vivo:** se muestra vía Matrix en la página Comunidad (ajuste `matrix_room_url`).
+**Valores Matrix actuales**
 
-## 7. Imágenes incluidas
+- Sala: `#Soberania_Cognitiva:matrix.org`
+- Usuario: `@indioyori:matrix.org`
+- `matrix_room_url`: `https://app.element.io/#/room/%23Soberania_Cognitiva:matrix.org`
 
-En `assets/img/` van las imágenes seleccionadas de tu archivo, disponibles como respaldo (por ejemplo, el retrato del hero). Puedes reemplazarlas subiendo las tuyas desde Ghost.
+## 6. Comentarios (= foro) y Stripe
+
+- **Foro:** Settings → Membership → **Enable comments**. Luego cada post los tiene por defecto; puedes apagarlos por publicación en ⚙.
+- **Cobros:** Settings → Membership (Stripe nativo) + Payment Links en el contenido de Talleres.
+
+## 7. Dominio personalizado (cuando Namecheap limpie el DNS)
+
+Objetivo: `indioyori.fronteria-lab.com` → Ghost.
+
+Hay una **NS huérfana** del subdominio (`dns1/dns2.namecheaphosting.com`) que bloquea el CNAME. Si no la ves en Advanced DNS, pide a soporte Namecheap que la borre y deje solo:
+
+`indioyori` **CNAME** → el target que muestre Ghost (hoy el sitio vive en `indioyori.ghost.io`).
+
+Mientras tanto, publica y diseña en `indioyori.ghost.io` sin problema.

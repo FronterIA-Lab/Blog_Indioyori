@@ -4,9 +4,10 @@
       {{#if @site.logo}}
         <span class="logo"><img src="{{@site.logo}}" alt="{{@site.title}}"></span>
       {{else}}
-        <span class="logo">{{@site.title}}</span>
+        {{!-- Marca hero: IndioYori con énfasis en Yori --}}
+        <span class="logo">Indio<b>Yori</b></span>
       {{/if}}
-      {{#if @custom.logo_subtitle}}<span class="logo-sub">{{@custom.logo_subtitle}}</span>{{/if}}
+      {{#if @custom.logo_subtitle}}<span class="logo-sub">{{@custom.logo_subtitle}}</span>{{else}}<span class="logo-sub">Soberanía Cognitiva</span>{{/if}}
     </a>
 
     {{#if @site.navigation}}

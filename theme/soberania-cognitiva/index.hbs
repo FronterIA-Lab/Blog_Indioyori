@@ -25,17 +25,8 @@
 {{/is}}
 {{/if}}
 
-<section class="container" style="margin-top:0.5rem">
-  {{#if @site.secondary_navigation}}
-  <nav class="filterbar" aria-label="Filtrar por tema">
-    <ul>
-      <li class="{{#is "home"}}nav-current{{/is}}"><a href="{{@site.url}}/">Todo</a></li>
-      {{#foreach secondary_navigation}}
-        <li><a href="{{url absolute="true"}}">{{label}}</a></li>
-      {{/foreach}}
-    </ul>
-  </nav>
-  {{/if}}
+<section class="container filterbar-wrap">
+  {{> filterbar}}
 </section>
 
 <section class="section" style="padding-top:0.75rem">

@@ -60,7 +60,8 @@ ul { margin: 0; }
 .site-header { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: saturate(150%) blur(8px); border-bottom: 1px solid var(--brd); }
 .site-header .container { display: flex; align-items: center; gap: 0.75rem; padding-top: 0.85rem; padding-bottom: 0.85rem; }
 .brand { display: flex; flex-direction: column; line-height: 1; margin-right: auto; }
-.brand .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.03em; color: var(--typ); }
+.brand .logo { font-size: 1.5rem; font-weight: 400; letter-spacing: -0.03em; color: var(--typ); }
+.brand .logo b { font-weight: 700; }
 .brand .logo img { max-height: 34px; width: auto; }
 .brand .logo-sub { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--typ-tone); margin-top: 3px; }
 
@@ -85,14 +86,21 @@ ul { margin: 0; }
 /* ---------------------------------------------------------------- hero */
 .hero { padding: 2.5rem 0 3rem; }
 .hero-grid { display: flex; flex-direction: column; gap: 2rem; align-items: center; }
-.hero-figure { width: 100%; max-width: 420px; border: 1px solid var(--brd); }
+.hero-figure { width: 100%; max-width: 420px; border: 1px solid var(--brd); opacity: 0; transform: translateY(12px); animation: rise-in 0.7s ease forwards; }
 .hero-figure img { aspect-ratio: 1/1; object-fit: cover; width: 100%; }
-.hero-body { flex: 1; display: flex; flex-direction: column; gap: 1rem; }
+.hero-body { flex: 1; display: flex; flex-direction: column; gap: 1rem; opacity: 0; transform: translateY(16px); animation: rise-in 0.75s ease 0.12s forwards; }
 .eyebrow { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.22em; color: var(--typ); font-weight: 700; }
+.page-eyebrow { display: inline-block; margin-bottom: 0.35rem; }
+.page-title { font-size: clamp(2rem, 6vw, 3rem); margin: 0.5rem 0 1rem; }
 .hero h1 { font-size: clamp(1.9rem, 5vw, 3.1rem); }
 .hero-lead { font-size: clamp(1.05rem, 2.2vw, 1.3rem); color: var(--typ-tone); }
 .hero-lead a { color: var(--typ); text-decoration: underline; text-underline-offset: 3px; }
 .cta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.5rem; }
+.filterbar-wrap { margin-top: 0.5rem; }
+@keyframes rise-in { to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) {
+  .hero-figure, .hero-body, .sysbar .blink, .pulse { animation: none !important; opacity: 1; transform: none; }
+}
 @media (min-width: 900px) { .hero-grid { flex-direction: row; gap: 3rem; } .hero-body { justify-content: center; } }
 
 /* ---------------------------------------------------------------- botones */

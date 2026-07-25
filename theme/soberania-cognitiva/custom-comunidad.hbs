@@ -13,10 +13,14 @@
 
     {{#if @custom.matrix_room_url}}
     <div class="chat">
-      <div class="chat-head"><span class="pulse" aria-hidden="true"></span><b>Sala en vivo · {{@site.title}}</b></div>
-      <iframe src="{{@custom.matrix_room_url}}" allow="microphone; camera; autoplay; clipboard-write; encrypted-media" title="Chat en vivo · {{@site.title}}" loading="lazy"></iframe>
+      <div class="chat-head"><span class="pulse" aria-hidden="true"></span><b>Sala en vivo · #Soberania_Cognitiva</b></div>
+      <iframe src="{{@custom.matrix_room_url}}" allow="microphone; camera; autoplay; clipboard-write; encrypted-media" title="Chat en vivo · Soberanía Cognitiva" loading="lazy"></iframe>
     </div>
-    <p class="note" style="margin-top:1rem">¿La sala aparece vacía? Créala en <a href="https://app.element.io" target="_blank" rel="noopener">Element</a> y pega el enlace en <code>Ajustes del theme → matrix_room_url</code>.</p>
+    <p class="note" style="margin-top:1rem">
+      Sala Matrix: <code>#Soberania_Cognitiva:matrix.org</code>
+      {{#if @custom.matrix_user}} · Escríbeme también a <code>{{@custom.matrix_user}}</code>{{/if}}.
+      Abre en <a href="https://app.element.io" target="_blank" rel="noopener">Element</a> si el iframe no carga.
+    </p>
     {{/if}}
 
     {{#if content}}<div class="prose" style="margin-top:2rem"><div class="post-content">{{content}}</div></div>{{/if}}
