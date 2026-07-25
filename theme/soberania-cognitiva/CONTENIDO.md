@@ -19,6 +19,12 @@ Pendiente para después: **Tezcatlipoca Digital** (imágenes).
 | Comunidad | `/comunidad/` | Comunidad |
 | Contacto | `/contacto/` | Contacto |
 
+**Contacto siempre visible** en el theme (botón arriba + pie). Además, en Ghost:
+
+1. **Pages** → New page → título `Contacto` → slug `contacto` → template **Contacto** → Publish  
+2. (Opcional) **Settings → Navigation** → Add: Label `Contacto` · URL `/contacto/` → Save  
+3. Probar: `https://indioyori.ghost.io/contacto/`
+
 **Membresía va antes que Talleres** en el menú. Además aparece arriba dentro de `/talleres/`.
 
 ### Si Membresía da error

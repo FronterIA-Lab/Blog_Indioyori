@@ -21,6 +21,7 @@
     {{/if}}
 
     <div class="header-actions">
+      <a class="btn-subscribe" href="{{@site.url}}/contacto/"><span>Contacto</span></a>
       {{#unless @member}}
         <a class="btn-subscribe" href="#/portal/signup" data-portal="signup"><span>Suscribirse</span></a>
       {{else}}
@@ -34,14 +35,15 @@
   </div>
 </header>
 
-{{#if @site.navigation}}
 <nav class="mobile-nav" id="mobile-nav" data-mobile-nav aria-label="Menú móvil">
   <div class="container">
     <ul>
-      {{#foreach navigation}}
-        <li><a href="{{url absolute="true"}}">{{label}}</a></li>
-      {{/foreach}}
+      {{#if @site.navigation}}
+        {{#foreach navigation}}
+          <li><a href="{{url absolute="true"}}">{{label}}</a></li>
+        {{/foreach}}
+      {{/if}}
+      <li><a href="{{@site.url}}/contacto/">Contacto</a></li>
     </ul>
   </div>
 </nav>
-{{/if}}
