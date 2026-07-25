@@ -1,4 +1,4 @@
-# Soberanía Cognitiva — Theme de Ghost (v1.2)
+# Soberanía Cognitiva — Theme de Ghost (v1.2.1)
 
 **Sitio:** https://indioyori.ghost.io  
 **Zip:** `soberania-cognitiva.zip` en la raíz del repo  
@@ -6,10 +6,10 @@
 
 ## Modelo de acceso
 
-- **Público:** todo el conocimiento publicado, archivo, info de talleres, contacto.
-- **Miembros:** comentarios.
-- **Miembros de pago ($500 MXN/mes):** chat privado Matrix + recursos avanzados + botón Donar en `/membresia/`.
-- **Talleres/cursos/libros:** pago único por Stripe (Payment Link) dentro de `/talleres/`.
+- **Sin cuenta:** lee todo lo publicado, talleres, contacto.
+- **Cuenta gratis:** comentarios + **chat general** Matrix. El sitio ya es funcional.
+- **Círculo de pago:** lo mismo + **chat exclusivo** + recursos avanzados + Donar en `/membresia/`.
+- **Talleres/cursos/libros:** pago único por Stripe (Payment Link) en `/talleres/`.
 
 ## Plantillas de página
 
@@ -31,7 +31,8 @@ Secondary: Notas `/tag/nota/` · Talleres `/tag/taller/` · Podcast `/tag/podcas
 
 | Ajuste | Uso |
 |---|---|
-| `matrix_room_url` | Sala **privada** (solo se muestra a miembros de pago) |
+| `matrix_room_url` | Chat **general** (cuenta gratis o de pago) |
+| `matrix_paid_room_url` | Chat **exclusivo** (solo pago) |
 | `matrix_user` | `@indioyori:matrix.org` |
 | `donate_url` | Payment Link de donación |
 | `contact_email` / `contact_endpoint` | Formulario de contacto |

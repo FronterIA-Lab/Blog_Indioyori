@@ -4,18 +4,21 @@ Sitio: https://indioyori.ghost.io · Admin: https://indioyori.ghost.io/ghost/
 
 ## Cómo está organizado el acceso
 
-| Qué | Quién |
-|---|---|
-| Todo el contenido publicado (notas, manifiesto, archivo, info de talleres) | **Público** — cualquiera |
-| Contacto seguro | **Público** |
-| Comentar en publicaciones | **Solo miembros** (cuenta Ghost) |
-| Chat privado Matrix | **Solo miembros de pago** ($500 MXN/mes) |
-| Recursos avanzados / descargas sofisticadas | **Solo miembros de pago** |
-| Talleres, cursos, libros (pago único) | **Público ver** · pago por Stripe en cada producto |
-| Donar | Botón en **Membresía** (lo que sea) |
+Tres capas. El sitio es usable **sin pagar**.
 
-**Importante:** suscribirse al boletín ≠ membresía de pago.  
-**Importante:** la membresía $500/mes ≠ el pago de un taller.
+| Qué | Sin cuenta | Cuenta gratis | Círculo de pago |
+|---|---|---|---|
+| Leer notas, manifiesto, archivo, info de talleres | sí | sí | sí |
+| Contacto seguro | sí | sí | sí |
+| Comentar | — | sí | sí |
+| Chat general (Matrix) | — | sí | sí |
+| Chat exclusivo (Matrix) | — | — | sí |
+| Recursos avanzados | — | — | sí |
+| Talleres/cursos (pago único Stripe) | ver + pagar | ver + pagar | ver + pagar |
+| Donar | botón en Membresía | botón en Membresía | botón en Membresía |
+
+**Importante:** cuenta gratis ≠ círculo de pago.  
+**Importante:** pagar un taller ≠ membresía mensual.
 
 ---
 
@@ -37,7 +40,8 @@ Settings → Design → Change theme → Upload → **Activate**.
 | Hero heading | `Soberanía cognitiva frente a la colonización de la gramática en los LLM.` |
 | Hero subheading | `Talleres, archivo, podcast y comunidad desde territorio Anáhuac. Hablo de IA y sistemas RAG soberanos, geopolítica del conocimiento y decolonización.` |
 | Show hero | ON |
-| Matrix room url | URL de tu **sala privada** de miembros (Element) |
+| Matrix room url | URL del **chat general** (cuenta gratis) |
+| Matrix paid room url | URL del **chat exclusivo** (solo pago) |
 | Matrix user | `@indioyori:matrix.org` |
 | Donate url | tu Payment Link de donación (Stripe) cuando lo tengas |
 | Contact email | `indioyori@fronteria-lab.com` |
@@ -99,32 +103,30 @@ Crea la página si no existe.
 - **Title:** `Membresía`
 - **Slug:** `membresia`
 - **Template:** Membresía
-- **Excerpt:** `Todo lo básico del sitio es libre. El círculo de pago abre chat privado, comentarios y recursos avanzados por $500 MXN al mes.`
+- **Excerpt:** `Cuenta gratis para comentar y chat general. El círculo de pago suma chat exclusivo y recursos avanzados. El sitio se lee sin pagar.`
 
 **Cuerpo:**
 
 ```
-## Qué incluye el círculo ($500 MXN / mes)
+## Tres formas de estar
 
-- Chat privado con información más especializada
-- Comentarios en las publicaciones
-- Descargas y materiales más sofisticados
-- Conocimiento avanzado en arquitecturas RAG, análisis de datos y protocolos de búsqueda
+**Sin cuenta** — lees todo lo publicado y te inscribes a talleres.
 
-## Qué sigue libre (sin pagar)
+**Cuenta gratis** — comentas y entras al chat general. El sitio ya es funcional.
 
-- Todas las notas y el conocimiento publicado
-- El manifiesto, el archivo público y la información de talleres
-- Contacto seguro
+**Círculo de pago** — lo mismo, más chat exclusivo y materiales avanzados (RAG, datos, protocolos). Es opcional y asequible.
 
-La inscripción a un taller o curso es un pago aparte (Stripe en cada producto). No sustituye ni incluye la membresía mensual.
+La inscripción a un taller o curso es un pago aparte (Stripe en cada producto). No sustituye la membresía ni al revés.
 ```
 
 ### En Ghost (Membership)
 1. Settings → Membership → conecta **Stripe**
-2. Crea un tier: nombre `Círculo`, precio **500 MXN / month**
-3. Settings → Membership → **Comments** → solo miembros (Members)
-4. Haz la sala Matrix **privada** e invita solo a quien pague (o pega el enlace en `matrix_room_url`; el theme solo la muestra a `@member.paid`)
+2. Deja el tier **Free** activo (cuenta gratis)
+3. Crea un tier de pago: nombre `Círculo`, precio ej. **500 MXN / month**
+4. Settings → Membership → **Comments** → Members (cuenta requerida; gratis vale)
+5. En Matrix/Element: crea **dos salas**
+   - General → pégala en `matrix_room_url`
+   - Exclusiva (invitación / miembros de pago) → `matrix_paid_room_url`
 
 ### Donar
 Crea un Payment Link en Stripe (monto libre o fijo) y pégalo en Customize → `donate_url`.
