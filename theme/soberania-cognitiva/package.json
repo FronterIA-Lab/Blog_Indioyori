@@ -1,7 +1,7 @@
 {
   "name": "soberania-cognitiva",
   "description": "Theme de Ghost para IndioYori — Soberanía Cognitiva. Diseño limpio en blanco y negro, tipografía Space Mono; el color lo ponen las imágenes.",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "engines": {
     "ghost": ">=5.0.0"
   },
@@ -50,7 +50,7 @@
       },
       "hero_subheading": {
         "type": "text",
-        "default": "Talleres, archivo, podcast y comunidad desde territorio Anáhuac. IA y sistemas RAG soberanos, geopolítica del conocimiento y decolonización."
+        "default": "Análisis, video, podcast y documentos desde territorio Anáhuac. El archivo es libre."
       },
       "hero_image": {
         "type": "image"

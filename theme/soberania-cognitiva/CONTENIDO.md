@@ -1,43 +1,48 @@
-# Organización del sitio — IndioYori / Ghost
+# Cambios finales — Soberanía Cognitiva (sin Imagen aún)
 
-Sitio: https://indioyori.ghost.io · Admin: https://indioyori.ghost.io/ghost/
-
-## Organización del sitio (contenido primero)
-
-| Destino | Para qué |
-|---|---|
-| **Inicio** | Río de lo último publicado + filtros Análisis / Video / Podcast / Territorio |
-| **Archivo** | Biblioteca: notas & análisis, video, podcast, documentos históricos |
-| **Manifiesto** | La tesis |
-| **Talleres** | Formación de pago único (Stripe por producto) |
-| **Comunidad** | Chat general (cuenta gratis) + exclusivo (pago) |
-| **Membresía** | Círculo de instrumentos ($350 MXN/mes) — no paywall de contenido |
-| **Contacto** | Correo verificado |
-
-No hace falta una página aparte de “análisis”: viven en Archivo (etiqueta `nota`) y en el filtro de portada.
-
-### Acceso (tres capas). El sitio es usable **sin pagar**.
-
-| Qué | Sin cuenta | Cuenta gratis | Círculo $350/mes |
-|---|---|---|---|
-| Leer análisis, video, podcast, docs | sí | sí | sí |
-| Contacto | sí | sí | sí |
-| Comentar | — | sí | sí |
-| Chat general | — | sí | sí |
-| Chat exclusivo + instrumentos | — | — | sí |
-
-La membresía **no es exclusividad de contenido ni club de fans**. Es un acto político: compartir instrumentos (RAG, datos, protocolos, territorio) con quien se une al proyecto.
+Sitio: https://indioyori.ghost.io · Theme **v1.4**  
+Pendiente para después: galería **Tezcatlipoca Digital** (no va en este paquete).
 
 ---
 
-## 1. Sube el theme v1.3
+## Mapa del sitio
 
-Descarga:  
-https://github.com/FronterIA-Lab/Blog_Indioyori/raw/cursor/ghost-diseno-contenido-5ed3/soberania-cognitiva.zip
+| Destino | Rol |
+|---|---|
+| **Inicio** | Río de lo publicado + filtros Análisis / Video / Podcast / Territorio |
+| **Archivo** | Biblioteca: notas & análisis, video, podcast, documentos |
+| **Manifiesto** | Tesis |
+| **Talleres** | Formación · pago único Stripe por producto |
+| **Comunidad** | Chat general (cuenta gratis) + chat exclusivo (Círculo) |
+| **Círculo** | Espacio de trabajo especializado · $350 MXN/mes |
+| **Contacto** | Entrada verificada |
 
-Settings → Design → Change theme → Upload → **Activate**.
+**Hero:** Archivo · Manifiesto · Talleres  
+**Círculo** vive en el menú, no en el hero.
 
-### Customize (valores)
+---
+
+## Acceso
+
+| | Sin cuenta | Cuenta gratis | Círculo $350 |
+|---|---|---|---|
+| Leer archivo, manifiesto, info de talleres | sí | sí | sí |
+| Contacto | sí | sí | sí |
+| Comentar | — | sí | sí |
+| Chat general Matrix | — | sí | sí |
+| Chat exclusivo + espacio de trabajo | — | — | sí |
+| Talleres / cursos | pago por producto | pago por producto | pago por producto |
+| Apoya el proyecto | botón opcional | botón opcional | botón opcional |
+
+---
+
+## 1. Subir theme v1.4
+
+https://github.com/FronterIA-Lab/Blog_Indioyori/raw/cursor/ghost-diseno-contenido-5ed3/soberania-cognitiva.zip  
+
+Design → Upload theme → **Activate**.
+
+### Customize
 
 | Campo | Valor |
 |---|---|
@@ -46,30 +51,32 @@ Settings → Design → Change theme → Upload → **Activate**.
 | Logo subtitle | `Soberanía Cognitiva` |
 | Hero eyebrow | `investigador autónomo · CLACSO · yoreme · ódami` |
 | Hero heading | `Soberanía cognitiva frente a la colonización de la gramática en los LLM.` |
-| Hero subheading | `Análisis, video, podcast y documentos desde territorio Anáhuac. El archivo es libre. La formación y los instrumentos del círculo son para quien quiere construir.` |
+| Hero subheading | `Análisis, video, podcast y documentos desde territorio Anáhuac. El archivo es libre.` |
 | Show hero | ON |
-| Matrix room url | URL del **chat general** (cuenta gratis) |
-| Matrix paid room url | URL del **chat exclusivo** (solo pago) |
+| Matrix room url | URL del **chat general** |
+| Matrix paid room url | URL del **chat exclusivo** (Círculo) |
 | Matrix user | `@indioyori:matrix.org` |
-| Donate url | tu Payment Link de donación (Stripe) cuando lo tengas |
+| Donate url | Payment Link de **Apoya el proyecto** (cuando lo tengas) |
 | Contact email | `indioyori@fronteria-lab.com` |
 | Contact endpoint | vacío por ahora |
 
 ---
 
-## 2. Navegación Primary
+## 2. Navegación
+
+### Primary
 
 | Label | URL |
 |---|---|
 | Inicio | `/` |
+| Archivo | `/archivo/` |
 | Manifiesto | `/manifiesto/` |
 | Talleres | `/talleres/` |
-| Archivo | `/archivo/` |
 | Comunidad | `/comunidad/` |
-| Membresía | `/membresia/` |
+| Círculo | `/membresia/` |
 | Contacto | `/contacto/` |
 
-### Secondary (filtros de contenido en portada)
+### Secondary (filtros de portada)
 
 | Label | URL |
 |---|---|
@@ -78,82 +85,54 @@ Settings → Design → Change theme → Upload → **Activate**.
 | Podcast | `/tag/podcast/` |
 | Territorio | `/tag/territorio/` |
 
-### Hero (ya viene en el theme)
-1. **El archivo de lo improbable** → `/archivo/`  
-2. **Manifiesto** → `/manifiesto/`  
-3. **Talleres** → `/talleres/`  
-
-(Membresía queda en el menú, no compite en el hero.)
-
 ---
 
 ## 3. Páginas y plantillas
 
-| Página | Slug | Template |
+| Título en Ghost | Slug | Template |
 |---|---|---|
 | Manifiesto | `manifiesto` | **Manifiesto** |
 | Talleres, libros y herramientas | `talleres` | **Talleres** |
 | El archivo de lo improbable | `archivo` | **Archivo** |
 | Comunidad | `comunidad` | **Comunidad** |
-| Membresía | `membresia` | **Membresía** |
+| Círculo | `membresia` | **Membresía** |
 | Contacto | `contacto` | **Contacto** |
 
-En cada página: ⚙ → Template → elegir → Update.
+(Slug `membresia` se mantiene para no romper enlaces; el nombre visible es **Círculo**.)
 
 ---
 
-## 4. Manifiesto — qué pegar
+## 4. Texto del Círculo (pegar en la página)
 
-**Template:** Manifiesto (ya existe en v1.2).  
-**Excerpt:** `Ninguna inteligencia artificial es neutral. Toda IA se entrena sobre una gramática, y esa gramática tiene dueños, geografía e historia.`
+**Title:** `Círculo`  
+**Excerpt:** `Espacio de trabajo especializado · $350 MXN al mes. El archivo sigue libre.`
 
-Cuerpo: el texto largo de soberanía cognitiva que ya tenías (secciones 1–5). No hace falta HTML especial: la plantilla le pone el diseño.
-
----
-
-## 5. Membresía — qué pegar
-
-Crea la página si no existe.
-
-- **Title:** `Membresía`
-- **Slug:** `membresia`
-- **Template:** Membresía
-- **Excerpt:** `No es exclusividad de contenido. Es un acto político: compartir instrumentos para RAG, análisis de datos y defensa del territorio. $350 MXN al mes.`
-
-**Cuerpo:**
+**Cuerpo** (opcional; el theme ya muestra el bloque principal):
 
 ```
-## Esto no es un club de fans
+El archivo sigue libre. La membresía da acceso a un espacio de trabajo para quien necesita información más especializada: bases de arquitecturas RAG soberanas, análisis de datos con criterio, protocolos para organizar conocimiento y defensa del territorio, y marcos de geopolítica del conocimiento aplicados a proyectos reales.
 
-El archivo —análisis, video, podcast, documentos— sigue libre. La membresía es para quien quiere **hacer**: arquitecturas RAG, análisis de datos, protocolos de búsqueda, organización de la defensa del territorio.
+Si defiendes activamente el territorio y no puedes pagar la membresía, escríbeme.
 
-Es conocimiento especializado por el que normalmente cobraría más. Lo pongo a $350 MXN/mes porque entiendo que quienes pagan se unen al proyecto, no compran un estatus.
+$350 MXN al mes.
 
-**Sin cuenta** — lees todo.
-**Cuenta gratis** — comentas + chat general.
-**Círculo** — lo mismo + chat de instrumentos + herramientas avanzadas.
+Apoya el proyecto — si no entras al Círculo pero quieres sostener el trabajo con dinero.
 ```
 
-### En Ghost (Membership)
-1. Settings → Membership → conecta **Stripe**
-2. Tier **Free** activo
-3. Tier de pago: nombre `Círculo de instrumentos`, **350 MXN / month**
-4. Comments → Members
-5. Matrix: sala general → `matrix_room_url` · sala exclusiva → `matrix_paid_room_url`
+### Membership en Ghost
+1. Tier **Free** activo  
+2. Tier de pago: nombre `Círculo`, **350 MXN / month**, Stripe  
+3. Comments → **Members**  
+4. Dos salas Matrix → `matrix_room_url` (general) y `matrix_paid_room_url` (exclusiva)
 
-### Donar
-Crea un Payment Link en Stripe (monto libre o fijo) y pégalo en Customize → `donate_url`.
+### Apoya el proyecto
+Payment Link de Stripe → Customize → **Donate url** (el botón en el sitio dice **Apoya el proyecto**).
 
 ---
 
-## 6. Talleres — qué pegar (ofertas actuales)
+## 5. Talleres — ofertas actuales (pegar)
 
-- **Title:** `Talleres, libros y herramientas`
-- **Slug:** `talleres`
-- **Template:** Talleres
-- **Excerpt:** `Formación en vivo y programas. Cada producto tiene su propio pago con Stripe. La membresía mensual es aparte.`
-
-**Cuerpo** (cambia `TU_LINK_…` por tus Payment Links reales):
+**Excerpt:** `Formación en vivo. Cada producto tiene su pago Stripe. El Círculo mensual es aparte.`
 
 ```
 ## Taller MCC · abierto
@@ -178,15 +157,11 @@ Las próximas fechas se publican cuando abre cada convocatoria. Ahora solo está
 
 ## Soberanía cognitiva y sistemas RAG
 
-El programa central de esta formación: marco teórico-operativo y entrega técnica. Pensado para quien investiga, enseña o defiende territorio y necesita salir con criterio — y con sistema.
+El programa central: marco teórico-operativo y entrega técnica. Para quien investiga, enseña o defiende territorio y necesita salir con criterio — y con sistema.
 
 **Inicio:** 7 de agosto de 2026  
-**~16 horas en vivo · cupo 20 · horario con referencia Ciudad de México**  
+**~16 horas en vivo · cupo 20 · horario Ciudad de México**  
 **$6,500 MXN** · pago completo
-
-Para: investigadores · docentes · defensa del territorio · RAG propio · app visual incluida
-
-Aprende a leer la gramática de los LLM, a recuperar conocimiento sobre tu corpus sin entregarlo a nubes ajenas, y a construir un sistema RAG soberano que te pertenece. Incluye, de regalo, una app de organización visual para tu flujo de trabajo.
 
 - Soberanía cognitiva aplicada a investigación, docencia e incidencia
 - Arquitecturas RAG y búsqueda eficiente con citas a la fuente
@@ -195,35 +170,22 @@ Aprende a leer la gramática de los LLM, a recuperar conocimiento sobre tu corpu
 
 [Reservar mi lugar · $6,500 MXN](https://buy.stripe.com/TU_LINK_RAG)  
 [Solicitar propuesta grupal / institucional](/contacto/)
-
-Tras el pago recibirás confirmación y el calendario de sesiones.
-```
-
-En el editor de Ghost, selecciona cada frase “Reservar mi lugar…” y conviértela en **Button** (tarjeta Botón) si quieres que se vea como botón grande.
-
----
-
-## 7. Comunidad — qué pegar
-
-- **Template:** Comunidad
-- **Excerpt:** `El sitio es público. Comentar y el chat privado son para miembros.`
-
-**Cuerpo:**
-
-```
-## Cómo participar
-
-1. Lee y usa lo público sin cuenta.
-2. Crea cuenta / membresía para **comentar**.
-3. Membresía de pago ($500 MXN/mes) para el **chat privado** y recursos avanzados.
-
-Más detalle en [Membresía](/membresia/).
 ```
 
 ---
 
-## 8. Botones de la portada
+## 6. Etiquetas de contenido
 
-Con el theme 1.2 la portada muestra tres botones: **Ver talleres · Manifiesto · Membresía**, y debajo los filtros (Todo / Notas / Talleres / Podcast / Territorio).
+| Etiqueta | Dónde aparece |
+|---|---|
+| `nota` | Archivo → Notas & análisis · filtro Análisis |
+| `video` | Archivo → Video · filtro Video |
+| `podcast` | Archivo → Podcast · filtro Podcast |
+| `pdf` | Archivo → Documentos |
+| `territorio` | filtro Territorio |
 
-Si no los ves: recarga forzada (Ctrl+Shift+R) después de activar el theme nuevo.
+---
+
+## 7. Después (no ahora)
+
+**Tezcatlipoca Digital** — galería de imágenes cyberpunk políticas, descarga libre, con o sin texto. Página propia cuando lo digas.
