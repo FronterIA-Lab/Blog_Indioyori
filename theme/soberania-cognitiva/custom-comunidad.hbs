@@ -21,14 +21,13 @@
       <p style="margin-top:0.5rem">Sala <code>#Soberania_Cognitiva:matrix.org</code></p>
       <p style="margin-top:0.5rem">Coordinación: <code>{{#if @custom.matrix_user}}{{@custom.matrix_user}}{{else}}@indioyori:matrix.org{{/if}}</code></p>
       <div class="cta-row" style="margin-top:1rem">
-        <a class="btn btn-brand" href="https://hydrogen.element.io/#/room/%23Soberania_Cognitiva:matrix.org" target="_blank" rel="noopener">Abrir chat (Hydrogen · ligero)</a>
         {{#if @custom.matrix_room_url}}
-          <a class="btn" href="{{@custom.matrix_room_url}}" target="_blank" rel="noopener">Element (completo)</a>
+          <a class="btn btn-brand" href="{{@custom.matrix_room_url}}" target="_blank" rel="noopener">Abrir chat en Element</a>
         {{else}}
-          <a class="btn" href="https://app.element.io/#/room/%23Soberania_Cognitiva:matrix.org" target="_blank" rel="noopener">Element (completo)</a>
+          <a class="btn btn-brand" href="https://app.element.io/#/room/%23Soberania_Cognitiva:matrix.org" target="_blank" rel="noopener">Abrir chat en Element</a>
         {{/if}}
       </div>
-      <p class="note" style="margin-top:1rem">Si Element dice que el navegador no sirve, usa <b>Hydrogen</b> (mismo Matrix, mucho más liviano). Cuenta gratis en matrix.org.</p>
+      <p class="note" style="margin-top:1rem">Una sola interfaz: Element. Cuenta gratis en matrix.org. Si Safari dice que no es compatible, actualízalo o usa un navegador WebKit ligero (p. ej. Orion) solo para Matrix — no hace falta Hydrogen ni un segundo chat.</p>
     </div>
 
     {{#if @member}}
