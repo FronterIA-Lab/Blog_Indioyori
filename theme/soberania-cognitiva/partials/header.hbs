@@ -21,6 +21,7 @@
     {{/if}}
 
     <div class="header-actions">
+      <a class="btn-subscribe" href="{{@site.url}}/comunidad/"><span>Chat</span></a>
       <a class="btn-subscribe" href="{{@site.url}}/contacto/"><span>Contacto</span></a>
       {{#unless @member}}
         <a class="btn-subscribe" href="#/portal/signup" data-portal="signup"><span>Suscribirse</span></a>
@@ -43,6 +44,7 @@
           <li><a href="{{url absolute="true"}}">{{label}}</a></li>
         {{/foreach}}
       {{/if}}
+      <li><a href="{{@site.url}}/comunidad/">Chat / Comunidad</a></li>
       <li><a href="{{@site.url}}/contacto/">Contacto</a></li>
     </ul>
   </div>
