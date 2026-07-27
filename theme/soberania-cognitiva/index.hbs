@@ -1,0 +1,51 @@
+{{!< default}}
+
+{{#if @custom.show_hero}}
+{{#is "home"}}
+<section class="hero">
+  <div class="container hero-grid">
+    <figure class="hero-figure">
+      {{#if @custom.hero_image}}
+        <img src="{{@custom.hero_image}}" alt="{{@site.title}}" loading="eager">
+      {{else}}
+        <img src="{{asset "img/retrato.jpeg"}}" alt="{{@site.title}}" loading="eager">
+      {{/if}}
+    </figure>
+    <div class="hero-body">
+      {{#if @custom.hero_eyebrow}}<span class="eyebrow">{{@custom.hero_eyebrow}}</span>{{/if}}
+      <h1>{{#if @custom.hero_heading}}{{@custom.hero_heading}}{{else}}{{@site.title}}{{/if}}</h1>
+      {{#if @custom.hero_subheading}}<p class="hero-lead">{{@custom.hero_subheading}}</p>{{/if}}
+      <div class="cta-row">
+        <a class="btn btn-brand" href="{{@site.url}}/archivo/">El archivo de lo improbable</a>
+        <a class="btn" href="{{@site.url}}/manifiesto/">Manifiesto</a>
+        <a class="btn" href="{{@site.url}}/talleres/">Talleres</a>
+      </div>
+    </div>
+  </div>
+</section>
+{{/is}}
+{{/if}}
+
+<section class="container filterbar-wrap">
+  {{> filterbar}}
+</section>
+
+<section class="section" style="padding-top:0.75rem">
+  <div class="container">
+    {{#if posts}}
+    <div class="card-grid">
+      {{#foreach posts}}
+        {{> post-card}}
+      {{/foreach}}
+    </div>
+    {{else}}
+    <p class="note">Pronto habrá publicaciones aquí.</p>
+    {{/if}}
+  </div>
+</section>
+
+<section class="pagination">
+  <div class="container">
+    {{pagination}}
+  </div>
+</section>

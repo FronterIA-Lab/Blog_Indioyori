@@ -1,0 +1,67 @@
+{{!< default}}
+{{!-- Comunidad: chat Matrix siempre visible (botón Element). --}}
+
+{{#post}}
+<section class="section">
+  <div class="container">
+    <p class="breadcrumb"><a href="{{@site.url}}/">Inicio</a> / {{title}}</p>
+    <div class="section-head">
+      <span class="s-eyebrow">Comunidad · Matrix</span>
+      <h1 class="s-title">{{title}}</h1>
+      {{#if custom_excerpt}}
+        <p class="s-desc">{{custom_excerpt}}</p>
+      {{else}}
+        <p class="s-desc">Sala abierta para hablar, avisos, recomendaciones y datos. El chat vive en Matrix (Element); no hace falta cuenta del sitio para entrar.</p>
+      {{/if}}
+    </div>
+
+    {{!-- Chat: siempre, con URL de Customize o la sala por defecto --}}
+    <div class="callout" style="margin-bottom:2rem;border-width:2px">
+      <h3>Chat · Matrix</h3>
+      <p style="margin-top:0.5rem">Sala <code>#Soberania_Cognitiva:matrix.org</code></p>
+      <p style="margin-top:0.5rem">Coordinación: <code>{{#if @custom.matrix_user}}{{@custom.matrix_user}}{{else}}@indioyori:matrix.org{{/if}}</code></p>
+      <div class="cta-row" style="margin-top:1rem">
+        {{#if @custom.matrix_room_url}}
+          <a class="btn btn-brand" href="{{@custom.matrix_room_url}}" target="_blank" rel="noopener">Abrir chat en Element</a>
+        {{else}}
+          <a class="btn btn-brand" href="https://app.element.io/#/room/%23Soberania_Cognitiva:matrix.org" target="_blank" rel="noopener">Abrir chat en Element</a>
+        {{/if}}
+      </div>
+      <p class="note" style="margin-top:1rem">Una sola interfaz: Element. Cuenta gratis en matrix.org. Si Safari dice que no es compatible, actualízalo o usa un navegador WebKit ligero (p. ej. Orion) solo para Matrix — no hace falta Hydrogen ni un segundo chat.</p>
+    </div>
+
+    {{#if @member}}
+      {{#if @custom.matrix_room_url}}
+      <div class="chat" style="margin-bottom:1.5rem">
+        <div class="chat-head"><span class="pulse" aria-hidden="true"></span><b>Chat general</b></div>
+        <iframe src="{{@custom.matrix_room_url}}" allow="microphone; camera; autoplay; clipboard-write; encrypted-media" title="Chat general Matrix" loading="lazy"></iframe>
+      </div>
+      {{/if}}
+
+      {{#if @member.paid}}
+        {{#if @custom.matrix_paid_room_url}}
+        <div class="section-head">
+          <span class="s-eyebrow">Membresía</span>
+          <h2 class="s-title">Sala de trabajo</h2>
+        </div>
+        <div class="cta-row" style="margin-bottom:1rem">
+          <a class="btn btn-brand" href="{{@custom.matrix_paid_room_url}}" target="_blank" rel="noopener">Abrir sala de trabajo en Element</a>
+        </div>
+        {{/if}}
+      {{else}}
+        <div class="callout" style="margin-bottom:1.5rem">
+          <h3>Sala de trabajo (membresía)</h3>
+          <p style="margin-top:0.5rem">El chat general ya está arriba. La membresía suma sala de trabajo y material especializado.</p>
+          <a class="btn" style="margin-top:0.75rem" href="{{@site.url}}/membresia/">Ver membresía</a>
+        </div>
+      {{/if}}
+    {{/if}}
+
+    {{#if content}}
+    <div class="prose" style="margin-top:2rem">
+      <div class="post-content">{{content}}</div>
+    </div>
+    {{/if}}
+  </div>
+</section>
+{{/post}}

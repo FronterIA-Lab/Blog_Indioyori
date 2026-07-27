@@ -1,0 +1,55 @@
+{{!< default}}
+{{!-- Contacto simple. Customize: contact_endpoint (Formspree) + contact_email. --}}
+
+{{#post}}
+<section class="section">
+  <div class="container">
+    <p class="breadcrumb"><a href="{{@site.url}}/">Inicio</a> / {{title}}</p>
+    <div class="section-head">
+      <span class="s-eyebrow">Contacto</span>
+      <h1 class="s-title">{{title}}</h1>
+      {{#if custom_excerpt}}
+        <p class="s-desc">{{custom_excerpt}}</p>
+      {{else}}
+        <p class="s-desc">Deja tus datos si quieres respuesta. Si no, no hace falta escribir.</p>
+      {{/if}}
+    </div>
+
+    {{#if content}}<div class="prose" style="margin-bottom:1.5rem"><div class="post-content">{{content}}</div></div>{{/if}}
+
+    <form class="form" data-contact-form action="{{@custom.contact_endpoint}}" method="POST" data-endpoint="{{@custom.contact_endpoint}}" data-email="{{@custom.contact_email}}" novalidate>
+      {{!-- honeypot Formspree --}}
+      <div class="hp" aria-hidden="true">
+        <label>No llenes <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+      </div>
+      <input type="hidden" name="_subject" value="Contacto · IndioYori">
+
+      <div class="field">
+        <label for="name">Nombre</label>
+        <input class="input" type="text" id="name" name="name" required minlength="2" autocomplete="name" placeholder="Tu nombre">
+        <span class="error">Escribe tu nombre.</span>
+      </div>
+
+      <div class="field">
+        <label for="email">Correo</label>
+        <input class="input" type="email" id="email" name="email" required autocomplete="email" placeholder="tu@correo.com">
+        <span class="error">Necesito un correo válido para responderte.</span>
+      </div>
+
+      <div class="field">
+        <label for="message">Mensaje</label>
+        <textarea class="textarea" id="message" name="message" required minlength="5" placeholder="En qué andas."></textarea>
+        <span class="error">Escribe un mensaje breve.</span>
+      </div>
+
+      <div class="cta-row">
+        <button class="btn btn-brand" type="submit">Enviar</button>
+        {{#if @custom.contact_email}}
+          <a class="btn" href="mailto:{{@custom.contact_email}}">o correo directo</a>
+        {{/if}}
+      </div>
+      <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+{{/post}}

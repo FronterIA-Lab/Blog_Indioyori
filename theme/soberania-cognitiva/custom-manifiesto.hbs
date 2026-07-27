@@ -1,0 +1,73 @@
+{{!< default}}
+{{!-- Manifiesto: si el editor de Ghost está vacío, se muestra la tesis por defecto. --}}
+
+{{#post}}
+{{#if feature_image}}
+<section class="article-hero">
+  <img src="{{img_url feature_image size="xl"}}" alt="{{title}}">
+</section>
+{{/if}}
+
+<article class="section">
+  <div class="container prose">
+    <p class="breadcrumb"><a href="{{@site.url}}/">Inicio</a> / {{title}}</p>
+    <span class="eyebrow page-eyebrow">tesis · soberanía cognitiva</span>
+    <h1 class="page-title">{{title}}</h1>
+    {{#if custom_excerpt}}
+      <p class="lead">{{custom_excerpt}}</p>
+    {{else}}
+      <p class="lead">Ninguna inteligencia artificial es neutral. Toda IA se entrena sobre una gramática, y esa gramática tiene dueños, geografía e historia. La <b>Soberanía Cognitiva</b> es el derecho de un pueblo y de una persona a pensar con criterio propio frente a la colonización de esa gramática.</p>
+    {{/if}}
+
+    <div class="post-content">
+      {{#if content}}
+        {{content}}
+      {{else}}
+        <p>Soy <b>IndioYori</b>: yoreme y ódami, académicx del <a href="https://www.clacso.org" target="_blank" rel="noopener">CLACSO</a>, investigador autónomo e ingeniero RAG. Trabajo en la frontera entre la inteligencia artificial y la defensa del territorio. Desde el Anáhuac construyo sistemas y palabras que no le entreguen la autoridad epistémica a nadie.</p>
+
+        <h2>1. La gramática de los LLM es un territorio en disputa</h2>
+        <p>Los grandes modelos de lenguaje no «saben»: optimizan. Aprenden a predecir la siguiente palabra según los patrones dominantes del corpus con el que fueron entrenados. Ese corpus está escrito, en su enorme mayoría, en la lengua, la métrica y la cosmovisión del norte global. Cuando consumimos IA sin criterio, adoptamos esa gramática como si fuera el mundo. No lo es.</p>
+        <blockquote>La colonización ya no llega solo por la espada o por la escuela. Llega por el autocompletado.</blockquote>
+        <p>Mi gramática fue robada, y la que me impusieron sigue en proceso de crecimiento. Todos los días se aprende. Por eso el problema no es técnico: es político, geopolítico y profundamente íntimo.</p>
+
+        <h2>2. RAG soberano: datos que no salen del perímetro</h2>
+        <p>La respuesta no es rechazar la tecnología, sino poseerla. Diseño arquitecturas de <b>Recuperación Aumentada por Generación (RAG)</b> que corren en hardware propio —nodos edge, laptops, mini-PCs— para que el conocimiento de una comunidad, un despacho o un gobierno local no viaje a servidores ajenos.</p>
+        <ul>
+          <li><b>Nodo edge soberano.</b> RAG sobre tu propio corpus, sin renta obligatoria ni vigilancia. Propiedad total.</li>
+          <li><b>Asistente de documentos privado.</b> Pregúntale a tus archivos sin que salgan de tu perímetro.</li>
+          <li><b>Abstención antes que alucinación.</b> Un sistema soberano sabe cuándo callar: mejor decir «no sé» que inventar con autoridad.</li>
+        </ul>
+
+        <h2>3. Método de Calibración Contextual (MCC)</h2>
+        <p>El MCC es la práctica con la que enseño a consumir IA sin ceder la autoridad epistémica. No es un truco de prompts: es una disciplina de criterio.</p>
+        <ul>
+          <li>Reconocer la <b>colonialidad</b> de la herramienta y su gramática de optimización.</li>
+          <li>Los cuatro movimientos del MCC para mantener el criterio propio.</li>
+          <li>El «Árbol de Espejos» y el derecho a la abstención frente a la respuesta segura pero falsa.</li>
+        </ul>
+        <p>Lo enseño en el <a href="{{@site.url}}/talleres/">Taller MCC</a> y dejo su forma esencial como material abierto en el Archivo.</p>
+
+        <h2>4. Identidades, decolonización y geopolítica del conocimiento</h2>
+        <p>La soberanía cognitiva no se entiende sin el reconocimiento de las identidades como softwares de división operando sobre la búsqueda colectiva de justicia. Por eso quién produce el conocimiento, en qué lengua, para quién y contra quién: no son solo preguntas, son el corazón de mi trabajo. La IA que hoy se presenta como universal reproduce jerarquías muy viejas con una interfaz muy nueva.</p>
+
+        <h2>5. Lo que sostengo</h2>
+        <ul>
+          <li>El criterio no es un algoritmo. La pantalla no debe pensar por ti.</li>
+          <li>La tecnología soberana es formación y voz pública, no vigilancia ni SaaS extractivo.</li>
+          <li>El territorio —físico y cognitivo— se defiende con comunidad, no con miedo.</li>
+        </ul>
+      {{/if}}
+    </div>
+
+    <div class="callout" style="margin-top:2.5rem">
+      <h3>Quién ejecuta, escribe, analiza, lucha</h3>
+      <p style="margin-top:0.5rem">IndioYori — investigador autónomo, ingeniero RAG, académicx del GT EPICC–CLACSO. Yoreme y ódami. Territorio Anáhuac.</p>
+      <div class="cta-row" style="margin-top:1rem">
+        <a class="btn btn-brand" href="{{@site.url}}/talleres/">Formarte conmigo</a>
+        <a class="btn" href="{{@site.url}}/membresia/">Membresía</a>
+        <a class="btn" href="{{@site.url}}/contacto/">Escríbeme</a>
+      </div>
+    </div>
+  </div>
+</article>
+{{/post}}
