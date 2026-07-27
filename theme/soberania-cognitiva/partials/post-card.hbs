@@ -1,0 +1,22 @@
+<article class="card {{#if feature_image}}has-image{{else}}tone{{/if}}">
+  {{#if feature_image}}
+    <img class="card-bg" src="{{img_url feature_image size="m"}}" alt="" aria-hidden="true" loading="lazy">
+  {{/if}}
+  <div class="card-inner">
+    <div class="card-meta">
+      <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>
+      <span class="dot">•</span>
+      <span>{{reading_time}}</span>
+      {{#if featured}}
+        <span class="spacer"></span>
+        <span class="card-star" title="Destacado"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 5.9 6.1.9-4.5 4.4 1 6.8L12 17l-5.5 3 1-6.8L3 8.8l6.1-.9z"/></svg></span>
+      {{/if}}
+    </div>
+    <h2 class="card-title"><a href="{{url}}">{{title}}</a></h2>
+    <span class="grow"></span>
+    <div class="card-foot">
+      {{#primary_tag}}<a href="{{url}}" class="tag">{{name}}</a>{{/primary_tag}}
+      {{#if access}}{{else}}<span class="badge-lock">miembros</span>{{/if}}
+    </div>
+  </div>
+</article>

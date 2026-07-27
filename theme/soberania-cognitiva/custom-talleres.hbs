@@ -1,0 +1,95 @@
+{{!< default}}
+{{!-- Talleres: primero Membresía (para que no se pierda), luego posts tag "taller". --}}
+
+{{#post}}
+<section class="section">
+  <div class="container">
+    <p class="breadcrumb"><a href="{{@site.url}}/">Inicio</a> / {{title}}</p>
+    <div class="section-head">
+      <span class="s-eyebrow">Formación · en vivo</span>
+      <h1 class="s-title">{{title}}</h1>
+      {{#if custom_excerpt}}
+        <p class="s-desc">{{custom_excerpt}}</p>
+      {{else}}
+        <p class="s-desc">Membresía mensual arriba. Talleres y programas abajo, con pago por producto.</p>
+      {{/if}}
+    </div>
+  </div>
+</section>
+{{/post}}
+
+{{!-- MEMBRESÍA PRIMERO --}}
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="offer" style="border-width:2px;border-color:var(--typ)">
+      <span class="offer-badge">Membresía · $350 MXN / mes</span>
+      <h3>Espacio de trabajo especializado</h3>
+      <p class="offer-desc">Herramientas y conocimiento especializado que no van al archivo público. Lo publicado sigue libre; esto es la capa de trabajo.</p>
+      <ul class="offer-bullets">
+        <li>Análisis de datos, RAG soberano, protocolos y geopolítica del conocimiento</li>
+        <li>Sala de trabajo en Matrix</li>
+        <li>Todo el acceso libre incluido</li>
+      </ul>
+      <div class="cta-row" style="margin-top:auto">
+        {{#if @custom.membership_stripe_url}}
+          <a class="btn btn-brand" href="{{@custom.membership_stripe_url}}" target="_blank" rel="noopener">Unirme · $350 MXN/mes</a>
+        {{/if}}
+        <a class="btn" href="{{@site.url}}/membresia/">Ver qué incluye</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-head">
+      <span class="s-eyebrow">Talleres abiertos</span>
+      <h2 class="s-title">Formación por producto</h2>
+      <p class="s-desc">Pago único por taller o programa. La información se lee sin membresía; la inscripción se paga por producto.</p>
+    </div>
+
+    {{#get "posts" filter="tag:taller" limit="20" include="tags" as |items|}}
+      {{#if items}}
+      <div class="offer-grid">
+        {{#foreach items}}
+        <article class="offer">
+          {{#if featured}}<span class="offer-badge">Abierto</span>{{else}}<span class="offer-badge outline">Formación</span>{{/if}}
+          <h3><a href="{{url}}">{{title}}</a></h3>
+          {{#if custom_excerpt}}
+            <p class="offer-desc">{{custom_excerpt}}</p>
+          {{else if excerpt}}
+            <p class="offer-desc">{{excerpt words="36"}}</p>
+          {{/if}}
+          <p class="offer-meta">{{date format="D MMM YYYY"}}{{#if reading_time}} · {{reading_time}}{{/if}}</p>
+          <a class="btn btn-brand btn-full" href="{{url}}">Ver taller e inscribirme</a>
+        </article>
+        {{/foreach}}
+      </div>
+      {{else}}
+      <p class="note">Pronto habrá talleres y programas abiertos aquí.</p>
+      {{/if}}
+    {{/get}}
+  </div>
+</section>
+
+{{#post}}
+{{#if content}}
+<section class="section" style="padding-top:0">
+  <div class="container prose">
+    <div class="post-content">{{content}}</div>
+  </div>
+</section>
+{{/if}}
+{{/post}}
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="callout">
+      <h3>¿Inscripción grupal o a la medida?</h3>
+      <p style="margin-top:0.5rem">Equipo, colectivo, aula, organización o institución: escríbeme con el contexto y armamos propuesta.</p>
+      <div class="cta-row" style="margin-top:1rem">
+        <a class="btn btn-brand" href="{{@site.url}}/contacto/">Solicitar cotización</a>
+      </div>
+    </div>
+  </div>
+</section>

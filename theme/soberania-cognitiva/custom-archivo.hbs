@@ -1,0 +1,139 @@
+{{!< default}}
+{{!-- El archivo de lo improbable = biblioteca pública de análisis y datos. --}}
+
+{{#post}}
+<section class="section">
+  <div class="container">
+    <p class="breadcrumb"><a href="{{@site.url}}/">Inicio</a> / {{title}}</p>
+    <div class="section-head">
+      <span class="s-eyebrow">Archivo · opinión y datos</span>
+      <h1 class="s-title">{{title}}</h1>
+      {{#if custom_excerpt}}
+        <p class="s-desc">{{custom_excerpt}}</p>
+      {{else}}
+        <p class="s-desc">Análisis, video, podcast y documentos. Opinión fundada y datos publicados: entra, lee, escucha, usa.</p>
+      {{/if}}
+    </div>
+    {{#if content}}<div class="prose" style="margin:0 0 1.5rem"><div class="post-content">{{content}}</div></div>{{/if}}
+
+    <nav class="archivo-map" aria-label="Secciones del archivo">
+      <a class="archivo-door" href="#analisis">
+        <span class="archivo-door-k">01</span>
+        <span class="archivo-door-t">Notas &amp; análisis</span>
+        <span class="archivo-door-d">Ensayos, lecturas, intervenciones</span>
+      </a>
+      <a class="archivo-door" href="#video">
+        <span class="archivo-door-k">02</span>
+        <span class="archivo-door-t">Video</span>
+        <span class="archivo-door-d">Análisis en movimiento</span>
+      </a>
+      <a class="archivo-door" href="#podcast">
+        <span class="archivo-door-k">03</span>
+        <span class="archivo-door-t">Podcast</span>
+        <span class="archivo-door-d">Opinión y datos</span>
+      </a>
+      <a class="archivo-door" href="#documentos">
+        <span class="archivo-door-k">04</span>
+        <span class="archivo-door-t">Documentos</span>
+        <span class="archivo-door-d">PDFs y materiales para leer</span>
+      </a>
+    </nav>
+  </div>
+</section>
+{{/post}}
+
+<section class="section" style="padding-top:0" id="analisis">
+  <div class="container">
+    <div class="section-head">
+      <span class="s-eyebrow">01</span>
+      <h2 class="s-title">Notas &amp; análisis</h2>
+      <p class="s-desc">Lo escrito: análisis, intervenciones, lecturas con criterio político.</p>
+    </div>
+    {{#get "posts" filter="tag:nota" limit="9" as |items|}}
+      {{#if items}}
+        <div class="card-grid">{{#foreach items}}{{> post-card}}{{/foreach}}</div>
+        <p class="note" style="margin-top:1rem"><a href="{{@site.url}}/tag/nota/">Ver todos los análisis →</a></p>
+      {{else}}
+        <p class="note">Pronto habrá notas y análisis aquí.</p>
+      {{/if}}
+    {{/get}}
+  </div>
+</section>
+
+<section class="section" style="padding-top:0" id="video">
+  <div class="container">
+    <div class="section-head">
+      <span class="s-eyebrow">02</span>
+      <h2 class="s-title">Video</h2>
+      <p class="s-desc">Análisis en movimiento. La portada abre la publicación.</p>
+    </div>
+    {{#get "posts" filter="tag:video" limit="6" as |items|}}
+      {{#if items}}
+        <div class="media-grid">
+          {{#foreach items}}
+          <a class="media" href="{{url}}" aria-label="Ver: {{title}}">
+            {{#if feature_image}}<img src="{{img_url feature_image size="m"}}" alt="{{title}}">{{/if}}
+            <span class="play"><span><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
+            <span class="caption">{{#primary_tag}}<span class="k">{{name}}</span>{{/primary_tag}}<span class="t">{{title}}</span></span>
+          </a>
+          {{/foreach}}
+        </div>
+        <p class="note" style="margin-top:1rem"><a href="{{@site.url}}/tag/video/">Ver todos los videos →</a></p>
+      {{else}}
+        <p class="note">Pronto habrá video aquí.</p>
+      {{/if}}
+    {{/get}}
+  </div>
+</section>
+
+<section class="section" style="padding-top:0" id="podcast">
+  <div class="container">
+    <div class="section-head">
+      <span class="s-eyebrow">03</span>
+      <h2 class="s-title">Podcast</h2>
+      <p class="s-desc">Opinión y datos, con más tiempo para argumentar. Política, territorio e infraestructura cognitiva.</p>
+    </div>
+    {{#get "posts" filter="tag:podcast" limit="8" as |items|}}
+      {{#if items}}
+        <div class="doc-list">
+          {{#foreach items}}
+          <a class="doc" href="{{url}}">
+            <span class="doc-kind">ep.</span>
+            <span class="doc-body"><span class="doc-title">{{title}}</span><span class="doc-desc">{{reading_time}} · {{date format="D MMM YYYY"}}</span></span>
+            <span class="doc-arrow">&#9654;</span>
+          </a>
+          {{/foreach}}
+        </div>
+        <p class="note" style="margin-top:1rem"><a href="{{@site.url}}/tag/podcast/">Ver todos los episodios →</a></p>
+      {{else}}
+        <p class="note">Pronto habrá episodios aquí.</p>
+      {{/if}}
+    {{/get}}
+  </div>
+</section>
+
+<section class="section" style="padding-top:0" id="documentos">
+  <div class="container">
+    <div class="section-head">
+      <span class="s-eyebrow">04</span>
+      <h2 class="s-title">Documentos</h2>
+      <p class="s-desc">PDFs, checklists y materiales para leer, citar y guardar.</p>
+    </div>
+    {{#get "posts" filter="tag:pdf" limit="10" as |items|}}
+      {{#if items}}
+        <div class="doc-list">
+          {{#foreach items}}
+          <a class="doc" href="{{url}}">
+            <span class="doc-kind">PDF</span>
+            <span class="doc-body"><span class="doc-title">{{title}}</span><span class="doc-desc">{{date format="D MMM YYYY"}}</span></span>
+            <span class="doc-arrow">&#8595;</span>
+          </a>
+          {{/foreach}}
+        </div>
+        <p class="note" style="margin-top:1rem"><a href="{{@site.url}}/tag/pdf/">Ver todos los documentos →</a></p>
+      {{else}}
+        <p class="note">Pronto habrá documentos aquí.</p>
+      {{/if}}
+    {{/get}}
+  </div>
+</section>

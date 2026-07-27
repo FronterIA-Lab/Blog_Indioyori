@@ -1,0 +1,51 @@
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="{{@site.url}}">
+      {{#if @site.logo}}
+        <span class="logo"><img src="{{@site.logo}}" alt="{{@site.title}}"></span>
+      {{else}}
+        {{!-- Marca hero: IndioYori con énfasis en Yori --}}
+        <span class="logo">Indio<b>Yori</b></span>
+      {{/if}}
+      {{#if @custom.logo_subtitle}}<span class="logo-sub">{{@custom.logo_subtitle}}</span>{{else}}<span class="logo-sub">Soberanía Cognitiva</span>{{/if}}
+    </a>
+
+    {{#if @site.navigation}}
+    <nav class="main-nav" aria-label="Principal">
+      <ul>
+        {{#foreach navigation}}
+          <li class="nav-item {{#if current}}nav-current{{/if}}"><a href="{{url absolute="true"}}">{{label}}</a></li>
+        {{/foreach}}
+      </ul>
+    </nav>
+    {{/if}}
+
+    <div class="header-actions">
+      <a class="btn-subscribe" href="{{@site.url}}/comunidad/"><span>Chat</span></a>
+      <a class="btn-subscribe" href="{{@site.url}}/contacto/"><span>Contacto</span></a>
+      {{#unless @member}}
+        <a class="btn-subscribe" href="#/portal/signup" data-portal="signup"><span>Suscribirse</span></a>
+      {{else}}
+        <a class="btn-subscribe" href="#/portal/account" data-portal="account"><span>Mi cuenta</span></a>
+      {{/unless}}
+
+      <button class="icon-btn nav-toggle" data-nav-toggle aria-label="Menú" aria-expanded="false" aria-controls="mobile-nav">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobile-nav" data-mobile-nav aria-label="Menú móvil">
+  <div class="container">
+    <ul>
+      {{#if @site.navigation}}
+        {{#foreach navigation}}
+          <li><a href="{{url absolute="true"}}">{{label}}</a></li>
+        {{/foreach}}
+      {{/if}}
+      <li><a href="{{@site.url}}/comunidad/">Chat / Comunidad</a></li>
+      <li><a href="{{@site.url}}/contacto/">Contacto</a></li>
+    </ul>
+  </div>
+</nav>

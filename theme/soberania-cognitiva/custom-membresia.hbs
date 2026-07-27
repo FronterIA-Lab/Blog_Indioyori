@@ -1,0 +1,91 @@
+{{!< default}}
+{{!-- Membresía $350/mes: capa de trabajo especializada; lo publicado sigue libre. --}}
+
+{{#post}}
+<section class="section">
+  <div class="container">
+    <p class="breadcrumb"><a href="{{@site.url}}/">Inicio</a> / {{title}}</p>
+    <div class="section-head">
+      <span class="s-eyebrow">Membresía · $350 MXN al mes</span>
+      <h1 class="s-title">{{title}}</h1>
+      {{#if custom_excerpt}}
+        <p class="s-desc">{{custom_excerpt}}</p>
+      {{/if}}
+    </div>
+
+    <div class="callout" style="margin-bottom:2rem">
+      <h3>Lo publicado no tiene costo</h3>
+      <p style="margin-top:0.75rem">Todo lo que aparece en el Archivo —notas, videos, podcasts, documentos e información de talleres— se consulta sin pagar. La membresía no convierte ese conocimiento en privilegio ni separa a quien puede pagar de quien no.</p>
+      <p style="margin-top:0.75rem">Lo que aporta es otra capa: herramientas y conocimiento especializado que no publico en el sitio. Si no te interesa o no puedes pagarla, tu acceso a lo publicado no se reduce.</p>
+      <p style="margin-top:0.75rem">Si defiendes activamente el territorio y no puedes pagar la membresía, <a href="{{@site.url}}/contacto/">escríbeme</a>.</p>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:2rem;align-items:stretch">
+      <div class="offer">
+        <span class="offer-badge outline">Acceso libre</span>
+        <h3>Todo lo publicado</h3>
+        <p class="offer-desc">El Archivo, el Manifiesto y la información de talleres se leen sin membresía ni pago.</p>
+        <ul class="offer-bullets">
+          <li>Notas, videos, podcasts y documentos</li>
+          <li>Cuenta gratis opcional: comentarios y chat general</li>
+          <li>Talleres: pago por producto (aparte de la membresía)</li>
+        </ul>
+        <a class="btn btn-full" style="margin-top:auto" href="{{@site.url}}/archivo/">Ir al Archivo</a>
+      </div>
+      <div class="offer">
+        <span class="offer-badge">Membresía</span>
+        <h3>$350 MXN / mes</h3>
+        <p class="offer-desc">Capa de trabajo: material especializado que no va al archivo público.</p>
+        <ul class="offer-bullets">
+          <li>Todo el acceso libre</li>
+          <li>Especialización en análisis de datos con criterio</li>
+          <li>Bases y protocolos de arquitecturas RAG soberanas</li>
+          <li>Protocolos para organizar conocimiento y defensa del territorio</li>
+          <li>Marcos de geopolítica del conocimiento para proyectos</li>
+          <li>Sala de trabajo en Matrix</li>
+        </ul>
+        {{#if @custom.membership_stripe_url}}
+          <a class="btn btn-brand btn-full" style="margin-top:auto" href="{{@custom.membership_stripe_url}}" target="_blank" rel="noopener">Unirme · $350 MXN/mes</a>
+        {{else}}
+          <a class="btn btn-brand btn-full" style="margin-top:auto" href="#/portal/signup" data-portal="signup">Unirme</a>
+        {{/if}}
+      </div>
+    </div>
+
+    {{#if @custom.membership_stripe_url}}
+    <div class="cta-row" style="margin-bottom:2rem">
+      <a class="btn btn-brand" href="{{@custom.membership_stripe_url}}" target="_blank" rel="noopener">Pagar membresía en Stripe · $350 MXN/mes</a>
+    </div>
+    {{/if}}
+
+    {{#if @member.paid}}
+      {{#if @custom.matrix_paid_room_url}}
+      <div class="section-head">
+        <span class="s-eyebrow">Tu sala de trabajo</span>
+        <h2 class="s-title">Sala de miembros</h2>
+      </div>
+      <div class="chat" style="margin-bottom:2rem">
+        <div class="chat-head"><span class="pulse" aria-hidden="true"></span><b>Sala de trabajo · membresía</b></div>
+        <iframe src="{{@custom.matrix_paid_room_url}}" allow="microphone; camera; autoplay; clipboard-write; encrypted-media" title="Sala de trabajo de membresía" loading="lazy"></iframe>
+      </div>
+      {{/if}}
+    {{/if}}
+
+    {{#if @custom.donate_url}}
+    <div class="callout" style="margin-bottom:2rem">
+      <h3>Apoya el proyecto</h3>
+      <p style="margin-top:0.5rem">Si no tomas la membresía pero quieres sostener el trabajo con dinero, aquí puedes apoyar el proyecto.</p>
+      <div class="cta-row" style="margin-top:1rem">
+        <a class="btn btn-brand" href="{{@custom.donate_url}}" target="_blank" rel="noopener">Apoya el proyecto</a>
+      </div>
+    </div>
+    {{/if}}
+
+    {{#if content}}
+    <div class="prose">
+      <div class="post-content">{{content}}</div>
+    </div>
+    {{/if}}
+  </div>
+</section>
+{{/post}}
