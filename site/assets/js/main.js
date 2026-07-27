@@ -59,9 +59,12 @@
       e.preventDefault();
       var ok = true;
 
-      // Honeypot anti-spam: campo oculto que un humano no llena.
+      // Honeypot anti-spam: campos ocultos que un humano no llena.
       var hp = form.querySelector("[name='website']");
-      if (hp && hp.value.trim() !== "") { return; /* bot: ignorar en silencio */ }
+      var gotcha = form.querySelector("[name='_gotcha']");
+      if ((hp && hp.value.trim() !== "") || (gotcha && gotcha.value.trim() !== "")) {
+        return; /* bot: ignorar en silencio */
+      }
 
       // Tiempo mínimo: envíos casi instantáneos suelen ser bots.
       if (Date.now() - loadedAt < 2500) {
