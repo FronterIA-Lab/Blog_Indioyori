@@ -20,9 +20,8 @@
   var form = document.querySelector("[data-contact-form]");
   if (form) {
     var status = form.querySelector("[data-form-status]");
-    var loadedAt = Date.now();
     var setInvalid = function (field, invalid) {
-      var wrap = field.closest(".field") || field.closest(".consent");
+      var wrap = field.closest(".field");
       if (wrap) wrap.classList.toggle("invalid", !!invalid);
     };
     var emailOk = function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(v || "").trim()); };
@@ -30,9 +29,11 @@
       if (!status) return;
       status.textContent = text;
     };
+    var FORMSPREE = "https://formspree.io/f/mjgnppap";
     var normalizeEndpoint = function (raw) {
       var u = String(raw || "").trim();
-      if (!u) return "https://formspree.io/f/mjgnppap";
+      if (!u) return FORMSPREE;
+      // Si pegaron la URL del panel, intenta /f/xxxxx
       var m = u.match(/formspree\.io\/(?:f|forms)\/([a-zA-Z0-9]+)/i);
       if (m) return "https://formspree.io/f/" + m[1];
       return u;
@@ -43,50 +44,39 @@
       var hp = form.querySelector("[name='_gotcha']");
       if (hp && hp.value.trim() !== "") return;
 
-      if (Date.now() - loadedAt < 2500) {
-        showStatus("Espera un momento antes de enviar, por favor.");
-        return;
-      }
-
       var ok = true;
       var name = form.querySelector("[name='name']");
       var email = form.querySelector("[name='email']");
-      var contacto = form.querySelector("[name='contacto']");
-      var motivo = form.querySelector("[name='motivo']");
       var msg = form.querySelector("[name='message']");
-      var consent = form.querySelector("[name='consent']");
 
       if (name) { var v = name.value.trim().length >= 2; setInvalid(name, !v); ok = ok && v; }
       if (email) { var ve = emailOk(email.value); setInvalid(email, !ve); ok = ok && ve; }
-      if (msg) { var vm = msg.value.trim().length >= 10; setInvalid(msg, !vm); ok = ok && vm; }
-      if (consent) {
-        setInvalid(consent, !consent.checked);
-        ok = ok && consent.checked;
-      }
+      if (msg) { var vm = msg.value.trim().length >= 5; setInvalid(msg, !vm); ok = ok && vm; }
 
-      if (!ok) {
-        showStatus("Revisa los campos marcados: el correo es obligatorio para poder responderte.");
-        return;
-      }
+      if (!ok) { showStatus("Revisa nombre, correo y mensaje."); return; }
 
       var endpoint = normalizeEndpoint(form.getAttribute("data-endpoint") || form.getAttribute("action"));
       var mail = (form.getAttribute("data-email") || "indioyori@fronteria-lab.com").trim();
-      var subjectLine =
-        "Contacto verificado · " +
-        (name ? name.value.trim() : "") +
-        (motivo && motivo.value ? " · " + motivo.value : "");
+
+      if (!endpoint) {
+        var subject = encodeURIComponent("Contacto · " + (name ? name.value.trim() : ""));
+        var body = encodeURIComponent(
+          "Nombre: " + (name ? name.value.trim() : "") + "\n" +
+          "Correo: " + (email ? email.value.trim() : "") + "\n\n" +
+          (msg ? msg.value.trim() : "")
+        );
+        window.location.href = "mailto:" + mail + "?subject=" + subject + "&body=" + body;
+        showStatus("Abriendo tu correo…");
+        return;
+      }
 
       var payload = {
         name: name.value.trim(),
         email: email.value.trim(),
-        contacto: contacto ? contacto.value.trim() : "",
-        motivo: motivo ? motivo.value : "",
         message: msg.value.trim(),
-        consent: consent && consent.checked ? "si" : "",
         _replyto: email.value.trim(),
-        _subject: subjectLine
+        _subject: "Contacto · IndioYori"
       };
-
       showStatus("Enviando…");
       fetch(endpoint, {
         method: "POST",
@@ -104,7 +94,7 @@
         .then(function (res) {
           if (res.ok) {
             form.reset();
-            showStatus("Recibido. Sé a quién responder y lo haré en cuanto esté disponible.");
+            showStatus("Listo. Te respondo a ese correo.");
             return;
           }
           var err = "";
@@ -131,7 +121,7 @@
           }
         })
         .catch(function () {
-          showStatus("Sin conexión. Escríbeme a " + mail);
+          showStatus("Sin conexión o el endpoint de contacto está mal. Escríbeme a " + mail);
         });
     });
   }

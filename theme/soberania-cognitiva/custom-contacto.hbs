@@ -1,104 +1,60 @@
 {{!< default}}
-{{!-- Contacto verificado. Formspree: https://formspree.io/f/mjgnppap (también en Design → contact_endpoint). --}}
+{{!-- Contacto simple. Customize: contact_endpoint (Formspree) + contact_email. --}}
 
 {{#post}}
 <section class="section">
   <div class="container">
     <p class="breadcrumb"><a href="{{@site.url}}/">Inicio</a> / {{title}}</p>
-    <div class="grid-2 narrow-right">
-      <div>
-        <div class="section-head">
-          <span class="s-eyebrow">Contacto verificado</span>
-          <h1 class="s-title">{{title}}</h1>
-          {{#if custom_excerpt}}
-            <p class="s-desc">{{custom_excerpt}}</p>
-          {{else}}
-            <p class="s-desc">Me han llegado mensajes anónimos y raros. Por eso pido un <b>correo o contacto real</b>: por aquí pueden llegar clientes, colaboraciones importantes y grupos de defensa del territorio. Quiero que sea seguro y rápido.</p>
-          {{/if}}
-        </div>
+    <div class="section-head">
+      <span class="s-eyebrow">Contacto</span>
+      <h1 class="s-title">{{title}}</h1>
+      {{#if custom_excerpt}}
+        <p class="s-desc">{{custom_excerpt}}</p>
+      {{else}}
+        <p class="s-desc">Deja tus datos si quieres respuesta. Si no, no hace falta escribir.</p>
+      {{/if}}
+    </div>
 
-        {{#if content}}<div class="prose" style="margin-bottom:1.5rem"><div class="post-content">{{content}}</div></div>{{/if}}
+    {{#if content}}<div class="prose" style="margin-bottom:1.5rem"><div class="post-content">{{content}}</div></div>{{/if}}
 
-        <form class="form"
-              data-contact-form
-              action="{{#if @custom.contact_endpoint}}{{@custom.contact_endpoint}}{{else}}https://formspree.io/f/mjgnppap{{/if}}"
-              method="POST"
-              data-endpoint="{{#if @custom.contact_endpoint}}{{@custom.contact_endpoint}}{{else}}https://formspree.io/f/mjgnppap{{/if}}"
-              data-email="{{#if @custom.contact_email}}{{@custom.contact_email}}{{else}}indioyori@fronteria-lab.com{{/if}}"
-              novalidate>
-          {{!-- honeypot Formspree --}}
-          <div class="hp" aria-hidden="true">
-            <label>No llenes <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
-          </div>
-          <input type="hidden" name="_subject" value="Contacto verificado · IndioYori">
+    {{!-- Formspree: https://formspree.io/f/mjgnppap (fallback si Customize viene vacío) --}}
+    <form class="form"
+          data-contact-form
+          action="{{#if @custom.contact_endpoint}}{{@custom.contact_endpoint}}{{else}}https://formspree.io/f/mjgnppap{{/if}}"
+          method="POST"
+          data-endpoint="{{#if @custom.contact_endpoint}}{{@custom.contact_endpoint}}{{else}}https://formspree.io/f/mjgnppap{{/if}}"
+          data-email="{{#if @custom.contact_email}}{{@custom.contact_email}}{{else}}indioyori@fronteria-lab.com{{/if}}"
+          novalidate>
+      {{!-- honeypot Formspree --}}
+      <div class="hp" aria-hidden="true">
+        <label>No llenes <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+      </div>
+      <input type="hidden" name="_subject" value="Contacto · IndioYori">
 
-          <div class="two-col">
-            <div class="field">
-              <label for="name">Nombre <span class="req">*</span></label>
-              <input class="input" type="text" id="name" name="name" required minlength="2" autocomplete="name" placeholder="Cómo te llamas">
-              <span class="error">Dime tu nombre (al menos 2 caracteres).</span>
-            </div>
-            <div class="field">
-              <label for="email">Correo <span class="req">*</span></label>
-              <input class="input" type="email" id="email" name="email" required autocomplete="email" placeholder="tú@correo.com">
-              <span class="error">Necesito un correo válido para responderte.</span>
-              <span class="hint">Obligatorio: es lo que garantiza que sé a quién contestar.</span>
-            </div>
-          </div>
-
-          <div class="two-col">
-            <div class="field">
-              <label for="contacto">Otro contacto</label>
-              <input class="input" type="text" id="contacto" name="contacto" placeholder="Teléfono, Signal, @usuario… (opcional)">
-            </div>
-            <div class="field">
-              <label for="motivo">Motivo</label>
-              <select class="input" id="motivo" name="motivo">
-                <option>Taller o curso</option>
-                <option>Charla / institución</option>
-                <option>Colaboración</option>
-                <option>Defensa del territorio</option>
-                <option>Prensa / academia</option>
-                <option>Otro</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="message">Mensaje <span class="req">*</span></label>
-            <textarea class="textarea" id="message" name="message" required minlength="10" placeholder="Cuéntame en qué andas y cómo puedo ayudar."></textarea>
-            <span class="error">Escribe un mensaje (al menos 10 caracteres).</span>
-          </div>
-
-          <label class="consent">
-            <input type="checkbox" name="consent" value="si" required>
-            <span>Autorizo que uses mi correo únicamente para responder a este mensaje. Nada de spam ni reventa de datos. <span class="req">*</span></span>
-          </label>
-
-          <div class="cta-row">
-            <button class="btn btn-brand" type="submit">Enviar mensaje verificado</button>
-            <a class="btn btn-ghost" href="mailto:{{#if @custom.contact_email}}{{@custom.contact_email}}{{else}}indioyori@fronteria-lab.com{{/if}}">o escríbeme directo</a>
-          </div>
-          <p class="form-status" data-form-status role="status" aria-live="polite"></p>
-        </form>
+      <div class="field">
+        <label for="name">Nombre</label>
+        <input class="input" type="text" id="name" name="name" required minlength="2" autocomplete="name" placeholder="Tu nombre">
+        <span class="error">Escribe tu nombre.</span>
       </div>
 
-      <aside>
-        <div class="callout">
-          <h3>Por qué contacto seguro</h3>
-          <ul class="security-list" style="margin-top:0.75rem">
-            <li><span class="ic">🔒</span><span>El correo es <b>obligatorio</b>: sin remitente real, no hay a quién responder.</span></li>
-            <li><span class="ic">🛡️</span><span>Filtro anti-spam con <b>honeypot</b> Formspree para frenar bots.</span></li>
-            <li><span class="ic">✉️</span><span>Tu mensaje llega estructurado, con nombre y contacto, para responder rápido.</span></li>
-            <li><span class="ic">🚫</span><span>Sin rastreadores ni terceros publicitarios en esta página.</span></li>
-          </ul>
-        </div>
-        <div class="note" style="margin-top:1rem">
-          ✉️ Los mensajes llegan a <b>{{#if @custom.contact_email}}{{@custom.contact_email}}{{else}}indioyori@fronteria-lab.com{{/if}}</b> por Formspree.
-          Si el envío falla, usa el correo directo. Respondo cuando esté disponible — clientes, colaboraciones y defensa del territorio tienen prioridad.
-        </div>
-      </aside>
-    </div>
+      <div class="field">
+        <label for="email">Correo</label>
+        <input class="input" type="email" id="email" name="email" required autocomplete="email" placeholder="tu@correo.com">
+        <span class="error">Necesito un correo válido para responderte.</span>
+      </div>
+
+      <div class="field">
+        <label for="message">Mensaje</label>
+        <textarea class="textarea" id="message" name="message" required minlength="5" placeholder="En qué andas."></textarea>
+        <span class="error">Escribe un mensaje breve.</span>
+      </div>
+
+      <div class="cta-row">
+        <button class="btn btn-brand" type="submit">Enviar</button>
+        <a class="btn" href="mailto:{{#if @custom.contact_email}}{{@custom.contact_email}}{{else}}indioyori@fronteria-lab.com{{/if}}">o correo directo</a>
+      </div>
+      <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+    </form>
   </div>
 </section>
 {{/post}}

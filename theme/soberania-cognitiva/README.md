@@ -1,15 +1,11 @@
-# Soberanía Cognitiva — Theme Ghost v1.5.16
+# Soberanía Cognitiva — Theme Ghost v1.5.17
 
-Menú en español claro: Inicio · Archivo · Manifiesto · Membresía · Talleres · Comunidad · Contacto.
+Base: **soberania-cognitiva-7** (el zip que te gustó).  
+Cambio único: Formspree fijado en Contacto → `https://formspree.io/f/mjgnppap`.
 
-- Lo publicado no tiene costo  
-- Membresía $350 MXN/mes = herramientas y conocimiento especializado (no VIP)  
-- Apoya el proyecto = sostén opcional  
-- Chat general (cuenta gratis) + sala de trabajo (membresía)
+Menú: Inicio · Archivo · Manifiesto · Membresía · Talleres · Comunidad · Contacto.
 
-## Contacto / Formspree
-Endpoint por defecto: `https://formspree.io/f/mjgnppap`  
-También configurable en Ghost → Settings → Design → Theme settings → **contact_endpoint**.
+Guía: [`CONTENIDO.md`](./CONTENIDO.md)
 
-Guía: [`CONTENIDO.md`](./CONTENIDO.md)  
-Zip para subir a Ghost: `soberania-cognitiva.zip` (carpeta raíz del zip = `soberania-cognitiva/`).
+## Subir a Ghost
+Sube el zip `soberania-cognitiva-7-formspree.zip` (carpeta raíz = `soberania-cognitiva/`).
