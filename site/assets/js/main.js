@@ -105,9 +105,17 @@
         return;
       }
 
-      // Con backend (Formspree/Basin/Worker): envío seguro por fetch.
+      // Con backend (Formspree): envío seguro por fetch/Ajax.
       var data = new FormData(form);
+      var motivo = form.querySelector("[name='motivo']");
       data.append("_ref", ref);
+      data.append("_replyto", email ? email.value.trim() : "");
+      data.append(
+        "_subject",
+        "Contacto verificado · " +
+          (name ? name.value.trim() : "") +
+          (motivo && motivo.value ? " · " + motivo.value : "")
+      );
       showStatus("Enviando…", true);
       fetch(endpoint, { method: "POST", body: data, headers: { Accept: "application/json" } })
         .then(function (r) {
