@@ -61,10 +61,11 @@
             <p class="s-desc">Me han llegado mensajes anónimos y raros. Por eso pido un <b>correo o contacto real</b>: por aquí pueden llegar clientes, colaboraciones importantes y grupos de defensa del territorio. Quiero que sea seguro y rápido.</p>
           </div>
 
-          <form class="form" data-contact-form data-endpoint="TU_ENDPOINT_FORMULARIO" novalidate>
+          <form class="form" data-contact-form action="https://formspree.io/f/mjgnppap" method="POST" data-endpoint="https://formspree.io/f/mjgnppap" novalidate>
             <!-- Honeypot anti-bots (oculto para humanos) -->
             <div class="hp" aria-hidden="true">
               <label>No llenes este campo <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+              <label>No llenes este campo <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
             </div>
 
             <div class="two-col">
@@ -129,12 +130,9 @@
             </ul>
           </div>
           <div class="note" style="margin-top:1rem">
-            ⚙️ <b>Para recibir los mensajes:</b> conecta un backend sin servidor propio como
-            <a href="https://formspree.io" target="_blank" rel="noopener">Formspree</a>,
-            <a href="https://usebasin.com" target="_blank" rel="noopener">Basin</a> o un
-            <a href="https://developers.cloudflare.com/pages/functions/" target="_blank" rel="noopener">Cloudflare Worker</a>,
-            y pon su URL en <code>data-endpoint</code>. Añade también reCAPTCHA/Turnstile para más seguridad.
-            Mientras tanto, el formulario abre tu correo con los datos ya ordenados.
+            ✉️ Los mensajes llegan a <b>indioyori@fronteria-lab.com</b> por Formspree.
+            Si el envío falla, usa <a href="mailto:indioyori@fronteria-lab.com">el correo directo</a>.
+            Respondo cuando esté disponible — clientes, colaboraciones y defensa del territorio tienen prioridad.
           </div>
         </aside>
       </div>

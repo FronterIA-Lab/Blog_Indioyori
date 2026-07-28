@@ -1,0 +1,21 @@
+{{!< default}}
+
+{{#post}}
+{{#if feature_image}}
+<section class="article-hero">
+  <img src="{{img_url feature_image size="xl"}}" alt="{{title}}">
+</section>
+{{/if}}
+
+<article class="section">
+  <div class="container prose">
+    <p class="breadcrumb"><a href="{{@site.url}}/">Inicio</a> / {{title}}</p>
+    <span class="eyebrow page-eyebrow">tesis · soberanía cognitiva</span>
+    <h1 class="page-title">{{title}}</h1>
+    {{#if custom_excerpt}}<p class="lead">{{custom_excerpt}}</p>{{/if}}
+    <div class="post-content">
+      {{content}}
+    </div>
+  </div>
+</article>
+{{/post}}

@@ -51,10 +51,12 @@ En `comunidad.html`, el iframe apunta a una sala de Matrix.
 4. Foro asíncrono opcional con [cactus.chat](https://cactus.chat), Discourse o Flarum.
 
 ### 3. Contacto seguro
-En `contacto.html`, el formulario usa `data-endpoint="TU_ENDPOINT_FORMULARIO"`.
-- **Sin backend:** si dejas el marcador, el formulario abre el correo con los datos ya ordenados.
-- **Con backend (recomendado):** crea un endpoint en [Formspree](https://formspree.io), [Basin](https://usebasin.com) o un [Cloudflare Worker](https://developers.cloudflare.com/pages/functions/) y pega su URL en `data-endpoint`.
-- El formulario ya incluye: **correo obligatorio y validado**, **honeypot** anti-bots y **control de tiempo** de envío. Para mayor seguridad, añade reCAPTCHA o Cloudflare Turnstile.
+En `contacto.html`, el formulario ya apunta a Formspree:
+`https://formspree.io/f/mjgnppap` (`action` + `data-endpoint`).
+- El envío va por **fetch/Ajax** en `assets/js/main.js` (Accept: `application/json`).
+- Si el endpoint no estuviera configurado, caería a `mailto:` con los datos ordenados.
+- Incluye: **correo obligatorio**, honeypot (`website` + `_gotcha`), control de tiempo, `_replyto` y `_subject`.
+- Para más seguridad, puedes añadir reCAPTCHA o Cloudflare Turnstile en Formspree.
 
 ### 4. Video y podcast
 En `archivo.html` y `nota-soberania-cognitiva.html`:
