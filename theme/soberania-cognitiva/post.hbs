@@ -1,0 +1,51 @@
+{{!< default}}
+
+{{#post}}
+{{#if feature_image}}
+<section class="article-hero">
+  <img src="{{img_url feature_image size="xl"}}" alt="{{title}}">
+</section>
+{{/if}}
+
+<article class="section">
+  <div class="container prose">
+    <p class="breadcrumb"><a href="{{@site.url}}/">Inicio</a>{{#primary_tag}} / <a href="{{url}}">{{name}}</a>{{/primary_tag}}</p>
+
+    <div class="card-meta" style="margin:0.5rem 0 0.75rem">
+      <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>
+      <span class="dot">•</span><span>{{reading_time}}</span>
+      {{#primary_tag}}<span class="dot">•</span><a href="{{url}}" class="tag">{{name}}</a>{{/primary_tag}}
+    </div>
+
+    <h1 style="font-size:clamp(1.9rem,5vw,2.8rem)">{{title}}</h1>
+    {{#if custom_excerpt}}<p class="lead">{{custom_excerpt}}</p>{{/if}}
+
+    <div class="post-content">
+      {{content}}
+    </div>
+
+    {{#if comments}}
+      <section style="margin-top:3rem">
+        {{comments title="Conversación de la comunidad"}}
+      </section>
+    {{/if}}
+  </div>
+</article>
+
+{{#primary_tag}}
+{{#get "posts" filter="tags:[{{slug}}]+id:-{{../id}}" limit="3" as |related|}}
+  {{#if related}}
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="section-head"><span class="s-eyebrow">Sigue leyendo</span></div>
+      <div class="card-grid">
+        {{#foreach related}}
+          {{> post-card}}
+        {{/foreach}}
+      </div>
+    </div>
+  </section>
+  {{/if}}
+{{/get}}
+{{/primary_tag}}
+{{/post}}

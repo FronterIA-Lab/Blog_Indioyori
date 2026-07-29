@@ -5,26 +5,26 @@
    ========================================================================= */
 
 :root {
-  /* Base neutra, limpia (herencia Yoffa) */
+  /* Base blanco y negro. El color lo ponen las imágenes. */
   --bg: #ffffff;
-  --bg-tone: #f6f6f7;
-  --bg-ink: #0e0e12;            /* fondo oscuro para barras y héroes */
-  --typ: #1a1a1a;
-  --typ-tone: #5f5f66;
-  --typ-content: #3a3a40;
-  --brd: #e6e6e6;
-  --brd-strong: #d0d0d2;
+  --bg-tone: #f4f4f4;
+  --bg-ink: #0a0a0a;            /* fondo oscuro para barras y héroes */
+  --typ: #111111;
+  --typ-tone: #6b6b6b;
+  --typ-content: #2b2b2b;
+  --brd: #e4e4e4;
+  --brd-strong: #cfcfcf;
 
-  /* Acento de identidad — magenta tomado de las portadas (detalle sobre la base Yoffa) */
-  --brand: #c01862;
-  --brand-ink: #8f0f48;
+  /* "brand" = negro. Sin acento de color. */
+  --brand: #111111;
+  --brand-ink: #000000;
   --brand-contrast: #ffffff;
 
-  /* Acentos secundarios para etiquetas (curados desde la imaginería) */
-  --acc-violeta: #6d28d9;
-  --acc-cian: #0e9c96;
-  --acc-ambar: #c77d0a;
-  --acc-magenta: #c01862;
+  /* Etiquetas: neutras (sin color). */
+  --acc-violeta: #111111;
+  --acc-cian: #111111;
+  --acc-ambar: #111111;
+  --acc-magenta: #111111;
 
   --radius: 2px;
   --container: 1200px;
@@ -106,7 +106,7 @@ ul { margin: 0; }
   font-weight: 700; font-size: 0.85rem; padding: 0.5rem 1.1rem; border-radius: var(--radius);
   border: 1px solid var(--brand); cursor: pointer; transition: filter .15s;
 }
-.btn-subscribe:hover { filter: brightness(1.08); }
+.btn-subscribe:hover { opacity: 0.85; }
 .icon-btn {
   display: inline-flex; align-items: center; justify-content: center;
   width: 2.25rem; height: 2.25rem; border-radius: var(--radius); border: 1px solid transparent;
@@ -155,7 +155,7 @@ ul { margin: 0; }
 }
 .btn:hover { background: var(--typ); color: var(--bg); }
 .btn-brand { background: var(--brand); border-color: var(--brand); color: var(--brand-contrast); }
-.btn-brand:hover { filter: brightness(1.08); background: var(--brand); color: var(--brand-contrast); }
+.btn-brand:hover { background: var(--bg); color: var(--typ); }
 .btn-ghost { background: transparent; }
 .btn-full { width: 100%; }
 
@@ -210,7 +210,8 @@ ul { margin: 0; }
 .card.has-image .card-meta { color: rgba(255,255,255,0.82); }
 .card-meta .dot { opacity: 0.35; }
 .card-meta .spacer { flex: 1; }
-.card-star { color: #f5b301; display: inline-flex; }
+.card-star { color: var(--typ); display: inline-flex; }
+.card.has-image .card-star { color: #fff; }
 
 .card-title { font-size: 1.1rem; font-weight: 700; line-height: 1.3; }
 @media (min-width: 768px) { .card-title { font-size: 1.25rem; } }
@@ -362,13 +363,13 @@ ul { margin: 0; }
 .input:focus, .textarea:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 2px color-mix(in srgb, var(--brand) 25%, transparent); }
 .textarea { min-height: 8rem; resize: vertical; }
 .field .hint { font-size: 0.78rem; color: var(--typ-tone); }
-.field .error { font-size: 0.8rem; color: #c0182f; display: none; }
+.field .error { font-size: 0.8rem; color: var(--typ); font-weight: 700; display: none; }
 .field.invalid .error { display: block; }
-.field.invalid .input, .field.invalid .textarea { border-color: #c0182f; }
+.field.invalid .input, .field.invalid .textarea { border-color: var(--typ); border-width: 2px; }
 .hp { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; overflow: hidden; }
 .form-status { font-size: 0.9rem; font-weight: 700; }
-.form-status.ok { color: #0a7d4b; }
-.form-status.bad { color: #c0182f; }
+.form-status.ok { color: var(--typ); }
+.form-status.bad { color: var(--typ); }
 .consent { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.85rem; color: var(--typ-content); }
 .consent input { margin-top: 0.25rem; }
 

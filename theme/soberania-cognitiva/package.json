@@ -1,0 +1,76 @@
+{
+  "name": "soberania-cognitiva",
+  "description": "Theme de Ghost para IndioYori — Soberanía Cognitiva. Diseño limpio en blanco y negro, tipografía Space Mono; el color lo ponen las imágenes.",
+  "version": "1.0.0",
+  "engines": {
+    "ghost": ">=5.0.0"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "IndioYori",
+    "email": "indioyori@fronteria-lab.com"
+  },
+  "keywords": [
+    "ghost-theme",
+    "blog",
+    "minimal",
+    "monospace"
+  ],
+  "config": {
+    "posts_per_page": 9,
+    "card_assets": true,
+    "image_sizes": {
+      "xxs": { "width": 30 },
+      "xs": { "width": 320 },
+      "s": { "width": 640 },
+      "m": { "width": 960 },
+      "l": { "width": 1280 },
+      "xl": { "width": 1920 }
+    },
+    "custom": {
+      "sysbar_prompt": {
+        "type": "text",
+        "default": "indioyori@anáhuac"
+      },
+      "sysbar_tagline": {
+        "type": "text",
+        "default": "territorio Yoreme · Ódami · formación · crítica · comunidad"
+      },
+      "logo_subtitle": {
+        "type": "text",
+        "default": "Soberanía Cognitiva"
+      },
+      "hero_eyebrow": {
+        "type": "text",
+        "default": "investigador autónomo · CLACSO · yoreme · ódami"
+      },
+      "hero_heading": {
+        "type": "text",
+        "default": "Soberanía cognitiva frente a la colonización de la gramática en los LLM."
+      },
+      "hero_subheading": {
+        "type": "text",
+        "default": "Talleres, archivo, podcast y comunidad desde territorio Anáhuac. IA y sistemas RAG soberanos, geopolítica del conocimiento y decolonización."
+      },
+      "hero_image": {
+        "type": "image"
+      },
+      "show_hero": {
+        "type": "boolean",
+        "default": true
+      },
+      "matrix_room_url": {
+        "type": "text",
+        "default": "https://app.element.io/#/room/%23Soberania_Cognitiva:matrix.org"
+      },
+      "contact_endpoint": {
+        "type": "text",
+        "default": ""
+      },
+      "contact_email": {
+        "type": "text",
+        "default": "indioyori@fronteria-lab.com"
+      }
+    }
+  }
+}
