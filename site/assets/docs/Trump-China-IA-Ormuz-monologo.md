@@ -1,62 +1,87 @@
-# Monólogo — Trump, Ormuz, China, IA
+# Monólogo — Irán quitó el Estrecho. China quitó la burbuja
 
-**Duración estimada:** 4:00–5:00  
-**Uso:** TikTok / IG / FB / YouTube corto  
-**Fecha de corte:** 30 julio 2026
+**Duración:** 4:30–5:30  
+**Corte:** 29–30 julio 2026  
+**Eje:** no la crónica de la guerra — el análisis: vulnerabilidad USA → golpe chino en IA
 
 ---
 
 Trump no falló una guerra.  
-Rompió la ficción estadounidense.  
-Y China le cobró la cuenta donde más dolía: en la inteligencia artificial.
+Rompió los pilares de la ficción estadounidense.  
+Y cuando Estados Unidos quedó más vulnerable, China le quitó lo que le quedaba: la inteligencia artificial.
 
-Empiezo por la fecha, porque sin secuencia no hay análisis.  
-Veintiocho de febrero de dos mil veintiséis. Estados Unidos e Israel atacan Irán. Muere Ali Khamenei. En cuestión de horas, el Estrecho de Ormuz —por donde pasa cerca de una quinta parte del petróleo que viaja por mar— deja de operar bajo las reglas de Washington. Ahí no solo empieza una guerra. Se quiebra en público el pacto del petrodólar: petróleo en dólares a cambio de “protección” militar.
+Eso es lo que hay que entender. No el recuento de misiles. La secuencia.
 
-Y aquí viene el golpe al libreto. El ejército más caro del planeta no reabre el Estrecho. Si no controlas Ormuz, no eres hegemonía energética. Eres un imperio gastando misiles, reputación y crédito… sin peaje. Irán no necesita ganar como en una película. Le basta con decidir quién pasa, quién paga y en qué moneda se liquida el tránsito. Desde marzo hay reportes de peajes, corredores selectivos y pagos en yuan. El veintinueve de julio, un contralmirante iraní lo dijo sin anestesia: no hay movimiento marítimo en esas aguas sin autorización de Irán.
+Primero: lo que Irán está haciendo. Y no es poca cosa.
 
-Y el pueblo lo sostiene. Una encuesta nacional de julio midió más de setenta y siete por ciento a favor de mantener el control de Ormuz aunque implique otra guerra con Estados Unidos. Eso no es fanatismo de titular. Es un país con memoria milenaria, industria de armas propia y una cultura donde el sacrificio se nombra y se entierra con honores. Washington, en cambio, esconde muertos y clasifica daños para vender invulnerabilidad. Son dos tecnologías de guerra. Quien trate el boletín del Pentágono como verdad y el del CGRI como rumor… ya eligió bando.
+Irán controla Ormuz. El veintinueve de julio un contralmirante lo dijo oficial: no hay movimiento marítimo en esas aguas sin autorización iraní. Desde marzo hay peaje, corredor selectivo, yuan. Omán propuso partir el Estrecho a la mitad. Irán dijo no: Ormuz no vuelve al mundo de antes. Eso es soberanía del grifo. Eso es el petrodólar en quiebra práctica.
 
-El Golfo ya había dicho que no. Arabia Saudita, Emiratos, Catar, Kuwait: ni bases ni cielo para atacar. Trump atacó igual. Las bases —Al Udeid, Al Dhafra, Ali Al Salem, la Quinta Flota— no blindaron a nadie. Quedaron expuestas. Irán ha publicado balances oficiales de daños a radares, cisternas, hangares y aeronaves estadounidenses. Washington minimiza. Ambas son versiones oficiales. Ninguna merece aura sagrada.
+Irán golpea la proyección estadounidense. El CGRI publica balances: radares, Patriot, hangares, cisternas, bases en Catar, Jordania, el Golfo. Washington minimiza u oculta muertos. Irán nombra y entierra con honores. Son dos tecnologías de guerra. Quien solo dude de Teherán… ya eligió bando.
 
-El veintinueve de julio la guerra se ensanchó otra vez: misiles hacia bases en Jordania; Estados Unidos y Arabia Saudita golpeando en Irak; Trump con Netanyahu; Omán proponiendo partir Ormuz a la mitad… e Irán rechazando volver al mundo de antes. Yemen atacó la red petrolera Este–Oeste hacia Yanbu. Segundo frente energético. Riad se hunde más en la guerra… y sigue sin recuperar el peaje.
+Irán sostiene pueblo. Más de setenta y siete por ciento a favor de mantener Ormuz aunque implique otra guerra. Industria propia. Memoria milenaria. Existencia defendida en vivo.
 
-Mientras Washington pelea el siglo XX con misiles, China no necesita pelearle esa guerra. Está en otro tablero: energía, yuan y computación. No manda un portaaviones al Golfo. Deja que el cuello de botella haga su trabajo. Irán sostiene la negación. China sostiene la compra… y el rearme. Ese mismo veintinueve de julio, Reuters reportó que Teherán recibiría cientos de misiles antiaéreos portátiles chinos. Beijing lo negó. El vínculo está en el tablero igual.
+Y Yemen abre el segundo frente: la red Este–Oeste hacia Yanbu. Ormuz más Mar Rojo más oleoductos. El cerco se estrecha.
 
-Porque el cuento del “crecimiento” estadounidense de dos mil veintiséis no era magia de toda la economía. Era CapEx de IA: data centers, chips, valuaciones infladas. Economistas de mercado llegaron a estimar que el gasto ligado a inteligencia artificial explicaba cerca de la mitad de ese crecimiento. Semiconductores como religión. Nvidia como trono.
+Eso está haciendo Irán. Negar el peaje. Castigar bases. Cobrar en yuan. Aguantar por dentro. Empujar el segundo corredor. No es “resistencia simbólica”. Es desmontar la hegemonía energética de Washington en el Golfo.
 
-Julio de dos mil veintiséis: Kimi K3. No es un chatbot más. Es el aviso de que el monopolio estadounidense de la IA ya no sostiene el cuento. El índice de semis entra en bear market. Nvidia pierde el trono. A fines de julio, más de un billón de dólares borrados en chips. La ficción tecnológica también sangra.
+Ahora: por qué a Estados Unidos le salió todo mal.
 
-Secuencia, sin anestesia:
+Porque hizo lo único que no tenía que hacer: atacar a Irán.
 
-Uno: Ormuz rompe el petróleo-dólar.  
-Dos: la guerra gasta el ejército y la credibilidad.  
-Tres: China golpea el pilar que sostenía la economía narrativa —la IA.
+Rompió el pacto que lo alimentaba —petróleo en dólares a cambio de “protección”—. Mató a Khamenei, cerró Ormuz, y el petrodólar se quebró en público.
 
-Trump abrió la crisis.  
-China la cerró a su favor.  
-No con un portaaviones en el Golfo.  
-Con el Estrecho que ya no manda Washington… y con el modelo que hizo temblar Wall Street.
+Ignoró al Golfo. Le dijeron no: ni bases ni cielo. Atacó igual. Las bases no blindaron a nadie. Quedaron como imán.
 
-El hilo conductor siempre fue China.
+No pudo reabrir el Estrecho. El ejército más caro del mundo no recuperó el peaje. Pausas, amenazas, Netanyahu en la Casa Blanca, ataques con Arabia Saudita en Irak el veintinueve de julio… más guerra. Mismo fracaso: sin peaje.
 
-Estados Unidos hizo lo único que no tenía que hacer: atacar a Irán.
+Arrastró a Riad sin devolverle seguridad. Yemen le pega a la infraestructura. Washington le pide lealtad. Ormuz sigue iraní.
+
+Resultado hoy: máxima vulnerabilidad. Petrodólar herido. Credibilidad militar rota en el grifo. Aliados en contradicción. Y la economía narrativa de dos mil veintiséis colgada de un solo gancho —el que todavía inflaba el “crecimiento”—: la burbuja de CapEx e inteligencia artificial.
+
+Eso era lo que le quedaba.
+
+Y aquí está el punto. El climax. No de paso.
+
+El crecimiento estadounidense de este año no era magia de toda la economía. Era data centers, chips, valuaciones. Cerca de la mitad del crecimiento, según estimaciones de mercado. Semis como religión. Nvidia como trono.
+
+En febrero la guerra le rompe el petróleo-dólar.  
+En los meses siguientes le rompe la pose militar en Ormuz.  
+En julio, con esa herida abierta, China suelta Kimi K3.
+
+No es un chatbot. Es el golpe al último pilar. Un modelo abierto, barato, competitivo, bajo las propias restricciones de Washington. El mercado de semis entra en bear. Nvidia pierde el trono. A fines de julio, más de un billón borrado en chips. La Casa Blanca acusa. Wall Street sangra.
+
+China no necesitó un portaaviones en el Golfo.  
+Irán hizo el trabajo del Estrecho.  
+China hizo el trabajo financiero… y el pinchazo tecnológico.
+
+Significa esto: Estados Unidos llegó a julio sangrando peaje y credibilidad. Le quedaba la ficción de la IA para sostener el número. China se la quitó en el momento exacto de máxima vulnerabilidad.
+
+Trump abrió la crisis atacando a Irán.  
+Irán le quitó el Estrecho.  
+China le quitó la burbuja.
+
+El hilo conductor siempre fue China.  
+La palanca fue Irán.  
+El error fue Washington.
+
+Estados Unidos hizo lo único que no tenía que hacer: atacar a Irán.  
+Y cuando quedó expuesto, China le cobró lo que le quedaba: la IA.
 
 Si esto te aclara el mapa, compártelo.  
-Pensamiento crítico: no el titular… la secuencia.
+No el titular. La secuencia.
 
 ---
 
 ## Fuentes (créditos / descripción)
 
-- Reuters, Al Jazeera, NYT — ataque 28 feb 2026 / muerte de Khamenei  
-- Foreign Policy; Lloyd’s / Bloomberg — peaje Ormuz y yuan  
-- Tasnim — Sayyari sobre autorización en Ormuz; encuesta control de Ormuz (jul 2026)  
-- Al Jazeera; The National — rechazo iraní a propuesta omaní 50/50 (29 jul)  
-- Middle East Eye; Newsweek — Golfo niega bases/espacio aéreo  
-- WSJ; NYT — daños en bases USA (satélite)  
-- IRNA — balances CGRI (Al Udeid, Al-Azraq, lista de daños); Yemen / Yanbu  
-- AP; Al Jazeera; Reuters — Jordania, ataques EE.UU.–Arabia Saudita en Irak (29 jul)  
-- Reuters — reporte MANPADS chinos; desmentido de Beijing  
-- Apollo / Torsten Slok — CapEx IA y growth 2026  
-- Reportes de mercado + CNBC/FactSet — Kimi K3, SOX bear, selloff semis (~$1–1,3T)
+- Tasnim — Sayyari / Ormuz; encuesta control Ormuz (jul 2026)  
+- Al Jazeera; The National — rechazo 50/50 (29 jul)  
+- Foreign Policy; Lloyd’s/Bloomberg — peaje y yuan  
+- IRNA — balances CGRI; Yemen / Yanbu  
+- Reuters; Al Jazeera; NYT — 28 feb 2026 / Khamenei  
+- Middle East Eye; Newsweek — Golfo niega bases  
+- WSJ; NYT — daños en bases USA  
+- AP; Reuters; Al Jazeera — 29 jul Jordania / Irak / Trump–Netanyahu  
+- Apollo / Slok — CapEx IA ≈ ~mitad growth 2026  
+- Mercado + CNBC/FactSet — Kimi K3; SOX bear; ~$1–1,3T semis  
+- Reuters — MANPADS chinos; desmentido Beijing
